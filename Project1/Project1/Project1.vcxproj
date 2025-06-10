@@ -127,7 +127,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bank.cpp" />
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Card.cpp" />
+    <ClCompile Include="CardDeck.cpp" />
+    <ClCompile Include="CardField.cpp" />
+    <ClCompile Include="Castle.cpp" />
+    <ClCompile Include="Cottage.cpp" />
+    <ClCompile Include="Field.cpp" />
+    <ClCompile Include="GoToJailField.cpp" />
+    <ClCompile Include="GroupPaymentCard.cpp" />
+    <ClCompile Include="Monopoly.cpp" />
+    <ClCompile Include="Mortage.cpp" />
+    <ClCompile Include="MovePositionCard.cpp" />
+    <ClCompile Include="PaymentCard.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Property.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Trade.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bank.h" />
+    <ClInclude Include="Board.h" />
+    <ClInclude Include="Card.h" />
+    <ClInclude Include="CardDeck.h" />
+    <ClInclude Include="CardField.h" />
+    <ClInclude Include="Castle.h" />
+    <ClInclude Include="Cottage.h" />
+    <ClInclude Include="Field.h" />
+    <ClInclude Include="GoToJailField.h" />
+    <ClInclude Include="GroupPaymentCard.h" />
+    <ClInclude Include="Monopoly.h" />
+    <ClInclude Include="Mortage.h" />
+    <ClInclude Include="MovePositionCard.h" />
+    <ClInclude Include="PaymentCard.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Property.h" />
+    <ClInclude Include="Trade.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
