@@ -160,6 +160,7 @@
     <ClInclude Include="Monopoly.h" />
     <ClInclude Include="Mortage.h" />
     <ClInclude Include="MovePositionCard.h" />
+    <ClInclude Include="MyVector.hpp" />
     <ClInclude Include="PaymentCard.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Property.h" />

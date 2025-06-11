@@ -31,6 +31,9 @@
     <Filter Include="Header Files\Entities">
       <UniqueIdentifier>{543c3952-c416-4b3f-8b4c-7e506c3e0ae6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{e534e065-8cc4-4157-9b2e-65de1bb9bf15}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="Trade.h">
       <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="MyVector.hpp">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
