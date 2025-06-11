@@ -34,6 +34,9 @@
     <Filter Include="Header Files\Utils">
       <UniqueIdentifier>{e534e065-8cc4-4157-9b2e-65de1bb9bf15}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{16398264-e768-48ae-9b84-cbd0b3b91d63}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -89,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="Trade.cpp">
       <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="MyString.cpp">
+      <Filter>Source Files\Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +153,9 @@
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="HeterogeneousContainer.hpp">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="MyString.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>

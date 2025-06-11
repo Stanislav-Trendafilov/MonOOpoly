@@ -144,6 +144,7 @@ HeterogeneousContainer<T>::HeterogeneousContainer(const HeterogeneousContainer& 
 	copyFrom(other);
 }
 
+
 template<class T>
 HeterogeneousContainer<T>::HeterogeneousContainer(HeterogeneousContainer&& other) noexcept
 {
