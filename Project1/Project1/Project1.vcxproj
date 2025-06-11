@@ -157,6 +157,7 @@
     <ClInclude Include="Field.h" />
     <ClInclude Include="GoToJailField.h" />
     <ClInclude Include="GroupPaymentCard.h" />
+    <ClInclude Include="HeterogeneousContainer.hpp" />
     <ClInclude Include="Monopoly.h" />
     <ClInclude Include="Mortage.h" />
     <ClInclude Include="MovePositionCard.h" />
