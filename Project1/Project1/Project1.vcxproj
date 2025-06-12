@@ -146,6 +146,7 @@
     <ClCompile Include="Property.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Trade.cpp" />
+    <ClCompile Include="TrainStation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bank.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Property.h" />
     <ClInclude Include="Trade.h" />
+    <ClInclude Include="TrainStation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

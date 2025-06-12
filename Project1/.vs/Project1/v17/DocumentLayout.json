@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\GoToJailField.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|solutionrelative:Project1\\GoToJailField.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\TrainStation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|solutionrelative:Project1\\TrainStation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\GoToJailField.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|solutionrelative:Project1\\GoToJailField.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Property.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|solutionrelative:Project1\\Property.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Property.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|solutionrelative:Project1\\Property.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\TrainStation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|solutionrelative:Project1\\TrainStation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -31,8 +23,24 @@
       "RelativeMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|solutionrelative:Project1\\Constants.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Property.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|solutionrelative:Project1\\Property.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Property.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|solutionrelative:Project1\\Property.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Field.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|solutionrelative:Project1\\Field.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\GoToJailField.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|solutionrelative:Project1\\GoToJailField.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\GoToJailField.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{40B49981-7F49-4D0C-9CE5-20E9C92813F6}|Project1\\Project1.vcxproj|solutionrelative:Project1\\GoToJailField.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,39 +66,65 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
+              "Title": "TrainStation.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\TrainStation.cpp",
+              "RelativeDocumentMoniker": "Project1\\TrainStation.cpp",
+              "ToolTip": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\TrainStation.cpp",
+              "RelativeToolTip": "Project1\\TrainStation.cpp",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-12T14:29:08.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TrainStation.h",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\TrainStation.h",
+              "RelativeDocumentMoniker": "Project1\\TrainStation.h",
+              "ToolTip": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\TrainStation.h",
+              "RelativeToolTip": "Project1\\TrainStation.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-06-12T14:23:17.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Player.h",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Player.h",
               "RelativeDocumentMoniker": "Project1\\Player.h",
               "ToolTip": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Player.h",
               "RelativeToolTip": "Project1\\Player.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-06-12T13:52:49.871Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Player.cpp",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Player.cpp",
               "RelativeDocumentMoniker": "Project1\\Player.cpp",
               "ToolTip": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Player.cpp",
               "RelativeToolTip": "Project1\\Player.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAACkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-06-12T13:52:37.319Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Property.h",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Property.h",
               "RelativeDocumentMoniker": "Project1\\Property.h",
               "ToolTip": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Property.h",
               "RelativeToolTip": "Project1\\Property.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-06-10T18:58:22.792Z",
               "EditorCaption": ""
@@ -110,20 +144,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Property.cpp",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Property.cpp",
               "RelativeDocumentMoniker": "Project1\\Property.cpp",
               "ToolTip": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Property.cpp",
               "RelativeToolTip": "Project1\\Property.cpp",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-06-12T09:39:25.692Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "GoToJailField.cpp",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\GoToJailField.cpp",
               "RelativeDocumentMoniker": "Project1\\GoToJailField.cpp",
@@ -136,7 +170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "GoToJailField.h",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\GoToJailField.h",
               "RelativeDocumentMoniker": "Project1\\GoToJailField.h",
@@ -144,18 +178,17 @@
               "RelativeToolTip": "Project1\\GoToJailField.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-10T19:01:10.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-10T19:01:10.138Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "Constants.h",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Constants.h",
               "RelativeDocumentMoniker": "Project1\\Constants.h",
               "ToolTip": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Constants.h",
               "RelativeToolTip": "Project1\\Constants.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-06-12T13:22:24.659Z",
               "EditorCaption": ""

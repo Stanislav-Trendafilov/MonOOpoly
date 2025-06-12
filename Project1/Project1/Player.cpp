@@ -26,6 +26,11 @@ size_t Player::getCurrentPosition() const
 	return currentPosition;
 }
 
+size_t Player::getTrainStationCount() const
+{
+	return trainStationCount;
+}
+
 int Player::getTotalBalance() const
 {
 	return totalBalance;

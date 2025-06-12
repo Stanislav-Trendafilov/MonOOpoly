@@ -7,8 +7,10 @@ class Player
 	int ownerId;
 	MyString playerName;
 	size_t currentPosition;
+
 	//totalBalance is money + price of all properties
 
+	size_t trainStationCount;
 	int totalBalance;
 	bool isInPrison;
 
@@ -17,7 +19,9 @@ public:
 
 	int getMoney() const;
 	size_t getCurrentPosition() const;
+	size_t getTrainStationCount() const;
 	int getTotalBalance() const;
+
 	void goInPrison();
 	void goOutOfPrison();
 	bool isJailed() const;
