@@ -25,8 +25,6 @@ public:
 	int getRentPrice() const;
 
 	Field* clone() const override;
-
-
 };
 
 

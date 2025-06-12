@@ -1,6 +1,7 @@
 #pragma once
 #include "Field.h"
 #include "MyString.h"
+#include "MyVector.hpp"
 #include "Constants.h"
 
 class Property:public Field
