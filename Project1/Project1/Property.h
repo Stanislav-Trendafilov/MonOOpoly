@@ -6,8 +6,6 @@
 
 class Property:public Field
 {
-	MyString name;
-
 	size_t fieldPrice;
 	size_t priceForBuilding;
 
@@ -22,7 +20,7 @@ class Property:public Field
 public:
 	Property()=default;
 	Property(const MyString& name, GlobalConstants::PropertyColors color, size_t fieldPrice, size_t priceForBuilding, const int* rentPrices,int boardIndex);
-	MyString getName() const;
+
 	size_t getFieldPrice() const;
 	size_t getPriceForBuilding() const;
 	int getrentLevel() const;

@@ -5,7 +5,6 @@
 
 class TrainStation :public Field
 {
-	MyString name;
 
 	size_t stationPrice;
 
@@ -17,7 +16,7 @@ class TrainStation :public Field
 
 public:
 	TrainStation(const MyString& name, size_t stationPrice, const int* rentPrices, int boardIndex);
-	MyString getName() const;
+
 	size_t getstationPricePrice() const;
 
 	int getRentLevel() const;

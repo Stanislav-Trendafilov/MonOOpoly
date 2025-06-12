@@ -99,6 +99,9 @@
     <ClCompile Include="TrainStation.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="PayFieldTax.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Monopoly.h">
@@ -165,6 +168,9 @@
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="TrainStation.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="PayFieldTax.h">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
   </ItemGroup>

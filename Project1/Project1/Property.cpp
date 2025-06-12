@@ -5,9 +5,8 @@
 
 
 Property::Property(const MyString& name,GlobalConstants::PropertyColors color, size_t fieldPrice, size_t priceForBuilding, const int* rentPrices,int boardIndex)
-	: Field(boardIndex)
+	: Field(boardIndex,name)
 {
-	this->name = name;
 	this->color = color;
 	this->fieldPrice = fieldPrice;
 	this->priceForBuilding = priceForBuilding;
@@ -18,11 +17,6 @@ Property::Property(const MyString& name,GlobalConstants::PropertyColors color, s
 	this->ownerId = -1;
 	this->rentLevel = 0;
 }
-
-MyString Property::getName() const
-{
-	return name;
-};
 
 size_t Property::getFieldPrice() const
 {

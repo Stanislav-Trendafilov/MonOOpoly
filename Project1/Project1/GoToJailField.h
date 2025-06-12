@@ -5,12 +5,8 @@
 
 class GoToJailField : public Field
 {
-	MyString name;
-
 public:
 	GoToJailField(const MyString& name,int boardIndex);
-
-	MyString getName() const;
 	
 	void ApplyAction(Player& player);
 	

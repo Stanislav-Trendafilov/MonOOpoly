@@ -141,6 +141,7 @@
     <ClCompile Include="Mortage.cpp" />
     <ClCompile Include="MovePositionCard.cpp" />
     <ClCompile Include="MyString.cpp" />
+    <ClCompile Include="PayFieldTax.cpp" />
     <ClCompile Include="PaymentCard.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Property.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="MovePositionCard.h" />
     <ClInclude Include="MyString.h" />
     <ClInclude Include="MyVector.hpp" />
+    <ClInclude Include="PayFieldTax.h" />
     <ClInclude Include="PaymentCard.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Property.h" />

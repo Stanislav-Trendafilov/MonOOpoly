@@ -2,9 +2,9 @@
 
 
 TrainStation::TrainStation(const MyString& name, size_t stationPrice, const int* rentPrices, int boardIndex)
- : Field(boardIndex)
+ : Field(boardIndex,name)
 {
-	this->name = name;
+	//this->name = name;
 	this->stationPrice = stationPrice;
 	for (size_t i = 0; i < GlobalConstants::MAX_TRAIN_STATIONS; i++)
 	{
@@ -13,11 +13,6 @@ TrainStation::TrainStation(const MyString& name, size_t stationPrice, const int*
 	this->ownerId = -1;
 	this->rentLevel = 0;
 }
-
-MyString TrainStation::getName() const
-{
-	return name;
-};
 
 size_t TrainStation::getstationPricePrice() const
 {

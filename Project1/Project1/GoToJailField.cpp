@@ -1,21 +1,18 @@
 #include "GoToJailField.h"
 #include "Player.h"
+#include "PayFieldTax.h"
 
 GoToJailField::GoToJailField(const MyString& name, int boardIndex)
-	: Field(boardIndex)
+	: Field(boardIndex, name)
 {
-	this->name = name;
-}
+
+};
 
 void GoToJailField::ApplyAction(Player& player)
 {
 	player.goInPrison();
 }
 
-MyString GoToJailField::getName() const
-{
-	return name;
-};
 
 Field* GoToJailField::clone() const
 {
