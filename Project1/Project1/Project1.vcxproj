@@ -146,8 +146,10 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Property.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="StartField.cpp" />
     <ClCompile Include="Trade.cpp" />
     <ClCompile Include="TrainStation.cpp" />
+    <ClCompile Include="VisitField.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bank.h" />
@@ -171,8 +173,10 @@
     <ClInclude Include="PaymentCard.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Property.h" />
+    <ClInclude Include="StartField.h" />
     <ClInclude Include="Trade.h" />
     <ClInclude Include="TrainStation.h" />
+    <ClInclude Include="VisitField.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

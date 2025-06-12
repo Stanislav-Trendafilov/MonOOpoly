@@ -1,5 +1,8 @@
 #include "Board.h"
 #include "TrainStation.h"
+#include "PayFieldTax.h"
+#include "VisitField.h"
+#include "StartField.h"
 #include "GoToJailField.h"
 
 Board::Board()
@@ -12,6 +15,8 @@ Board* Board::instance = nullptr;
 void Board::InitializeBoard()
 {
 	int trainStationRents[] = { 50,100,150,200 };
+
+	fields.addObject(new StartField("Land On Go!",0,200));
 	
 	int rent1[] = { 2, 10, 30, 90, 160, 250 };
 	fields.addObject(new Property("Knyaz Boris I Street", GlobalConstants::PropertyColors::BROWN, 60, 50, rent1, 1));
@@ -21,7 +26,7 @@ void Board::InitializeBoard()
 	int rent2[] = { 4, 20, 60, 180, 320, 450 };
 	fields.addObject(new Property("Tsar Simeon Street", GlobalConstants::PropertyColors::BROWN, 60, 50, rent2, 3));
 
-	// Adding income tax card to the board
+	fields.addObject(new PayFieldTax("Income Taxes", 100, 4)); 
 
 	fields.addObject(new TrainStation("Station Burgas", 200, trainStationRents, 5));
 
@@ -36,7 +41,8 @@ void Board::InitializeBoard()
 	int rent5[] = { 8, 40, 100, 300, 450, 600 };
 	fields.addObject(new Property("Patriarch Evtimiy Blvd", GlobalConstants::PropertyColors::CYAN, 120, 50, rent5, 9));
 
-	//adding visit jail card to the board
+
+	fields.addObject(new VisitField(10, "Visit Jail"));
 
 	int rent6[] = { 10, 50, 150, 450, 625, 750 };
 	fields.addObject(new Property("Slaveykov Square", GlobalConstants::PropertyColors::PINK, 140, 100, rent6, 11));
@@ -62,7 +68,7 @@ void Board::InitializeBoard()
 	int rent11[] = { 16, 80, 220, 600, 800, 1000 };
 	fields.addObject(new Property("New BG University", GlobalConstants::PropertyColors::ORANGE, 200, 100, rent11, 19));
 
-	//add free parking field 20
+	fields.addObject(new VisitField(20, "Free Parking"));
 
 	int rent12[] = { 18, 90, 250, 700, 875, 1050 };
 	fields.addObject(new Property("National Palace of Culture", GlobalConstants::PropertyColors::RED, 220, 150, rent12, 21));
@@ -109,13 +115,10 @@ void Board::InitializeBoard()
 	int rent21[] = { 35, 175, 500, 1100, 1300, 1500 };
 	fields.addObject(new Property("Old Town Nessebar", GlobalConstants::PropertyColors::BLUE, 350, 200, rent21, 37));
 
-	//adding pay tax card to the board 38
+	fields.addObject(new PayFieldTax("Marriage Tax", 200, 38));
 
 	int rent22[] = { 50, 200, 600, 1400, 1700, 2000 };
 	fields.addObject(new Property("Rila Monastery", GlobalConstants::PropertyColors::BLUE, 400, 200, rent22, 39));
-
-	//add land on start field 0
-
 
 }
 
