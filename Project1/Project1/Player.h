@@ -18,6 +18,8 @@ public:
 	int getMoney() const;
 	size_t getCurrentPosition() const;
 	int getTotalBalance() const;
+	void goInPrison();
+	void goOutOfPrison();
 	bool isJailed() const;
 
 };

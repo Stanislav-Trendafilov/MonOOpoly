@@ -6,6 +6,16 @@ Player::Player(const MyString& name, int money)
 	this->money = money;
 }
 
+void Player::goInPrison()
+{
+	isInPrison = true;
+}
+
+void Player::goOutOfPrison()
+{
+	isInPrison = false;
+}
+
 int Player::getMoney() const
 {
 	return money;

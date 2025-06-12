@@ -1,4 +1,5 @@
 #include "Property.h"
+#include "GoToJailField.h"
 
 
 
@@ -16,11 +17,11 @@ Property::Property(const MyString& name,GlobalConstants::PropertyColors color, s
 	this->ownerId = -1;
 	this->rentLevel = 0;
 }
+
 MyString Property::getName() const
 {
 	return name;
-}
-;
+};
 
 size_t Property::getFieldPrice() const
 {
