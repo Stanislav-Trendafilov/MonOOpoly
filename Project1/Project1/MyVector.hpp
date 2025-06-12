@@ -166,7 +166,7 @@ void MyVector<T>::push_back(T&& data)
 template <typename T>
 void MyVector<T>::pop_back()
 {
-	if (empty())
+	if (isEmpty())
 		throw "Empty vector";
 
 	_size--;

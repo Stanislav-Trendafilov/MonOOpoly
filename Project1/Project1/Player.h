@@ -1,17 +1,19 @@
 #pragma once
 #include "MyString.h"
+#include "MyVector.hpp"
+#include "Property.h"
 #include "Constants.h"
+
 class Player
 {
 	int money;
 	int ownerId;
 	MyString playerName;
 	size_t currentPosition;
-
-	//totalBalance is money + price of all properties
+	MyVector<Property> ownedProperties;
 
 	size_t trainStationCount;
-	int totalBalance;
+	int totalBalance; //totalBalance is money + price of all properties
 	bool isInPrison;
 
 public:
@@ -21,6 +23,12 @@ public:
 	size_t getCurrentPosition() const;
 	size_t getTrainStationCount() const;
 	int getTotalBalance() const;
+
+	void addProperty(const Property* property);
+	void removeProperty(const Property* property);
+	bool ownsProperty(Property* property) const;
+	void addMoney(int amount);
+	void subtractMoney(int amount);
 
 	void goInPrison();
 	void goOutOfPrison();

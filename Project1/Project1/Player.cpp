@@ -36,6 +36,46 @@ int Player::getTotalBalance() const
 	return totalBalance;
 }
 
+void Player::addProperty(const Property* property)
+{
+	ownedProperties.push_back(*property);
+	money -= property->getFieldPrice();
+	totalBalance += property->getFieldPrice()/2;
+}
+
+void Player::removeProperty(const Property* property)
+{
+	for (size_t i = 0; i < ownedProperties.size(); i++)
+	{
+		if (property->getName() == ownedProperties[i].getName())
+		{
+			ownedProperties.remove(i);
+	   }
+	}
+}
+
+bool Player::ownsProperty(Property* property) const
+{
+	for (size_t i = 0; i < ownedProperties.size(); i++)
+	{
+		if (ownedProperties[i].getName()==property->getName())
+			{
+			return true;
+		}
+	}
+	return false;
+}
+
+void Player::addMoney(int amount)
+{
+	money += amount;
+}
+
+void Player::subtractMoney(int amount)
+{
+	money -= amount;
+}
+
 bool Player::isJailed() const
 {
 	return isInPrison;
