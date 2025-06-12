@@ -10,7 +10,7 @@ int Player::getMoney() const
 {
 	return money;
 }
-
+ 
 size_t Player::getCurrentPosition() const
 {
 	return currentPosition;

@@ -154,6 +154,7 @@
     <ClInclude Include="CardDeck.h" />
     <ClInclude Include="CardField.h" />
     <ClInclude Include="Castle.h" />
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="Cottage.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="GoToJailField.h" />
