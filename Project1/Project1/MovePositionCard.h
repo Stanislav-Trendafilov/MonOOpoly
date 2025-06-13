@@ -3,9 +3,9 @@
 
 class MovePositionCard :public Card
 {
-	int moveWith;
+	size_t moveWith;
 public:
-	MovePositionCard(const MyString& name, const MyString& effect, int moveWith);
+	MovePositionCard(const MyString& name, const MyString& effect, size_t moveWith);
 
 	void applyEffect(Player& player) override;
 

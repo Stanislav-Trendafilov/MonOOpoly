@@ -75,9 +75,4 @@ int main(){
 
 	Board* board = Board::getInstance();
 
-	board->InitializeBoard();
-
-	board->PrintBoard();
-
-	board->destroyInstance();
 }          
