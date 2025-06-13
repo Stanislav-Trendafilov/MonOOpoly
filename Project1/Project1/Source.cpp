@@ -6,6 +6,7 @@
 #include "Board.h"
 #include "TrainStation.h"
 #include "GoToJailField.h"
+#include "MoveToLocationCard.h"
 #include "PayFieldTax.h"
 #include <iostream>
 #include <iomanip>
@@ -74,5 +75,22 @@ int main(){
 	std::cout << player->getMoney() << std::endl;
 
 	Board* board = Board::getInstance();
+
+
+	Player* player2 = new Player("Gosho");
+
+	MoveToLocationCard* card = new MoveToLocationCard("Move to station", "100", 33);
+
+	card->applyEffect(*player2);
+
+	std::cout << player2->getCurrentPosition() << std::endl;
+	std::cout << player2->getMoney() << std::endl;
+
+	MoveToLocationCard* card2 = new MoveToLocationCard("Move to station", "100", 2);
+
+	card2->applyEffect(*player2);
+
+	std::cout << player2->getCurrentPosition() << std::endl;
+	std::cout << player2->getMoney() << std::endl;
 
 }          

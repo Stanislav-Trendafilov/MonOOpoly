@@ -79,7 +79,7 @@ void Player::subtractMoney(int amount)
 void Player::movePosition(size_t steps)
 {
 	currentPosition += steps;
-	if (currentPosition >= 40) 
+	if (currentPosition > GlobalConstants::MAX_COUNT_FIELDS)
 	{
 		currentPosition -= 40; 
 	}

@@ -1,4 +1,5 @@
 #include "MoveToLocationCard.h"
+#include <iostream>
 
 MoveToLocationCard::MoveToLocationCard(const MyString& name, const MyString& effect, size_t indexOfLocation)
 	:Card(name,effect)
@@ -8,6 +9,15 @@ MoveToLocationCard::MoveToLocationCard(const MyString& name, const MyString& eff
 
 void MoveToLocationCard::applyEffect(Player& player)	
 {
+	int movement = indexOfLocation- player.getCurrentPosition();
+	if (movement < 0)
+	{
+		movement = (-1)*movement;
+	}
+	if(player.getCurrentPosition()+movement>39&&indexOfLocation!=30)
+	{
+		player.addMoney(GlobalConstants::PASS_START_CASH);
+	}
 	player.moveToLocation(indexOfLocation);
 }
 
