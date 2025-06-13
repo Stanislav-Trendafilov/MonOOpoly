@@ -85,6 +85,11 @@ void Player::movePosition(size_t steps)
 	}
 }
 
+void Player::moveToLocation(size_t position)
+{
+	currentPosition = position;
+}
+
 bool Player::isJailed() const
 {
 	return isInPrison;

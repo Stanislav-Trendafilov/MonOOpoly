@@ -8,6 +8,7 @@ MovePositionCard::MovePositionCard(const MyString& name, const MyString& effect,
 
 void MovePositionCard::applyEffect(Player& player)
 {
+	//this information is hardcoded, so i Will put moveWith + or - , depending on the card type
 	player.movePosition(moveWith);
 }
 

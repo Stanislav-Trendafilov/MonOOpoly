@@ -123,6 +123,9 @@
     <ClCompile Include="PaymentCard.cpp">
       <Filter>Source Files\Entities\Cards</Filter>
     </ClCompile>
+    <ClCompile Include="MoveToLocationCard.cpp">
+      <Filter>Source Files\Entities\Cards</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Monopoly.h">
@@ -201,6 +204,9 @@
       <Filter>Header Files\Entities\Cards</Filter>
     </ClInclude>
     <ClInclude Include="PaymentCard.h">
+      <Filter>Header Files\Entities\Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveToLocationCard.h">
       <Filter>Header Files\Entities\Cards</Filter>
     </ClInclude>
   </ItemGroup>

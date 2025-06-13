@@ -30,6 +30,7 @@ public:
 	void addMoney(int amount);
 	void subtractMoney(int amount);
 	void movePosition(size_t steps);
+	void moveToLocation(size_t locationIndex);
 
 	void goInPrison();
 	void goOutOfPrison();
