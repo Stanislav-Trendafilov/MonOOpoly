@@ -9,6 +9,7 @@ namespace GlobalConstants
 	constexpr int STARTING_CASH = 1500;
 	constexpr int PASS_START_CASH = 200;
 	constexpr int MAX_COUNT_FIELDS = 39;
+	constexpr int JAIL_INDEX= 30;
 
 
 	enum class PropertyColors

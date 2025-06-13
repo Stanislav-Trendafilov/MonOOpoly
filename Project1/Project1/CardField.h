@@ -1,6 +1,9 @@
 #pragma once
+#include "Field.h"
 
-class CardField
+class CardField	:public Field
 {
+
+
 };
 

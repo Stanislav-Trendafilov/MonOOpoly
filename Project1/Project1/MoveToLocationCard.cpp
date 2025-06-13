@@ -14,7 +14,7 @@ void MoveToLocationCard::applyEffect(Player& player)
 	{
 		movement = (-1)*movement;
 	}
-	if(player.getCurrentPosition()+movement>39&&indexOfLocation!=30)
+	if(player.getCurrentPosition()+movement>GlobalConstants::MAX_COUNT_FIELDS && indexOfLocation!=GlobalConstants::JAIL_INDEX)
 	{
 		player.addMoney(GlobalConstants::PASS_START_CASH);
 	}

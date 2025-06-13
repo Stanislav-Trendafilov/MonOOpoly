@@ -33,7 +33,7 @@ void CardDeck::InitializeCardDeck()
 	
 	chanceCards.addObject(new PaymentCard("?Chance?", "Bank pays you dividend of $50.", 50));
 
-	chanceCards.addObject(new MovePositionCard("?Chance?", "Go back 3 spaces.", -3));//nee more logic because 2-3!=39 overflow
+	chanceCards.addObject(new MovePositionCard("?Chance?", "Go back 3 spaces.", -3));
 
 	chanceCards.addObject(new MoveToLocationCard("?Chance?", "Go to Jail. Go directly to Jail, do not pass Go, do not collect $200.", 30));
 
@@ -89,3 +89,40 @@ void CardDeck::destroyInstance()
 	delete instance;
 	instance = nullptr;
 }
+
+//void CardDeck::ShuffleDecks()
+//{
+//	chanceOrder.clear();
+//	communityOrder.clear();
+//	chanceIndex = 0;
+//	communityIndex = 0;
+//
+//	for (size_t i = 0; i < chanceCards.getSize();i++)
+//		chanceOrder.push_back(i);
+//	for (size_t i = 0; i < communityChestCards.getSize();i++)
+//		communityOrder.push_back(i);
+//
+//	std::random_device rd;
+//	std::mt19937 g(rd());
+//
+//	std::shuffle(chanceOrder[0], chanceOrder[chanceOrder.size()-1], g);
+//	std::shuffle(communityOrder[0], communityOrder[communityOrder.size() - 1], g);
+//}
+
+//Card* CardDeck::DrawChanceCard()
+//{
+//	if (chanceOrder.isEmpty()) return nullptr;
+//
+//	Card* card = chanceCards[(chanceOrder[chanceIndex])];
+//	chanceIndex = (chanceIndex + 1) % chanceOrder.size(); // циклично теглене
+//	return card;
+//}
+
+//Card* CardDeck::DrawCommunityChestCard()
+//{
+//	if (communityOrder.isEmpty()) return nullptr;
+//
+//	Card* card = communityChestCards[(communityOrder[communityIndex])];
+//	communityIndex = (communityIndex + 1) % communityOrder.size();
+//	return card;
+//}
