@@ -5,6 +5,8 @@
 #include "StartField.h"
 #include "GoToJailField.h"
 #include "CompanyField.h"
+#include "iomanip"
+using namespace std;
 
 Board::Board()
 {
@@ -12,6 +14,37 @@ Board::Board()
 }
 
 Board* Board::instance = nullptr;
+
+void Board::PrintBoard() const
+{
+		const int width = 15;
+
+		// Горна страна (0-10)
+		for (int i = 0; i <= 10; ++i) {
+			cout << "|" << setw(2) << i << ":" << setw(width - 4) << left << fields[i]->getName();
+		}
+		cout << "|\n";
+
+		// Средни редове (дясна и лява страна)
+		for (int row = 0; row < 9; ++row) {
+			int leftIndex = 39 - row;
+			int rightIndex = 11 + row;
+
+			cout << "|" << setw(2) << leftIndex << ":" << setw(width - 4) << left << fields[leftIndex]->getName();
+
+			for (int i = 0; i < 9; ++i)
+				cout << setw(width) << " ";
+
+			cout << "|" << setw(2) << rightIndex << ":" << setw(width - 4) << left << fields[rightIndex]->getName() << "|\n";
+		}
+
+		// Долна страна (30-20)
+		for (int i = 30; i >= 20; --i) {
+			cout << "|" << setw(2) << i << ":" << setw(width - 4) << left << fields[i];
+		}
+		cout << "|\n";
+	}
+
 
 void Board::InitializeBoard()
 {

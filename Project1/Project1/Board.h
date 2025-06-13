@@ -14,6 +14,7 @@ class Board
 	MyVector<Player> players;
 public:
 	void InitializeBoard();
+	void PrintBoard() const;
 	static Board* getInstance();
 	static void destroyInstance();
 };

@@ -29,6 +29,7 @@ public:
 	bool ownsProperty(Property* property) const;
 	void addMoney(int amount);
 	void subtractMoney(int amount);
+	void movePosition(size_t steps);
 
 	void goInPrison();
 	void goOutOfPrison();

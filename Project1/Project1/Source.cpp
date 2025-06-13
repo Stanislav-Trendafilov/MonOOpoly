@@ -24,7 +24,7 @@ int main(){
 
 	std::cout << prop->getName() << std::endl;
 	std::cout << prop->getPriceForBuilding() << std::endl;
-	std::cout << prop->getOwnerId() << std::endl;
+	std::cout << prop->getOwnerId() << std::endl; 
 	std::cout << prop->getRentPrice() << std::endl;
 
 	Player* player = new Player("Ivan");
@@ -73,4 +73,11 @@ int main(){
 
 	std::cout << player->getMoney() << std::endl;
 
+	Board* board = Board::getInstance();
+
+	board->InitializeBoard();
+
+	board->PrintBoard();
+
+	board->destroyInstance();
 }          

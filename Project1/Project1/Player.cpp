@@ -76,6 +76,15 @@ void Player::subtractMoney(int amount)
 	money -= amount;
 }
 
+void Player::movePosition(size_t steps)
+{
+	currentPosition += steps;
+	if (currentPosition >= 40) 
+	{
+		currentPosition -= 40; 
+	}
+}
+
 bool Player::isJailed() const
 {
 	return isInPrison;
