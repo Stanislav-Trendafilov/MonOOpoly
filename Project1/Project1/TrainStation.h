@@ -17,7 +17,7 @@ class TrainStation :public Field
 public:
 	TrainStation(const MyString& name, size_t stationPrice, const int* rentPrices, int boardIndex);
 
-	size_t getstationPricePrice() const;
+	size_t getStationPrice() const;
 
 	int getRentLevel() const;
 	int getOwnerId() const;

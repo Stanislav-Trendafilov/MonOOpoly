@@ -1,4 +1,5 @@
 #include "TrainStation.h"
+#include "CompanyField.h"
 
 
 TrainStation::TrainStation(const MyString& name, size_t stationPrice, const int* rentPrices, int boardIndex)
@@ -13,7 +14,7 @@ TrainStation::TrainStation(const MyString& name, size_t stationPrice, const int*
 	this->rentLevel = 0;
 }
 
-size_t TrainStation::getstationPricePrice() const
+size_t TrainStation::getStationPrice() const
 {
 	return stationPrice;
 }
@@ -23,6 +24,7 @@ int TrainStation::getRentLevel() const
 {
 	return rentLevel;
 }
+
 
 int TrainStation::getOwnerId() const
 {

@@ -7,6 +7,12 @@
 #include "TrainStation.h"
 #include "GoToJailField.h"
 #include "PayFieldTax.h"
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+
 int main(){
 
 	MyString name = "street1";
@@ -67,4 +73,4 @@ int main(){
 
 	std::cout << player->getMoney() << std::endl;
 
-}                         
+}          

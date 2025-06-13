@@ -108,6 +108,9 @@
     <ClCompile Include="StartField.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="CompanyField.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Monopoly.h">
@@ -183,6 +186,9 @@
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="StartField.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="CompanyField.h">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
   </ItemGroup>
