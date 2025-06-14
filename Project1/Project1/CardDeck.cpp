@@ -90,39 +90,38 @@ void CardDeck::destroyInstance()
 	instance = nullptr;
 }
 
-//void CardDeck::ShuffleDecks()
-//{
-//	chanceOrder.clear();
-//	communityOrder.clear();
-//	chanceIndex = 0;
-//	communityIndex = 0;
-//
-//	for (size_t i = 0; i < chanceCards.getSize();i++)
-//		chanceOrder.push_back(i);
-//	for (size_t i = 0; i < communityChestCards.getSize();i++)
-//		communityOrder.push_back(i);
-//
-//	std::random_device rd;
-//	std::mt19937 g(rd());
-//
-//	std::shuffle(chanceOrder[0], chanceOrder[chanceOrder.size()-1], g);
-//	std::shuffle(communityOrder[0], communityOrder[communityOrder.size() - 1], g);
-//}
+void CardDeck::ShuffleDecks()
+{
+	std::srand(static_cast<unsigned int>(std::time(nullptr))); 
 
-//Card* CardDeck::DrawChanceCard()
-//{
-//	if (chanceOrder.isEmpty()) return nullptr;
-//
-//	Card* card = chanceCards[(chanceOrder[chanceIndex])];
-//	chanceIndex = (chanceIndex + 1) % chanceOrder.size(); // циклично теглене
-//	return card;
-//}
+	for (size_t i = 0; i < chanceCards.getSize(); ++i)
+	{
+		size_t j = rand() % chanceCards.getSize();
+		chanceCards.swap(i, j); 
+	}
 
-//Card* CardDeck::DrawCommunityChestCard()
-//{
-//	if (communityOrder.isEmpty()) return nullptr;
-//
-//	Card* card = communityChestCards[(communityOrder[communityIndex])];
-//	communityIndex = (communityIndex + 1) % communityOrder.size();
-//	return card;
-//}
+	for (size_t i = 0; i < communityChestCards.getSize(); ++i)
+	{
+		size_t j = rand() % communityChestCards.getSize();
+		communityChestCards.swap(i, j);
+	}
+
+	chanceIndex = 0;
+	communityIndex = 0;
+}
+
+Card* CardDeck::DrawChanceCard()
+{
+	if (chanceCards.getSize() == 0) return nullptr;
+	Card* card = chanceCards[chanceIndex];
+	chanceIndex = (chanceIndex + 1) % chanceCards.getSize();
+	return card;
+}
+
+Card* CardDeck::DrawCommunityChestCard()
+{
+	if (communityChestCards.getSize() == 0) return nullptr;
+	Card* card = communityChestCards[communityIndex];
+	communityIndex = (communityIndex + 1) % communityChestCards.getSize();
+	return card;
+}

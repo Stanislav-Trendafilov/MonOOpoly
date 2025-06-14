@@ -22,8 +22,8 @@ public:
 	static CardDeck* getInstance();
 	static void destroyInstance();
 
-	void ShuffleDecks(); // първоначално разбъркване
-	Card* DrawChanceCard(); // теглене от Chance
-	Card* DrawCommunityChestCard(); // теглене от Community Chest
+	void ShuffleDecks();
+	Card* DrawChanceCard();
+	Card* DrawCommunityChestCard();
 };
 
