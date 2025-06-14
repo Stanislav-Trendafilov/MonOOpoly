@@ -15,35 +15,16 @@ Board::Board()
 
 Board* Board::instance = nullptr;
 
-//void Board::PrintBoard() const
-//{
-//		const int width = 15;
-//
-//		// Горна страна (0-10)
-//		for (int i = 0; i <= 10; ++i) {
-//			cout << "|" << setw(2) << i << ":" << setw(width - 4) << left << fields[i]->getName();
-//		}
-//		cout << "|\n";
-//
-//		// Средни редове (дясна и лява страна)
-//		for (int row = 0; row < 9; ++row) {
-//			int leftIndex = 39 - row;
-//			int rightIndex = 11 + row;
-//
-//			cout << "|" << setw(2) << leftIndex << ":" << setw(width - 4) << left << fields[leftIndex]->getName();
-//
-//			for (int i = 0; i < 9; ++i)
-//				cout << setw(width) << " ";
-//
-//			cout << "|" << setw(2) << rightIndex << ":" << setw(width - 4) << left << fields[rightIndex]->getName() << "|\n";
-//		}
-//
-//		// Долна страна (30-20)
-//		for (int i = 30; i >= 20; --i) {
-//			cout << "|" << setw(2) << i << ":" << setw(width - 4) << left << fields[i];
-//		}
-//		cout << "|\n";
-//	}
+void Board::PrintBoard() const 
+{
+	for (size_t i = 0; i < 11; i++)
+	{
+		std::cout << std::left << fields[i]->getName() << " | ";
+	}
+
+
+}
+
 
 
 void Board::InitializeBoard()
@@ -53,27 +34,27 @@ void Board::InitializeBoard()
 	fields.addObject(new StartField("Land On Go!",0,200));
 	
 	int rent1[] = { 2, 10, 30, 90, 160, 250 };
-	fields.addObject(new Property("Knyaz Boris I Street", GlobalConstants::PropertyColors::BROWN, 60, 50, rent1, 1));
+	fields.addObject(new Property("Knyaz Boris Str", GlobalConstants::PropertyColors::BROWN, 60, 50, rent1, 1));
 
 	// Adding chance card to the board
 
 	int rent2[] = { 4, 20, 60, 180, 320, 450 };
-	fields.addObject(new Property("Tsar Simeon Street", GlobalConstants::PropertyColors::BROWN, 60, 50, rent2, 3));
+	fields.addObject(new Property("Tsar Simeon Str", GlobalConstants::PropertyColors::BROWN, 60, 50, rent2, 3));
 
 	fields.addObject(new PayFieldTax("Income Taxes", 100, 4)); 
 
 	fields.addObject(new TrainStation("Station Burgas", 200, trainStationRents, 5));
 
 	int rent3[] = { 6, 30, 90, 270, 400, 550 };
-	fields.addObject(new Property("Graf Ignatiev Street", GlobalConstants::PropertyColors::CYAN, 100, 50, rent3,6));
+	fields.addObject(new Property("Grafa Str", GlobalConstants::PropertyColors::CYAN, 100, 50, rent3,6));
 
 	// Adding chance card to the board
 
 	int rent4[] = { 6, 30, 90, 270, 400, 550 };
-	fields.addObject(new Property("Shishman Street", GlobalConstants::PropertyColors::CYAN, 100, 50, rent4, 8));
+	fields.addObject(new Property("Shishman Str", GlobalConstants::PropertyColors::CYAN, 100, 50, rent4, 8));
 
 	int rent5[] = { 8, 40, 100, 300, 450, 600 };
-	fields.addObject(new Property("Patriarch Evtimiy Blvd", GlobalConstants::PropertyColors::CYAN, 120, 50, rent5, 9));
+	fields.addObject(new Property("Patriarch Blvd", GlobalConstants::PropertyColors::CYAN, 120, 50, rent5, 9));
 
 
 	fields.addObject(new VisitField(10, "Visit Jail"));
@@ -88,7 +69,7 @@ void Board::InitializeBoard()
 	fields.addObject(new Property("Hristo Botev Blvd", GlobalConstants::PropertyColors::PINK, 140, 100, rent7, 13));
 
 	int rent8[] = { 12, 60, 180, 500, 700, 900 };
-	fields.addObject(new Property("Rakovski Street", GlobalConstants::PropertyColors::PINK, 160, 100, rent8, 14));
+	fields.addObject(new Property("Rakovski Str", GlobalConstants::PropertyColors::PINK, 160, 100, rent8, 14));
 
 	fields.addObject(new TrainStation("Station Sofia", 200, trainStationRents, 15));
 
@@ -98,7 +79,7 @@ void Board::InitializeBoard()
 	// Adding chance card to the board
 
 	int rent10[] = { 14, 70, 200, 550, 750, 950 };
-	fields.addObject(new Property("Tsarigradsko Shose Blvd", GlobalConstants::PropertyColors::ORANGE, 180, 100, rent10, 18));
+	fields.addObject(new Property("Tsarigradsko Shose", GlobalConstants::PropertyColors::ORANGE, 180, 100, rent10, 18));
 
 	int rent11[] = { 16, 80, 220, 600, 800, 1000 };
 	fields.addObject(new Property("New BG University", GlobalConstants::PropertyColors::ORANGE, 200, 100, rent11, 19));
@@ -111,23 +92,23 @@ void Board::InitializeBoard()
 	// Adding chance card to the board
 
 	int rent13[] = { 18, 90, 250, 700, 875, 1050 };
-	fields.addObject(new Property("Ivan Vazov National Theatre", GlobalConstants::PropertyColors::RED, 220, 150, rent13, 23));
+	fields.addObject(new Property("National Theatre", GlobalConstants::PropertyColors::RED, 220, 150, rent13, 23));
 
 	int rent14[] = { 20, 100, 300, 750, 925, 1100 };
-	fields.addObject(new Property("Vasil Levski Monument", GlobalConstants::PropertyColors::RED, 240, 150, rent14,24));
+	fields.addObject(new Property("Levski Monument", GlobalConstants::PropertyColors::RED, 240, 150, rent14,24));
 
 	fields.addObject(new TrainStation("Station Varna", 200, trainStationRents, 25));
 
 	int rent15[] = { 22, 110, 330, 800, 975, 1150 };
-	fields.addObject(new Property("Sea Garden Varna", GlobalConstants::PropertyColors::YELLOW, 260, 150, rent15,26));
+	fields.addObject(new Property("Sea Garden", GlobalConstants::PropertyColors::YELLOW, 260, 150, rent15,26));
 
 	int rent16[] = { 22, 110, 330, 800, 975, 1150 };
-	fields.addObject(new Property("Old Town Plovdiv", GlobalConstants::PropertyColors::YELLOW, 260, 150, rent16, 27));
+	fields.addObject(new Property("Old Town", GlobalConstants::PropertyColors::YELLOW, 260, 150, rent16, 27));
 
 	fields.addObject(new CompanyField("Water Supply Company", 150, companyRents, 28));
 
 	int rent17[] = { 24, 120, 360, 850, 1025, 1200 };
-	fields.addObject(new Property("Ancient Theatre Plovdiv", GlobalConstants::PropertyColors::YELLOW, 280, 150, rent17, 29));
+	fields.addObject(new Property("Ancient Theatre", GlobalConstants::PropertyColors::YELLOW, 280, 150, rent17, 29));
 
 	fields.addObject(GoToJailField("Jail", 30));
 

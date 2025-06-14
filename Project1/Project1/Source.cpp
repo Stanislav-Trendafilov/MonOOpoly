@@ -74,8 +74,6 @@ int main(){
 
 	std::cout << player->getMoney() << std::endl;
 
-	Board* board = Board::getInstance();
-
 
 	Player* player2 = new Player("Gosho");
 
@@ -92,5 +90,12 @@ int main(){
 
 	std::cout << player2->getCurrentPosition() << std::endl;
 	std::cout << player2->getMoney() << std::endl;
+
+	Board* board = Board::getInstance();
+
+	board->InitializeBoard();
+
+	board->PrintBoard();
+
 
 }          

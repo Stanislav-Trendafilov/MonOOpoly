@@ -56,7 +56,6 @@ void CardDeck::InitializeCardDeck()
 
 	communityChestCards.addObject(new PaymentCard("?Community Chest?", "Doctor’s fee. Pay $50", -50));
 
-
 	communityChestCards.addObject(new PaymentCard("?Community Chest?", "From sale of stock you get $50", 50));
 
 		//5. Get Out of Jail Free

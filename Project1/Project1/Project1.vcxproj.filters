@@ -69,15 +69,6 @@
     <ClCompile Include="CardDeck.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="Castle.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="Cottage.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="Mortage.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
     <ClCompile Include="Trade.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
@@ -141,15 +132,6 @@
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="CardDeck.h">
-      <Filter>Header Files\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Castle.h">
-      <Filter>Header Files\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Cottage.h">
-      <Filter>Header Files\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Mortage.h">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="Trade.h">
