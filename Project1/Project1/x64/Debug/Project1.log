@@ -1,19 +1,20 @@
 ﻿  Board.cpp
   Card.cpp
   CardDeck.cpp
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(99,23): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(99,20): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(105,31): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(105,28): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(95,22): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(100,23): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(100,20): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(106,31): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(106,28): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   CardField.cpp
   CompanyField.cpp
-  Field.cpp
   GoToJailField.cpp
   GroupPaymentCard.cpp
   Monopoly.cpp
   MovePositionCard.cpp
   MoveToLocationCard.cpp
 C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\MoveToLocationCard.cpp(12,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  MoveToNearestUtilCard.cpp
   PayFieldTax.cpp
   PaymentCard.cpp
   Player.cpp
@@ -23,7 +24,7 @@ C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.c
   Property.cpp
   Source.cpp
   StartField.cpp
+  Trade.cpp
   TrainStation.cpp
-  VisitField.cpp
   Generating Code...
   Project1.vcxproj -> C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\x64\Debug\Project1.exe

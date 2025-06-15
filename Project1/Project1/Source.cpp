@@ -97,5 +97,19 @@ int main(){
 
 	board->PrintBoard();
 
+	std::cout << " " << std::endl;
+
+	Player* player3 = new Player("Pesho");
+
+
+	Field* cardField = new CardField("chance", 7, "chance");
+
+	for (size_t i = 0; i < 7; i++)
+	{
+		cardField->ApplyAction(*player3);
+
+		std::cout << player3->getCurrentPosition() << std::endl;
+		std::cout << player3->getMoney() << std::endl;
+	}
 
 }          

@@ -1,6 +1,7 @@
 #include "CardDeck.h"
 #include "MovePositionCard.h"
 #include "MoveToLocationCard.h"
+#include "MoveToNearestUtilCard.h"
 #include "PaymentCard.h"
 
 CardDeck::CardDeck() {
@@ -29,8 +30,10 @@ void CardDeck::InitializeCardDeck()
 
 	//6. Advance to the nearest Railroad.If unowned, you may buy it from the Bank.If owned, pay wonder twice the rental to which they are otherwise entitled.
 
-	//7. Advance token to nearest Utility.If unowned, you may buy it from the Bank.If owned, throw dice and pay owner a total ten times amount thrown.
+	chanceCards.addObject(new MoveToNearestUtilCard("?Chance?", "Advance to the nearest Utility"));
 	
+	chanceCards.addObject(new MoveToNearestUtilCard("?Chance?", "Advance to the nearest Utility"));
+
 	chanceCards.addObject(new PaymentCard("?Chance?", "Bank pays you dividend of $50.", 50));
 
 	chanceCards.addObject(new MovePositionCard("?Chance?", "Go back 3 spaces.", -3));
@@ -41,11 +44,11 @@ void CardDeck::InitializeCardDeck()
 
 	chanceCards.addObject(new PaymentCard("?Chance?", "Speeding fine $15.", -15));
 
-	//14. Take a trip to Reading Railroad.If you pass Go, collect $200.
+	chanceCards.addObject(new MoveToLocationCard("?Chance?", "Take a trip to Burgas Station", 5));
 
 	//15. You have been elected Chairman of the Board.Pay each player $50.
 
-	chanceCards.addObject(new MoveToLocationCard("?Chance?", "Take a trip to Varna Station", 30));
+	chanceCards.addObject(new MoveToLocationCard("?Chance?", "Take a trip to Varna Station", 25));
 
 
 
@@ -57,8 +60,6 @@ void CardDeck::InitializeCardDeck()
 	communityChestCards.addObject(new PaymentCard("?Community Chest?", "Doctor’s fee. Pay $50", -50));
 
 	communityChestCards.addObject(new PaymentCard("?Community Chest?", "From sale of stock you get $50", 50));
-
-		//5. Get Out of Jail Free
 
 	communityChestCards.addObject(new MoveToLocationCard("?Community Chest?", "Go to Jail. Go directly to Jail, do not pass Go, do not collect $200.", 30));
 
@@ -91,7 +92,7 @@ void CardDeck::destroyInstance()
 
 void CardDeck::ShuffleDecks()
 {
-	std::srand(static_cast<unsigned int>(std::time(nullptr))); 
+	std::srand(std::time(NULL)); 
 
 	for (size_t i = 0; i < chanceCards.getSize(); ++i)
 	{

@@ -11,7 +11,6 @@ class Board
 	Board();
 	static Board* instance;
 	HeterogeneousContainer<Field> fields;
-	CardDeck* deck;
 
 public:
 	void InitializeBoard();

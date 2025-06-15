@@ -139,6 +139,7 @@
     <ClCompile Include="Monopoly.cpp" />
     <ClCompile Include="MovePositionCard.cpp" />
     <ClCompile Include="MoveToLocationCard.cpp" />
+    <ClCompile Include="MoveToNearestUtilCard.cpp" />
     <ClCompile Include="MyString.cpp" />
     <ClCompile Include="PayFieldTax.cpp" />
     <ClCompile Include="PaymentCard.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="Monopoly.h" />
     <ClInclude Include="MovePositionCard.h" />
     <ClInclude Include="MoveToLocationCard.h" />
+    <ClInclude Include="MoveToNearestUtilCard.h" />
     <ClInclude Include="MyString.h" />
     <ClInclude Include="MyVector.hpp" />
     <ClInclude Include="PayFieldTax.h" />
