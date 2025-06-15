@@ -1,6 +1,4 @@
 #include "TrainStation.h"
-#include "CompanyField.h"
-
 
 TrainStation::TrainStation(const MyString& name, size_t stationPrice, const int* rentPrices, int boardIndex)
  : Field(boardIndex,name)

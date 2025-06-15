@@ -5,6 +5,13 @@
 #include "HeterogeneousContainer.hpp"
 #include "CardDeck.h"
 #include "CardField.h"
+#include "TrainStation.h"
+#include "PayFieldTax.h"
+#include "VisitField.h"
+#include "StartField.h"
+#include "GoToJailField.h"
+#include "CompanyField.h"
+#include "iomanip"
 
 class Board
 {

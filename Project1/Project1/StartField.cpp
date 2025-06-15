@@ -11,7 +11,6 @@ void StartField::ApplyAction(Player& player)
 	player.addMoney(fieldIncome);
 }
 
-
 Field* StartField::clone() const
 {
 	return new StartField(*this);

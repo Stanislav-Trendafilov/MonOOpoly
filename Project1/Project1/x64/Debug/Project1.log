@@ -1,11 +1,4 @@
 ﻿  Board.cpp
-  CardDeck.cpp
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(91,22): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(96,23): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(96,20): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(102,31): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(102,28): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  CardField.cpp
   Monopoly.cpp
   Source.cpp
   Generating Code...

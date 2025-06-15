@@ -1,5 +1,6 @@
 #pragma once
 #include "Card.h"
+#include <iostream>
 
 class MoveToLocationCard :public Card
 {

@@ -1,5 +1,4 @@
 #include "MoveToLocationCard.h"
-#include <iostream>
 
 MoveToLocationCard::MoveToLocationCard(const MyString& name, const MyString& effect, size_t indexOfLocation)
 	:Card(name,effect)

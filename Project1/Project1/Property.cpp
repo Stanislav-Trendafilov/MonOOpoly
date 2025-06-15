@@ -1,6 +1,4 @@
 #include "Property.h"
-#include "GoToJailField.h"
-
 
 Property::Property(const MyString& name,GlobalConstants::PropertyColors color, size_t fieldPrice, size_t priceForBuilding, const int* rentPrices,int boardIndex)
 	: Field(boardIndex,name)
