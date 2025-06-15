@@ -120,6 +120,9 @@
     <ClCompile Include="MoveToNearestUtilCard.cpp">
       <Filter>Source Files\Entities\Cards</Filter>
     </ClCompile>
+    <ClCompile Include="MoveToNearestStationCard.cpp">
+      <Filter>Source Files\Entities\Cards</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Monopoly.h">
@@ -195,6 +198,9 @@
       <Filter>Header Files\Entities\Cards</Filter>
     </ClInclude>
     <ClInclude Include="MoveToNearestUtilCard.h">
+      <Filter>Header Files\Entities\Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveToNearestStationCard.h">
       <Filter>Header Files\Entities\Cards</Filter>
     </ClInclude>
   </ItemGroup>

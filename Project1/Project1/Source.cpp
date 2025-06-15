@@ -11,6 +11,9 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include "MoveToNearestStationCard.h"
+#include "MoveToNearestUtilCard.h"
+
 using namespace std;
 
 
@@ -111,5 +114,28 @@ int main(){
 		std::cout << player3->getCurrentPosition() << std::endl;
 		std::cout << player3->getMoney() << std::endl;
 	}
+
+	Player* player4 = new Player("Pesho");
+
+	Card* card3 = new MoveToNearestStationCard("Move to nearest station", "100");
+
+	Card* card4 = new MoveToNearestUtilCard("Move to nearest utility", "100");
+
+
+	card4->applyEffect(*player4);
+
+	std::cout << player4->getCurrentPosition() << std::endl;
+
+	card3->applyEffect(*player4);
+
+	std::cout << player4->getCurrentPosition() << std::endl;
+
+	card4->applyEffect(*player4);
+
+	std::cout << player4->getCurrentPosition() << std::endl;
+
+	card3->applyEffect(*player4);
+
+	std::cout << player4->getCurrentPosition() << std::endl;
 
 }          

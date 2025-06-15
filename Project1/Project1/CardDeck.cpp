@@ -1,8 +1,4 @@
 #include "CardDeck.h"
-#include "MovePositionCard.h"
-#include "MoveToLocationCard.h"
-#include "MoveToNearestUtilCard.h"
-#include "PaymentCard.h"
 
 CardDeck::CardDeck() {
 }
@@ -26,9 +22,9 @@ void CardDeck::InitializeCardDeck()
 
 	chanceCards.addObject(new MoveToLocationCard("?Chance?", "Advance to National Palace of Culture", 21));
 
-	//5. Advance to the nearest Railroad.If unowned, you may buy it from the Bank.If owned, pay wonder twice the rental to which they are otherwise entitled.
+	chanceCards.addObject(new MoveToNearestStationCard("?Chance?", "Advance to the nearest Railroad. If unowned, you may buy it from the Bank."));
 
-	//6. Advance to the nearest Railroad.If unowned, you may buy it from the Bank.If owned, pay wonder twice the rental to which they are otherwise entitled.
+	chanceCards.addObject(new MoveToNearestStationCard("?Chance?", "Advance to the nearest Railroad. If unowned, you may buy it from the Bank."));
 
 	chanceCards.addObject(new MoveToNearestUtilCard("?Chance?", "Advance to the nearest Utility"));
 	

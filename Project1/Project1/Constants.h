@@ -14,9 +14,16 @@ namespace GlobalConstants
 	constexpr int FIELDS_RESTART_AT = 40;
 	constexpr int START_INDEX = 0;
 
+
 	constexpr int JAIL_INDEX= 30;
 	constexpr int ELECTRIC_COMPANY_INDEX = 12;
 	constexpr int WATER_SUPPLY_INDEX = 28;
+
+	constexpr int TRAINSTATION1_INDEX = 5;
+	constexpr int TRAINSTATION2_INDEX = 15;
+	constexpr int TRAINSTATION3_INDEX = 25;
+	constexpr int TRAINSTATION4_INDEX = 35;
+
 
 
 	enum class PropertyColors

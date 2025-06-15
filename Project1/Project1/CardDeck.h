@@ -1,5 +1,10 @@
 #pragma once
 #include "Card.h"
+#include "MovePositionCard.h"
+#include "MoveToLocationCard.h"
+#include "MoveToNearestUtilCard.h"
+#include "MoveToNearestStationCard.h"
+#include "PaymentCard.h"
 #include "HeterogeneousContainer.hpp"
 #include "MyVector.hpp"
 #include <random>
