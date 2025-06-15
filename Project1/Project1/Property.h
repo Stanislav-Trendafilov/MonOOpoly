@@ -26,6 +26,9 @@ public:
 	int getrentLevel() const;
 	int getOwnerId() const;
 	int getRentPrice() const;
+
+	void ApplyAction(Player& player) override;
+
 	Field* clone() const override;
 };
 

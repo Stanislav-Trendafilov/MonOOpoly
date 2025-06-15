@@ -44,8 +44,7 @@ void Board::InitializeBoard()
 	int rent1[] = { 2, 10, 30, 90, 160, 250 };
 	fields.addObject(new Property("Knyaz Boris Str", GlobalConstants::PropertyColors::BROWN, 60, 50, rent1, 1));
 
-	fields.addObject(new CardField("Chest",2));
-	// Adding chance card to the board
+	fields.addObject(new CardField("Chest",2,"chest"));
 
 	int rent2[] = { 4, 20, 60, 180, 320, 450 };
 	fields.addObject(new Property("Seminary", GlobalConstants::PropertyColors::BROWN, 60, 50, rent2, 3));
@@ -57,8 +56,7 @@ void Board::InitializeBoard()
 	int rent3[] = { 6, 30, 90, 270, 400, 550 };
 	fields.addObject(new Property("Grafa Str", GlobalConstants::PropertyColors::CYAN, 100, 50, rent3,6));
 
-	// Adding chance card to the board
-	fields.addObject(new CardField("Chance?", 7));
+	fields.addObject(new CardField("Chance?", 7,"chance"));
 
 	int rent4[] = { 6, 30, 90, 270, 400, 550 };
 	fields.addObject(new Property("Shishman Str", GlobalConstants::PropertyColors::CYAN, 100, 50, rent4, 8));
@@ -86,8 +84,7 @@ void Board::InitializeBoard()
 	int rent9[] = { 14, 70, 200, 550, 750, 950 };
 	fields.addObject(new Property("Faculty of Math", GlobalConstants::PropertyColors::ORANGE, 180, 100, rent9, 16));
 
-	// Adding chance card to the board
-	fields.addObject(new CardField("Chest", 17));
+	fields.addObject(new CardField("Chest", 17,"chest"));
 
 	int rent10[] = { 14, 70, 200, 550, 750, 950 };
 	fields.addObject(new Property("Tsarigradsko Shose", GlobalConstants::PropertyColors::ORANGE, 180, 100, rent10, 18));
@@ -100,8 +97,7 @@ void Board::InitializeBoard()
 	int rent12[] = { 18, 90, 250, 700, 875, 1050 };
 	fields.addObject(new Property("Palace of Culture", GlobalConstants::PropertyColors::RED, 220, 150, rent12, 21));
 
-	// Adding chance card to the board
-	fields.addObject(new CardField("Chance?", 22));
+	fields.addObject(new CardField("Chance?", 22,"chance"));
 
 	int rent13[] = { 18, 90, 250, 700, 875, 1050 };
 	fields.addObject(new Property("Sofia Theatre", GlobalConstants::PropertyColors::RED, 220, 150, rent13, 23));
@@ -131,16 +127,14 @@ void Board::InitializeBoard()
 	int rent19[] = { 26, 130, 390, 900, 1100, 1275 };
 	fields.addObject(new Property("Vitoshka Str", GlobalConstants::PropertyColors::GREEN, 300, 200, rent19, 32));
 
-	//adding chance card to the board 33
-	fields.addObject(new CardField("Chest", 33));
+	fields.addObject(new CardField("Chest", 33, "chest"));
 
 	int rent20[] = { 28, 150, 450, 1000, 1200, 1400 };
 	fields.addObject(new Property("Belogradchik", GlobalConstants::PropertyColors::GREEN, 320, 200, rent20, 34));
 
 	fields.addObject(new TrainStation("Station Plovdiv", 200, trainStationRents, 35));
 
-	//adding chance card to the board 36
-	fields.addObject(new CardField("Chance?", 36));
+	fields.addObject(new CardField("Chance?", 36,"chance"));
 
 	int rent21[] = { 35, 175, 500, 1100, 1300, 1500 };
 	fields.addObject(new Property("Nessebar", GlobalConstants::PropertyColors::BLUE, 350, 200, rent21, 37));

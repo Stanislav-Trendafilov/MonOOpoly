@@ -8,7 +8,7 @@ class GoToJailField : public Field
 public:
 	GoToJailField(const MyString& name,int boardIndex);
 	
-	void ApplyAction(Player& player);
+	void ApplyAction(Player& player) override;
 	
 	Field* clone() const override;
 };

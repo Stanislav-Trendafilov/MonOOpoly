@@ -19,12 +19,10 @@ size_t TrainStation::getStationPrice() const
 	return stationPrice;
 }
 
-
 int TrainStation::getRentLevel() const
 {
 	return rentLevel;
 }
-
 
 int TrainStation::getOwnerId() const
 {
@@ -34,6 +32,10 @@ int TrainStation::getOwnerId() const
 int TrainStation::getRentPrice() const
 {
 	return priceForRent[rentLevel];
+}
+
+void TrainStation::ApplyAction(Player& player)
+{
 }
 
 Field* TrainStation::clone() const

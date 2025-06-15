@@ -2,18 +2,16 @@
 #include "Field.h"
 #include "Player.h"
 #include "CardDeck.h"
+#include "MyString.h"
 
 class CardField	:public Field
 {
 	CardDeck* deck;
+	MyString typeOfCard;
 public:
-	CardField(const MyString& name, size_t boardIndex);
+	CardField(const MyString& name, size_t boardIndex,const MyString& typeOfCard);
 
-	void DrawChanceCard(Player& player);
-
-	void DrawCommunityCard(Player& player);
-
-	void ApplyAction(Player& player);
+	void ApplyAction(Player& player) override;
 
 	Field* clone() const override;
 };

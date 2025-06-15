@@ -41,6 +41,10 @@ int Property::getRentPrice() const
 	return priceForRent[rentLevel];
 }
 
+void Property::ApplyAction(Player& player)
+{
+}
+
 Field* Property::clone() const
 {
 	return new Property(*this);

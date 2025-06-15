@@ -24,6 +24,11 @@ int CompanyField::getRentLevel() const
 	return rentLevel;
 }
 
+void CompanyField::ApplyAction(Player& player)
+{
+
+}
+
 Field* CompanyField::clone() const
 {
 	return new CompanyField(*this);

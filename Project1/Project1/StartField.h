@@ -8,7 +8,7 @@ class StartField :public Field
 public:
 	StartField(const MyString& name, int boardIndex, int fieldIncome);
 
-	void ApplyAction(Player& player);
+	void ApplyAction(Player& player) override;
 
 	Field* clone() const override;
 

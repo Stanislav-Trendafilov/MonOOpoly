@@ -1,22 +1,28 @@
 #include "CardField.h"
 
-CardField::CardField(const MyString& name, size_t boardIndex)
+CardField::CardField(const MyString& name, size_t boardIndex,const MyString& typeOfCard)
 	: Field(boardIndex,name)
 {
-	//this->deck = cards;
-}
-
-void CardField::DrawChanceCard(Player& player)
-{
-}
-
-void CardField::DrawCommunityCard(Player& player)
-{
+	this->typeOfCard = typeOfCard;
 }
 
 void CardField::ApplyAction(Player& player)
-{	
+{
+	Card* card;
+
+	if(typeOfCard == "chance")
+	{
+		card = deck->DrawChanceCard();
+	}
+	else
+	{
+		card = deck->DrawCommunityChestCard();
+	}
+
+	card->applyEffect(player);
 }
+
+
 
 Field* CardField::clone() const
 {

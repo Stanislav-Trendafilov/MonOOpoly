@@ -8,7 +8,7 @@ class PayFieldTax:public Field
 public:
 	PayFieldTax(const MyString& name, int boardIndex,int tax);
 
-	void ApplyAction(Player& player);
+	void ApplyAction(Player& player) override;
 
 	Field* clone() const override;
 
