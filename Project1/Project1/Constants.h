@@ -24,6 +24,12 @@ namespace GlobalConstants
 	constexpr int TRAINSTATION3_INDEX = 25;
 	constexpr int TRAINSTATION4_INDEX = 35;
 
+	constexpr int DICE_VALUE1 = 1;
+	constexpr int DICE_VALUE2 = 2;
+	constexpr int DICE_VALUE3 = 3;
+	constexpr int DICE_VALUE4 = 4;
+	constexpr int DICE_VALUE5 = 5;
+	constexpr int DICE_VALUE6 = 6;
 
 
 	enum class PropertyColors

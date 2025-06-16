@@ -1,5 +1,9 @@
 #include "Player.h"
 
+Player::Player()
+{
+}
+
 Player::Player(const MyString& name, int money)
 {
 	this->playerName = name;

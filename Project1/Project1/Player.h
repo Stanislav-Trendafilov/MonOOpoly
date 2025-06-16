@@ -17,6 +17,7 @@ class Player
 	bool isInPrison;
 
 public:
+	Player();
 	Player(const MyString& name, int money = GlobalConstants::STARTING_CASH);
 
 	int getMoney() const;

@@ -13,6 +13,7 @@
 #include <string>
 #include "MoveToNearestStationCard.h"
 #include "MoveToNearestUtilCard.h"
+#include "Monopoly.h"
 
 using namespace std;
 
@@ -137,5 +138,11 @@ int main(){
 	card3->applyEffect(*player4);
 
 	std::cout << player4->getCurrentPosition() << std::endl;
+
+	Monopoly* monopolyGame=Monopoly::getInstance();
+
+	monopolyGame->startGame();
+
+	//monopolyGame->rollDice();
 
 }          
