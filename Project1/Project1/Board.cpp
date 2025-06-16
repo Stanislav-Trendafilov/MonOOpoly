@@ -50,7 +50,7 @@ void Board::InitializeBoard()
 	int rent2[] = { 4, 20, 60, 180, 320, 450 };
 	fields.addObject(new Property("Seminary", GlobalConstants::PropertyColors::BROWN, 60, 50, rent2, 3));
 
-	fields.addObject(new PayFieldTax("Income Taxes", 100, 4)); 
+	fields.addObject(new PayFieldTax("Income Taxes", 4, 100)); 
 
 	fields.addObject(new TrainStation("Station Burgas", 200, trainStationRents, 5));
 
