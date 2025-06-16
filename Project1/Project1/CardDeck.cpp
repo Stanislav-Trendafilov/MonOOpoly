@@ -2,6 +2,7 @@
 
 CardDeck::CardDeck() {
 	InitializeCardDeck();
+	ShuffleDecks();
 }
 
 CardDeck* CardDeck::instance = nullptr;

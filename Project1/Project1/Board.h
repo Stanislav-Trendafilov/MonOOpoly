@@ -20,6 +20,7 @@ class Board
 	HeterogeneousContainer<Field> fields;
 
 public:
+	void activateFieldEffect(Player& player);
 	void InitializeBoard();
 	void PrintBoard() const;
 	static Board* getInstance();

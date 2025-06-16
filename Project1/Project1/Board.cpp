@@ -30,6 +30,12 @@ void Board::PrintBoard() const
 	std::cout << std::endl;
 }
 
+void Board::activateFieldEffect(Player& player)
+{
+	fields[player.getCurrentPosition()]->getName();
+	fields[player.getCurrentPosition()]->ApplyAction(player);
+}
+
 void Board::InitializeBoard()
 {
 	int trainStationRents[] = { 50,100,150,200 };

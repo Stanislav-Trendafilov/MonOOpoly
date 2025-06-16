@@ -4,7 +4,7 @@
 
 Monopoly::Monopoly()
 {
-	currentTurnPlayerIndex = 1;
+	currentTurnPlayerIndex = 0;
 	board = Board::getInstance();
 	cardDeck = CardDeck::getInstance();
 }
@@ -205,8 +205,10 @@ void Monopoly::printDice(int num) const
 	}				     
 }
 
-void Monopoly::stepOnCard()
+void Monopoly::stepOnField(size_t moveWithSteps)
 {
+	getPlayerOnTurn().moveToLocation(getPlayerOnTurn().getCurrentPosition() + moveWithSteps);
+	board->activateFieldEffect(getPlayerOnTurn());
 }
 
 const Player& Monopoly::getPlayerOnTurn() const

@@ -143,6 +143,21 @@ int main(){
 
 	monopolyGame->startGame();
 
-	monopolyGame->rollDice();
+	int moveWith=monopolyGame->rollDice();
+	monopolyGame->stepOnField(moveWith);
 
+	std::cout << monopolyGame->getPlayerOnTurn().getCurrentPosition() << std::endl;
+	std::cout << monopolyGame->getPlayerOnTurn().getMoney() << std::endl;
+
+	moveWith = monopolyGame->rollDice();
+	monopolyGame->stepOnField(moveWith);
+
+	std::cout << monopolyGame->getPlayerOnTurn().getCurrentPosition() << std::endl;
+	std::cout << monopolyGame->getPlayerOnTurn().getMoney() << std::endl;
+
+	moveWith = monopolyGame->rollDice();
+	monopolyGame->stepOnField(moveWith);
+
+	std::cout << monopolyGame->getPlayerOnTurn().getCurrentPosition() << std::endl;
+	std::cout << monopolyGame->getPlayerOnTurn().getMoney() << std::endl;
 }          

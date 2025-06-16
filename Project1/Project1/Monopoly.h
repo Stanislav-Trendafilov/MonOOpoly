@@ -28,7 +28,7 @@ public:
 	void startGame();	
 	int rollDice() const;
 	void printDice(int num) const;
-	void stepOnCard();
+	void stepOnField(size_t moveWithSteps);
 
 	const Player& getPlayerOnTurn() const;
 	Player& getPlayerOnTurn();
