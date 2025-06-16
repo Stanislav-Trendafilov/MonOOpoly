@@ -4,7 +4,7 @@ using namespace std;
 
 Board::Board()
 {
-
+	InitializeBoard();
 }
 
 Board* Board::instance = nullptr;
@@ -27,6 +27,7 @@ void Board::PrintBoard() const
 	{
 		std::cout << std::setw(15) << std::left << fields[i]->getName() << " | ";
 	}
+	std::cout << std::endl;
 }
 
 void Board::InitializeBoard()

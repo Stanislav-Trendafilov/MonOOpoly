@@ -30,6 +30,9 @@ void Monopoly::startGame()
 {
 	std::cout << "Welcome to my final project of the course OOP_Practicum :)" << std::endl;
 	std::cout << "Starting Monopoly game..." << std::endl;
+
+	printInstructions();
+
 	std::cout << "!Press any key to start the game!" << std::endl;
 	std::cin.get();
 
@@ -52,7 +55,7 @@ void Monopoly::addPlayers()
 		std::cout << "Enter username for player No " << i + 1 << ": ";
 		MyString username;
 		std::cin >> username;
-		Player player(username);
+		Player player(i,username);
 		addPlayer(player);
 		std::cout << "Player " << username << " added successfully!" << std::endl;
 		std::cout << "Now you are able to enjoy the game." << std::endl;
@@ -65,7 +68,7 @@ void Monopoly::addPlayers()
 	std::cout << "Here you can see the Monopoly board" << std::endl;
 	std::cout << "As you can see, most of the locations are well known for most of the Bulgarians " << std::endl;
 	board->PrintBoard();
-	
+
 }
 
 void Monopoly::addPlayer(const Player& player)
@@ -77,6 +80,60 @@ void Monopoly::removePlayer(int playerIndex)
 {
 	players.remove(playerIndex);
 }
+
+void Monopoly::printInstructions() const {
+	std::cout << "\n========== MONOPOLY GAME INSTRUCTIONS =========="<<std::endl;
+	std::cout << "Welcome to the OOP_Practicum Monopoly Game" << std::endl;
+	std::cout << "" << std::endl;
+	std::cout << "--> Objective <--" << std::endl;
+	std::cout << "  Become the richest player by buying properties, collecting rent, and avoiding bankruptcy." << std::endl;
+	std::cout << "" << std::endl;
+
+	std::cout << "--> Game Flow:" << std::endl;
+	std::cout << "  1. Each player takes turns in clockwise order." << std::endl;
+	std::cout << "  2. On your turn, press a key to roll the dices." << std::endl;
+	std::cout << "  3. Move forward the number of steps equal to the sum of the dices." << std::endl;
+	std::cout << "  4. The field you land on may allow you to:" << std::endl;
+	std::cout << "     - Buy a property" << std::endl;
+	std::cout << "     - Pay rent to another player" << std::endl;
+	std::cout << "     - Draw a card with special effects" << std::endl;
+	std::cout << "     - Go to jail or pass 'Start'" << std::endl;
+	std::cout << "  5. After finishing your turn, the next player proceeds." << std::endl;
+	std::cout << "" << std::endl;
+
+	std::cout << "--> Money and Bank:" << std::endl;
+	std::cout << "  - All players start with a fixed amount of money (1500$)." << std::endl;
+	std::cout << "  - If you land on someone else's property, you must pay rent." << std::endl;
+	std::cout << "  - If you run out of money, you're bancrupted and then eliminated." << std::endl;
+	std::cout << "" << std::endl;
+
+	std::cout << "--> Properties:" << std::endl;
+	std::cout << "  - You can buy unowned properties." << std::endl;
+	std::cout << "  - You earn rent whenever others land on your properties." << std::endl;
+	std::cout << "  - Some cards or actions may upgrade/downgrade properties." << std::endl;
+	std::cout << "" << std::endl;
+
+	std::cout << "--> Special Spaces:" << std::endl;
+	std::cout << "  - 'Go to Jail' sends you to jail." << std::endl;
+	std::cout << "  - 'Chance' or 'Community Chest' triggers a card." << std::endl;
+	std::cout << "  - 'Free Parking' is just a rest spot." << std::endl;
+	std::cout << "" << std::endl;
+
+	std::cout << "--> Victory:" << std::endl;
+	std::cout << "  - The last player remaining (all others bankrupt) is the winner!" << std::endl;
+	std::cout << "" << std::endl;
+
+	std::cout << "-- > Tips:" << std::endl;
+	std::cout << "  - Buy strategically. Save money for rent and fees." << std::endl;
+	std::cout << "  - Be careful not to go bankrupt." << std::endl;
+	std::cout << "  - Most importantly, have fun!" << std::endl;
+
+	std::cout << "\nPress any key to begin..." << std::endl;
+	std::cin.get();
+	std::cout << "===============================================" << std::endl;
+	std::cout << "" << std::endl;
+
+};
 
 int Monopoly::rollDice() const
 {

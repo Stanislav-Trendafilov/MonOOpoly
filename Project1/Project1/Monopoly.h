@@ -24,6 +24,7 @@ public:
 	static Monopoly* getInstance();
 	static void destroyInstance();
 
+	void printInstructions() const;
 	void startGame();	
 	int rollDice() const;
 	void printDice(int num) const;

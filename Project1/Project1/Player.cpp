@@ -4,10 +4,16 @@ Player::Player()
 {
 }
 
-Player::Player(const MyString& name, int money)
+Player::Player(int playerId, const MyString& name, int money)
 {
+	this->playerId = playerId;
 	this->playerName = name;
 	this->money = money;
+}
+
+int Player::getPlayerId() const
+{
+	return playerId;
 }
 
 void Player::goInPrison()

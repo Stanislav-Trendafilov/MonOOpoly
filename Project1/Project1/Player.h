@@ -7,7 +7,7 @@
 class Player
 {
 	int money;
-	int ownerId;
+	int playerId;
 	MyString playerName;
 	size_t currentPosition;
 	MyVector<Property> ownedProperties;
@@ -18,8 +18,9 @@ class Player
 
 public:
 	Player();
-	Player(const MyString& name, int money = GlobalConstants::STARTING_CASH);
+	Player(int playerId,const MyString& name, int money = GlobalConstants::STARTING_CASH);
 
+	int getPlayerId() const;	
 	int getMoney() const;
 	size_t getCurrentPosition() const;
 	size_t getTrainStationCount() const;

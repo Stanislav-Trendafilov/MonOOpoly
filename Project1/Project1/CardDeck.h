@@ -5,6 +5,7 @@
 #include "MoveToNearestUtilCard.h"
 #include "MoveToNearestStationCard.h"
 #include "PaymentCard.h"
+#include "GroupPaymentCard.h"
 #include "HeterogeneousContainer.hpp"
 #include "MyVector.hpp"
 #include <random>
