@@ -194,9 +194,6 @@
     <ClInclude Include="MovePositionCard.h">
       <Filter>Header Files\Entities\Cards</Filter>
     </ClInclude>
-    <ClInclude Include="PaymentCard.h">
-      <Filter>Header Files\Entities\Cards</Filter>
-    </ClInclude>
     <ClInclude Include="MoveToLocationCard.h">
       <Filter>Header Files\Entities\Cards</Filter>
     </ClInclude>
@@ -208,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="PaymentCard.h">
+      <Filter>Header Files\Entities\Cards</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

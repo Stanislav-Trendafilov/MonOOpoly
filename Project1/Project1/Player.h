@@ -1,7 +1,6 @@
 #pragma once
 #include "MyString.h"
 #include "MyVector.hpp"
-#include "Property.h"
 #include "Constants.h"
 
 class Property;

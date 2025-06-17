@@ -1,6 +1,7 @@
 #pragma once
 #include "Card.h"
-
+				
+class Board;
 
 class MoveToNearestUtilCard :public Card
 {

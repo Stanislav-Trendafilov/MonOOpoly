@@ -1,4 +1,5 @@
 #include "MoveToLocationCard.h"
+#include "Board.h"
 
 MoveToLocationCard::MoveToLocationCard(const MyString& name, const MyString& effect, size_t indexOfLocation)
 	:Card(name,effect)
@@ -18,7 +19,7 @@ void MoveToLocationCard::applyEffect(Player& player)
 		player.addMoney(GlobalConstants::PASS_START_CASH);
 	}
 	player.moveToLocation(indexOfLocation);
-	player.getCurrentPosition();
+	Board::getInstance()->activateFieldEffect(player);
 }
 
 Card* MoveToLocationCard::clone() const

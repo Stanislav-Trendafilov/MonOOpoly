@@ -159,7 +159,7 @@ void Board::InitializeBoard()
 	int rent17[] = { 24, 120, 360, 850, 1025, 1200 };
 	fields.addObject(new Property("Ancient Theatre", GlobalConstants::PropertyColors::YELLOW, 280, 150, rent17, 29));
 
-	fields.addObject(GoToJailField("Jail", 30));
+	fields.addObject(GoToJailField("Go To Jail", 30));
 
 	int rent18[] = { 26, 130, 390, 900, 1100, 1275 };
 	fields.addObject(new Property("Pamporovo", GlobalConstants::PropertyColors::GREEN, 300, 200, rent18, 31));

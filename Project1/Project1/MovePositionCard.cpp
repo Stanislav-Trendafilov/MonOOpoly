@@ -1,4 +1,5 @@
 #include "MovePositionCard.h"
+#include "Board.h"
 
 MovePositionCard::MovePositionCard(const MyString& name, const MyString& effect, size_t moveWith)
 	:Card(name, effect)
@@ -9,6 +10,7 @@ MovePositionCard::MovePositionCard(const MyString& name, const MyString& effect,
 void MovePositionCard::applyEffect(Player& player)
 {
 	player.movePosition(moveWith);
+	Board::getInstance()->activateFieldEffect(player);
 }
 
 Card* MovePositionCard::clone()const

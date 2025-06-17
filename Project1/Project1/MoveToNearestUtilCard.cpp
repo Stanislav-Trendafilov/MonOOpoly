@@ -1,4 +1,5 @@
 #include "MoveToNearestUtilCard.h"
+#include "Board.h"
 
 MoveToNearestUtilCard::MoveToNearestUtilCard(const MyString& name, const MyString& effect)
 	:Card(name, effect)
@@ -30,6 +31,7 @@ void MoveToNearestUtilCard::applyEffect(Player& player)
 	}
 
 	player.moveToLocation(playerPosition);
+	Board::getInstance()->activateFieldEffect(player);
 
 
 }

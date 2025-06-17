@@ -1,6 +1,8 @@
 #pragma once
 #include "Card.h"
 
+class Board;
+
 class MovePositionCard :public Card
 {
 	size_t moveWith;

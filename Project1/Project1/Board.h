@@ -11,6 +11,7 @@
 #include "StartField.h"
 #include "GoToJailField.h"
 #include "CompanyField.h"
+#include "Property.h"
 #include "iomanip"
 
 class Board

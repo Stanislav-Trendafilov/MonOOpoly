@@ -8,6 +8,7 @@ GoToJailField::GoToJailField(const MyString& name, int boardIndex)
 
 void GoToJailField::ApplyAction(Player& player)
 {
+	std::cout << "You have been sent to jail! " << std::endl;
 	player.goInPrison();
 	player.moveToLocation(GlobalConstants::IN_JAIL_INDEX);
 }

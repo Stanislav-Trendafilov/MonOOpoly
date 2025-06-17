@@ -96,6 +96,7 @@ void Player::subtractMoney(int amount)
 
 void Player::movePosition(size_t steps)
 {
+															  
 	currentPosition += steps;
 	if (currentPosition > GlobalConstants::MAX_COUNT_FIELDS)
 	{
@@ -106,6 +107,10 @@ void Player::movePosition(size_t steps)
 void Player::moveToLocation(size_t position)
 {
 	currentPosition = position;
+	if (currentPosition > GlobalConstants::MAX_COUNT_FIELDS)
+	{
+		currentPosition -= 40;
+	}
 }
 
 bool Player::isJailed() const

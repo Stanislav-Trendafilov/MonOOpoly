@@ -1,4 +1,5 @@
 #include "MoveToNearestStationCard.h"
+#include "Board.h"
 
 MoveToNearestStationCard::MoveToNearestStationCard(const MyString& name, const MyString& effect)
 	: Card(name, effect) 
@@ -36,6 +37,9 @@ void MoveToNearestStationCard::applyEffect(Player& player)
 
 	}
 	player.moveToLocation(playerPosition);
+	 
+	Board::getInstance()->activateFieldEffect(player);
+
 
 }
 Card* MoveToNearestStationCard::clone() const

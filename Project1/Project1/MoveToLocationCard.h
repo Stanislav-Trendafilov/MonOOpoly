@@ -2,6 +2,8 @@
 #include "Card.h"
 #include <iostream>
 
+class Board;
+
 class MoveToLocationCard :public Card
 {
 	size_t indexOfLocation;

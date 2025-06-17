@@ -26,7 +26,7 @@ int CompanyField::getRentLevel() const
 
 void CompanyField::ApplyAction(Player& player)
 {
-
+	 
 }
 
 Field* CompanyField::clone() const
