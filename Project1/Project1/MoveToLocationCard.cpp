@@ -18,6 +18,7 @@ void MoveToLocationCard::applyEffect(Player& player)
 		player.addMoney(GlobalConstants::PASS_START_CASH);
 	}
 	player.moveToLocation(indexOfLocation);
+	player.getCurrentPosition();
 }
 
 Card* MoveToLocationCard::clone() const

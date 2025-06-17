@@ -28,6 +28,7 @@ void Board::PrintBoard() const
 		std::cout << std::setw(15) << std::left << fields[i]->getName() << " | ";
 	}
 	std::cout << std::endl;
+	std::cout << std::endl;
 }
 
 void Board::PrintBoard(const MyVector<Player> players) const
@@ -64,6 +65,8 @@ void Board::PrintBoard(const MyVector<Player> players) const
 	{
 		std::cout << std::setw(15) << std::left << fields[i]->getName() << " | ";
 	}
+
+	std::cout << std::endl;
 	std::cout << std::endl;
 }
 

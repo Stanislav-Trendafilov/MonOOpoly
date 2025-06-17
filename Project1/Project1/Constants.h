@@ -15,6 +15,7 @@ namespace GlobalConstants
 	constexpr int START_INDEX = 0;
 
 
+	constexpr int IN_JAIL_INDEX = 10;
 	constexpr int JAIL_INDEX= 30;
 	constexpr int ELECTRIC_COMPANY_INDEX = 12;
 	constexpr int WATER_SUPPLY_INDEX = 28;

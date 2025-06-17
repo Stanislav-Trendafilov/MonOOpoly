@@ -134,7 +134,7 @@ void Monopoly::printInstructions() const {
 
 int Monopoly::rollDice() const
 {
-	std::cout << "Press enter to roll the dices...";
+	std::cout << "\nPress enter to roll the dices...";
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');//use in order to ignore any previous input
 	std::cin.get();				  
 
@@ -212,6 +212,11 @@ void Monopoly::stepOnField(size_t moveWithSteps)
 	board->activateFieldEffect(getPlayerOnTurn());
 }
 
+void Monopoly::setCurrentTurnPlayerIndex(int index)
+{
+	this->currentTurnPlayerIndex = index;
+}
+
 const Player& Monopoly::getPlayerOnTurn() const
 {
 	return players[currentTurnPlayerIndex]; 
@@ -233,6 +238,11 @@ void Monopoly::getInfoAboutPlayerOnTurn() const
 void Monopoly::printBoardWithPlayers() const
 {
 	board->PrintBoard(getPlayers());
+}
+
+void Monopoly::printBoard() const
+{
+	board->PrintBoard();
 }
 
 const Player& Monopoly::getPlayer(int playerIndex) const

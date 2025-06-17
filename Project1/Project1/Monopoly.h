@@ -29,10 +29,13 @@ public:
 	int rollDice() const;
 	void printDice(int num) const;
 	void stepOnField(size_t moveWithSteps);
+	
+	void setCurrentTurnPlayerIndex(int index);
 
 	const Player& getPlayerOnTurn() const;
 	Player& getPlayerOnTurn();
 	void getInfoAboutPlayerOnTurn() const;
+	void printBoard() const;
 	void printBoardWithPlayers() const;
 
 	const Player& getPlayer(int index) const;

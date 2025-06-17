@@ -32,7 +32,7 @@ public:
 	void addProperty(Property* property);
 	void removeProperty(Property* property);
 	bool ownsProperty(Property* property) const;
-
+	
 	void addMoney(int amount);
 	void subtractMoney(int amount);
 	void movePosition(size_t steps);
