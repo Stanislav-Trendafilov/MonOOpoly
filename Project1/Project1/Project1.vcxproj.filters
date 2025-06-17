@@ -123,6 +123,9 @@
     <ClCompile Include="MoveToNearestStationCard.cpp">
       <Filter>Source Files\Entities\Cards</Filter>
     </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Monopoly.h">
@@ -202,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="MoveToNearestStationCard.h">
       <Filter>Header Files\Entities\Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files\Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -30,6 +30,43 @@ void Board::PrintBoard() const
 	std::cout << std::endl;
 }
 
+void Board::PrintBoard(const MyVector<Player> players) const
+{
+	int playersCount = players.size();
+	for (size_t i = 0; i < 11; i++)
+	{
+		std::cout << std::setw(15) << std::left << fields[i]->getName() << " | ";
+		
+	}
+	std::cout << std::endl;
+
+	for (size_t i = 0; i < 11; i++)
+	{
+		for (size_t j = 0; j < playersCount; j++)
+		{
+			if (players[j].getCurrentPosition() == i)
+			{
+				std::cout << players[j].getPlayerName()<<" ";
+			}
+		}
+		std::cout << std::setw(20) << std::left << " ";
+
+	}
+	std::cout << std::endl;
+
+	for (size_t i = 39; i > 30; i--)
+	{
+		std::cout << std::setw(15) << std::left << fields[i]->getName() << " | " << std::setw(161) << std::left << " " << " | " << setw(18) << std::left << fields[50 - i]->getName() << " | " << std::endl;;
+
+	}
+
+	for (size_t i = 30; i >= 20; i--)
+	{
+		std::cout << std::setw(15) << std::left << fields[i]->getName() << " | ";
+	}
+	std::cout << std::endl;
+}
+
 void Board::activateFieldEffect(Player& player)
 {
 	fields[player.getCurrentPosition()]->getName();

@@ -68,7 +68,6 @@ void Monopoly::addPlayers()
 	std::cout << "Here you can see the Monopoly board" << std::endl;
 	std::cout << "As you can see, most of the locations are well known for most of the Bulgarians " << std::endl;
 	board->PrintBoard();
-
 }
 
 void Monopoly::addPlayer(const Player& player)
@@ -219,6 +218,19 @@ const Player& Monopoly::getPlayerOnTurn() const
 Player& Monopoly::getPlayerOnTurn()
 {
 	return players[currentTurnPlayerIndex]; 
+}
+
+void Monopoly::getInfoAboutPlayerOnTurn() const
+{
+	Player player = getPlayerOnTurn();
+	std::cout << "Player "<<player.getPlayerId() <<" on turn: " << player.getPlayerName() << std::endl;
+	std::cout << "Current position: " << player.getCurrentPosition() << std::endl;
+	std::cout << "Money: " << player.getMoney() << std::endl;
+}
+
+void Monopoly::printBoardWithPlayers() const
+{
+	board->PrintBoard(getPlayers());
 }
 
 const Player& Monopoly::getPlayer(int playerIndex) const

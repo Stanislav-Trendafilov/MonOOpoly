@@ -22,6 +22,7 @@ public:
 
 	int getPlayerId() const;	
 	int getMoney() const;
+	MyString getPlayerName() const;
 	size_t getCurrentPosition() const;
 	size_t getTrainStationCount() const;
 	int getTotalBalance() const;

@@ -30,6 +30,11 @@ int Player::getMoney() const
 {
 	return money;
 }
+
+MyString Player::getPlayerName() const
+{
+	return playerName;
+}
  
 size_t Player::getCurrentPosition() const
 {

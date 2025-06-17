@@ -15,6 +15,8 @@
 #include "MoveToNearestUtilCard.h"
 #include "Monopoly.h"
 
+#include "Engine.h"	
+
 using namespace std;
 
 
@@ -138,26 +140,31 @@ int main(){
 	//card3->applyEffect(*player4);
 
 	//std::cout << player4->getCurrentPosition() << std::endl;
+	//
+	//Monopoly* monopolyGame=Monopoly::getInstance();
+	//
+	//monopolyGame->startGame();
+	//
+	//int moveWith=monopolyGame->rollDice();
+	//monopolyGame->stepOnField(moveWith);
+	//
+	//std::cout << monopolyGame->getPlayerOnTurn().getCurrentPosition() << std::endl;
+	//std::cout << monopolyGame->getPlayerOnTurn().getMoney() << std::endl;
+	//
+	//moveWith = monopolyGame->rollDice();
+	//monopolyGame->stepOnField(moveWith);
+	//
+	//std::cout << monopolyGame->getPlayerOnTurn().getCurrentPosition() << std::endl;
+	//std::cout << monopolyGame->getPlayerOnTurn().getMoney() << std::endl;
+	//
+	//moveWith = monopolyGame->rollDice();
+	//monopolyGame->stepOnField(moveWith);
+	//
+	//std::cout << monopolyGame->getPlayerOnTurn().getCurrentPosition() << std::endl;
+	//std::cout << monopolyGame->getPlayerOnTurn().getMoney() << std::endl;
 
-	Monopoly* monopolyGame=Monopoly::getInstance();
+    Engine* engine = new Engine();
+ 	engine->run();
 
-	monopolyGame->startGame();
 
-	int moveWith=monopolyGame->rollDice();
-	monopolyGame->stepOnField(moveWith);
-
-	std::cout << monopolyGame->getPlayerOnTurn().getCurrentPosition() << std::endl;
-	std::cout << monopolyGame->getPlayerOnTurn().getMoney() << std::endl;
-
-	moveWith = monopolyGame->rollDice();
-	monopolyGame->stepOnField(moveWith);
-
-	std::cout << monopolyGame->getPlayerOnTurn().getCurrentPosition() << std::endl;
-	std::cout << monopolyGame->getPlayerOnTurn().getMoney() << std::endl;
-
-	moveWith = monopolyGame->rollDice();
-	monopolyGame->stepOnField(moveWith);
-
-	std::cout << monopolyGame->getPlayerOnTurn().getCurrentPosition() << std::endl;
-	std::cout << monopolyGame->getPlayerOnTurn().getMoney() << std::endl;
 }          

@@ -32,6 +32,9 @@ public:
 
 	const Player& getPlayerOnTurn() const;
 	Player& getPlayerOnTurn();
+	void getInfoAboutPlayerOnTurn() const;
+	void printBoardWithPlayers() const;
+
 	const Player& getPlayer(int index) const;
 	Player& getPlayer(int index);
 	const MyVector<Player>& getPlayers() const;

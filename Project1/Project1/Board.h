@@ -23,6 +23,7 @@ public:
 	void activateFieldEffect(Player& player);
 	void InitializeBoard();
 	void PrintBoard() const;
+	void PrintBoard(const MyVector<Player> players) const;
 	static Board* getInstance();
 	static void destroyInstance();
 };
