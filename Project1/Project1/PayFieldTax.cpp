@@ -11,7 +11,6 @@ void PayFieldTax::ApplyAction(Player& player)
 	player.subtractMoney(fieldTax);
 }
 
-
 Field* PayFieldTax::clone() const
 {
 	return new PayFieldTax(*this);

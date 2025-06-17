@@ -1,5 +1,6 @@
 #pragma once
 #include "Field.h"
+#include "Player.h"
 #include "MyString.h"
 #include "MyVector.hpp"
 #include "Constants.h"

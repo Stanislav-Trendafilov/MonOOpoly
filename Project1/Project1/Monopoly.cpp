@@ -33,9 +33,6 @@ void Monopoly::startGame()
 
 	printInstructions();
 
-	std::cout << "!Press any key to start the game!" << std::endl;
-	std::cin.get();
-
 	addPlayers();
 }
 
@@ -127,15 +124,20 @@ void Monopoly::printInstructions() const {
 	std::cout << "  - Be careful not to go bankrupt." << std::endl;
 	std::cout << "  - Most importantly, have fun!" << std::endl;
 
-	std::cout << "\nPress any key to begin..." << std::endl;
-	std::cin.get();
 	std::cout << "===============================================" << std::endl;
 	std::cout << "" << std::endl;
+
+	std::cout << "!Press any key to start the game!" << std::endl;
+	std::cin.get();
 
 };
 
 int Monopoly::rollDice() const
 {
+	std::cout << "Press enter to roll the dices...";
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');//use in order to ignore any previous input
+	std::cin.get();				  
+
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dis(GlobalConstants::DICE_VALUE1, GlobalConstants::DICE_VALUE6);

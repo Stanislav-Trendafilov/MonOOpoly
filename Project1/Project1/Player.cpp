@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Property.h"
 
 Player::Player()
 {
@@ -51,21 +52,23 @@ int Player::getTotalBalance() const
 	return totalBalance;
 }
 
-void Player::addProperty(const Property* property)
+void Player::addProperty(Property* property)
 {
-	ownedProperties.push_back(*property);
-	money -= property->getFieldPrice();
-	totalBalance += property->getFieldPrice()/2;
+	if (!ownsProperty(property)) {
+		ownedProperties.push_back(property);
+		money -= property->getFieldPrice();
+		totalBalance += property->getFieldPrice(); // Обнови тотал баланса
+	}
 }
 
-void Player::removeProperty(const Property* property)
+void Player::removeProperty(Property* property)
 {
 	for (size_t i = 0; i < ownedProperties.size(); i++)
 	{
-		if (property->getName() == ownedProperties[i].getName())
+		if (property->getName() == ownedProperties[i]->getName())
 		{
 			ownedProperties.remove(i);
-	   }
+		}
 	}
 }
 
@@ -73,8 +76,8 @@ bool Player::ownsProperty(Property* property) const
 {
 	for (size_t i = 0; i < ownedProperties.size(); i++)
 	{
-		if (ownedProperties[i].getName()==property->getName())
-			{
+		if (ownedProperties[i]->getName() == property->getName())
+		{
 			return true;
 		}
 	}

@@ -9,7 +9,8 @@ void Engine::run()
 {
 	monopolyGame->startGame();
 
-	/*int moveWith=monopolyGame->rollDice();
+	int moveWith=monopolyGame->rollDice();
+
 	monopolyGame->stepOnField(moveWith);
 	
 	monopolyGame->getInfoAboutPlayerOnTurn();
@@ -23,7 +24,7 @@ void Engine::run()
 	moveWith = monopolyGame->rollDice();
 	monopolyGame->stepOnField(moveWith);
 	
-	monopolyGame->getInfoAboutPlayerOnTurn();*/
+	monopolyGame->getInfoAboutPlayerOnTurn();
 
 	
 }

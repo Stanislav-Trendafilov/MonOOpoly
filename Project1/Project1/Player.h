@@ -4,13 +4,15 @@
 #include "Property.h"
 #include "Constants.h"
 
+class Property;
+
 class Player
 {
 	int money;
 	int playerId;
 	MyString playerName;
 	size_t currentPosition;
-	MyVector<Property> ownedProperties;
+	MyVector<Property*> ownedProperties;
 
 	size_t trainStationCount;
 	int totalBalance; //totalBalance is money + price of all properties
@@ -26,10 +28,11 @@ public:
 	size_t getCurrentPosition() const;
 	size_t getTrainStationCount() const;
 	int getTotalBalance() const;
-
-	void addProperty(const Property* property);
-	void removeProperty(const Property* property);
+	
+	void addProperty(Property* property);
+	void removeProperty(Property* property);
 	bool ownsProperty(Property* property) const;
+
 	void addMoney(int amount);
 	void subtractMoney(int amount);
 	void movePosition(size_t steps);
