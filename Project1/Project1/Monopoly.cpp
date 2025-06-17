@@ -232,7 +232,11 @@ void Monopoly::getInfoAboutPlayerOnTurn() const
 	Player player = getPlayerOnTurn();
 	std::cout << "Player "<<player.getPlayerId() <<" on turn: " << player.getPlayerName() << std::endl;
 	std::cout << "Current position: " << player.getCurrentPosition() << std::endl;
-	std::cout << "Money: " << player.getMoney() << std::endl;
+	std::cout << "Money: " << player.getMoney() << std::endl;									
+	std::cout << "Owned Properties: " << std::endl;
+	player.getOwnedProperties();
+	std::cout << "\nOwned Stations: " << std::endl;
+	player.getOwnedStations();
 }
 
 void Monopoly::printBoardWithPlayers() const

@@ -46,7 +46,7 @@ void Property::ApplyAction(Player& player)
 
    if (ownerId == -1) 
    {
-       std::cout << "This property is unowned.\n";
+       std::cout << "This property is unowned." << std::endl;
        std::cout << "You can buy it for " << fieldPrice << "$."<<std::endl;
        std::cout << "Your current balance: $" << player.getMoney() << std::endl;
 
@@ -67,7 +67,7 @@ void Property::ApplyAction(Player& player)
            }
        }
        else {
-           std::cout << "You do not have enough money to buy this property.\n";
+           std::cout << "You do not have enough money to buy this property." << std::endl;
        }
 
    }

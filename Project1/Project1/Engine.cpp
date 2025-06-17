@@ -59,7 +59,7 @@ void Engine::run()
 					}
 					std::cout << "[You chose to roll the dice]" << std::endl;
 					moveWith = monopolyGame->rollDice();
-					monopolyGame->stepOnField(moveWith);
+					monopolyGame->stepOnField(5);
 					rollDice = true;
 					break;
 

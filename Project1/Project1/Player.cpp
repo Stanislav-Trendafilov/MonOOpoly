@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "TrainStation.h"
 #include "Property.h"
 
 Player::Player()
@@ -52,6 +53,22 @@ int Player::getTotalBalance() const
 	return totalBalance;
 }
 
+void Player::getOwnedProperties() const
+{
+	for (size_t i = 0; i < ownedProperties.size(); i++)
+	{
+		std::cout << ownedProperties[i]->getName() << " -> Rent Level: " <<ownedProperties[i]->getrentLevel() <<std::endl;
+	}
+}
+
+void Player::getOwnedStations() const
+{
+	for (size_t i = 0; i < ownedStations.size(); i++)
+	{
+		std::cout << ownedStations[i]->getName() << " -> Rent Level: " << ownedStations[i]->getRentLevel() << std::endl;
+	}
+}
+
 void Player::addProperty(Property* property)
 {
 	if (!ownsProperty(property)) {
@@ -82,6 +99,40 @@ bool Player::ownsProperty(Property* property) const
 		}
 	}
 	return false;
+}
+
+void Player::addStation(TrainStation* trainStation)
+{
+	ownedStations.push_back(trainStation);
+	money -= trainStation->getStationPrice();
+	totalBalance += trainStation->getStationPrice(); 
+
+	trainStationCount++;
+
+	for (size_t i = 0; i < ownedStations.size(); i++)
+	{
+		ownedStations[i]->setRentLevel(trainStationCount-1);
+	}
+}
+
+void Player::removeStation(TrainStation* trainStation)
+{
+
+	for (size_t i = 0; i < ownedStations.size(); i++)
+	{
+
+		if (trainStation->getName() == ownedStations[i]->getName())
+		{
+			ownedProperties.remove(i);
+		}
+	}
+
+	trainStationCount--;
+
+	for (size_t i = 0; i < ownedStations.size(); i++)
+	{
+		ownedStations[i]->setRentLevel(trainStationCount-1);
+	}
 }
 
 void Player::addMoney(int amount)

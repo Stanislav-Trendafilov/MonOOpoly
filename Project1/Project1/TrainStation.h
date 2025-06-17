@@ -1,5 +1,6 @@
 #pragma once
 #include "Field.h"
+#include "Player.h"
 #include "MyString.h"
 #include "Constants.h"
 
@@ -22,6 +23,8 @@ public:
 	int getRentLevel() const;
 	int getOwnerId() const;
 	int getRentPrice() const;
+
+	void setRentLevel(int level);
 
 	void ApplyAction(Player& player) override;
 

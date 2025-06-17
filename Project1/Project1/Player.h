@@ -3,7 +3,8 @@
 #include "MyVector.hpp"
 #include "Constants.h"
 
-class Property;
+class Property;	   
+class TrainStation;
 
 class Player
 {
@@ -12,8 +13,9 @@ class Player
 	MyString playerName;
 	size_t currentPosition;
 	MyVector<Property*> ownedProperties;
+	MyVector<TrainStation*> ownedStations;
 
-	size_t trainStationCount;
+	size_t trainStationCount=0;// rent [0 1 2 3] [50 100 150 200]
 	int totalBalance; //totalBalance is money + price of all properties
 	bool isInPrison;
 
@@ -26,11 +28,16 @@ public:
 	MyString getPlayerName() const;
 	size_t getCurrentPosition() const;
 	size_t getTrainStationCount() const;
-	int getTotalBalance() const;
+	int getTotalBalance() const;	   
+	void getOwnedProperties() const;
+	void getOwnedStations() const;
 	
 	void addProperty(Property* property);
 	void removeProperty(Property* property);
 	bool ownsProperty(Property* property) const;
+
+	void addStation(TrainStation* trainStation);
+	void removeStation(TrainStation* trainStation);
 	
 	void addMoney(int amount);
 	void subtractMoney(int amount);
