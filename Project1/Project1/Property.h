@@ -27,6 +27,9 @@ public:
 	int getrentLevel() const;
 	int getOwnerId() const;
 	int getRentPrice() const;
+	GlobalConstants::PropertyColors getColor() const;
+
+	void setRentLevel(int newLevel);
 
 	void ApplyAction(Player& player) override;
 

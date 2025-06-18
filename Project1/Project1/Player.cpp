@@ -60,6 +60,11 @@ int Player::getTotalBalance() const
 	return totalBalance;
 }
 
+MyVector<Property*> Player::getMyProperties() const
+{
+	return ownedProperties;
+}
+
 void Player::getOwnedProperties() const
 {
 	for (size_t i = 0; i < ownedProperties.size(); i++)
@@ -76,15 +81,58 @@ void Player::getOwnedStations() const
 	}
 }
 
+void Player::getOwnedUtilities() const
+{
+	for (size_t i = 0; i < ownedUtilities.size(); i++)
+	{
+		std::cout << ownedUtilities[i]->getName() << " -> Rent Level: " << ownedUtilities[i]->getUtilityCount() << std::endl;
+	}
+}
+
 void Player::setRoll(int roll)
 {
 	lastRoll = roll;
 }
 
 void Player::addProperty(Property* property)
-{
-	if (!ownsProperty(property)) {
+{	
+	GlobalConstants::PropertyColors color = property->getColor();
+	int countPropertiesOfColor = 0;
+
+	bool getColorSet = false;
+
+	if (!ownsProperty(property)) 
+	{
 		ownedProperties.push_back(property);
+		for (size_t i = 0; i < ownedProperties.size(); i++)
+		{
+			if (ownedProperties[i]->getColor() == color)
+			{
+				countPropertiesOfColor++;
+			}
+			if(countPropertiesOfColor==2&& (color == GlobalConstants::PropertyColors::BROWN||color==GlobalConstants::PropertyColors::BLUE))
+			{
+				getColorSet = true;
+			}
+			else if(countPropertiesOfColor==3)
+			{
+				getColorSet = true;
+			}
+		}
+		if(getColorSet)
+		{
+			std::cout << "You have all properties of color: " <<int(color) << std::endl;
+			std::cout << "Now you will be able to build on them" << std::endl;
+			for (size_t i = 0; i < ownedProperties.size(); i++)
+			{
+				if (ownedProperties[i]->getColor() == color)
+				{
+					
+					ownedProperties[i]->setRentLevel(ownedProperties[i]->getrentLevel()+1);
+				}
+			}
+		}
+
 		money -= property->getFieldPrice();
 		totalBalance += property->getFieldPrice(); // Обнови тотал баланса
 	}

@@ -26,6 +26,7 @@ public:
 	static void destroyInstance();
 
 	void printInstructions() const;
+	void printBuildMenu() const;
 	void startGame();	
 	int rollDice();
 	void printDice(int num) const;

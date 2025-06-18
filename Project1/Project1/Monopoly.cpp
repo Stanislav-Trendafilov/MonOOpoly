@@ -130,6 +130,24 @@ void Monopoly::printInstructions() const {
 	std::cout << "!Press any key to start the game!" << std::endl;
 	std::cin.get();
 
+}
+
+void Monopoly::printBuildMenu() const
+{
+	std::cout << "\n====================> Build Menu <====================" << std::endl;
+	std::cout << "\nYou can build houses or hotels on properties you own." << std::endl;
+	std::cout << "Rules:"<< std::endl;
+	std::cout << " - You must own all properties of the same color group." << std::endl;
+	std::cout << " - You must build evenly across properties in a group." << std::endl;
+	std::cout << " - Each property can have up to 4 houses before hotel." << std::endl;
+	std::cout << " - Building costs vary depending on the property." << std::endl;
+	std::cout << "\n======================================================" << std::endl;
+	std::cout <<"" << std::endl;
+	std::cout << "List of your eligible properties:" << std::endl;
+
+
+	std::cout << "Enter the property number you want to build on, or 0 to go back." << std::endl;
+
 };
 
 int Monopoly::rollDice() 
@@ -142,10 +160,8 @@ int Monopoly::rollDice()
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dis(GlobalConstants::DICE_VALUE1, GlobalConstants::DICE_VALUE6);
 
-	// int firstDie = dis(gen);
-	//int secondDie = dis(gen);
-	int firstDie = 6;
-	int secondDie = 6;
+	int firstDie = dis(gen);
+	int secondDie = dis(gen);
 	
 	std::cout << "You have rolled: "<<std::endl;
 
@@ -156,6 +172,10 @@ int Monopoly::rollDice()
 	{
 		std::cout << "   You rolled a double! You can roll again." << std::endl;
 		thrownTupples++;
+	}
+	else
+	{
+		thrownTupples = 0;
 	}
 
 
@@ -249,8 +269,10 @@ void Monopoly::getInfoAboutPlayerOnTurn() const
 	std::cout << "Money: " << player.getMoney() << std::endl;									
 	std::cout << "Owned Properties: " << std::endl;
 	player.getOwnedProperties();
-	std::cout << "\nOwned Stations: " << std::endl;
+	std::cout << "Owned Stations: " << std::endl;
 	player.getOwnedStations();
+	std::cout << "Owned Utilities: " << std::endl;
+	player.getOwnedUtilities();
 }
 
 int Monopoly::getRollTupplesCount() const

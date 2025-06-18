@@ -33,7 +33,7 @@ void Engine::run()
 			int turnAction;
 			std::cin >> turnAction;
 
-			int newPlayerTurnIndex, moveWith;
+			int newPlayerTurnIndex, moveWith,availableOptions;
 
 			switch (turnAction)
 			{
@@ -111,6 +111,18 @@ void Engine::run()
 
 				case 4:
 					std::cout << "[Build menu]" << std::endl;
+					monopolyGame->printBuildMenu();
+
+					availableOptions = 1;
+								
+					for (size_t i = 0; i < monopolyGame->getPlayerOnTurn().getMyProperties().size(); i++)
+					{			 
+						if(monopolyGame->getPlayerOnTurn().getMyProperties()[i]->getrentLevel()>0)
+						{
+							std::cout << availableOptions << ". " << monopolyGame->getPlayerOnTurn().getMyProperties()[i]->getName() << std::endl;
+						}
+
+					}
 
 					break;
 

@@ -40,6 +40,16 @@ int Property::getRentPrice() const
 	return priceForRent[rentLevel];
 }
 
+GlobalConstants::PropertyColors Property::getColor() const
+{
+    return color;
+}
+
+void Property::setRentLevel(int newLevel)
+{
+    this->rentLevel = newLevel;
+}
+
 void Property::ApplyAction(Player& player) 
 {
    std::cout << "\n>>> You landed on property: " << getName() << " <<<"<<std::endl;

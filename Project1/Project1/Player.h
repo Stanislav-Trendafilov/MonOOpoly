@@ -34,9 +34,13 @@ public:
 	size_t getCurrentPosition() const;
 	size_t getTrainStationCount() const;
 	int getLastRoll() const;
-	int getTotalBalance() const;	   
+	int getTotalBalance() const;	 
+
+	
+	MyVector<Property*> getMyProperties() const;
 	void getOwnedProperties() const;
 	void getOwnedStations() const;
+	void getOwnedUtilities() const;
 	
 	void setRoll(int roll);
 
