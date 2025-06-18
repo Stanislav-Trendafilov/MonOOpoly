@@ -25,7 +25,7 @@ int CompanyField::getUtilityCount() const
 
 int CompanyField::getRentPrice() const
 {
-    int rent = 10;
+    int rent = Monopoly::getInstance()->getPlayerOnTurn().getLastRoll();
     if (utilityCount == 1)
     {
         rent *= 4; 

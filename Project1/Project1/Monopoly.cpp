@@ -132,23 +132,32 @@ void Monopoly::printInstructions() const {
 
 };
 
-int Monopoly::rollDice() const
+int Monopoly::rollDice() 
 {
 	std::cout << "\nPress enter to roll the dices...";
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');//use in order to ignore any previous input
-	std::cin.get();				  
+	std::cin.get();	
 
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dis(GlobalConstants::DICE_VALUE1, GlobalConstants::DICE_VALUE6);
 
-	int firstDie = dis(gen);
-	int secondDie = dis(gen);
+	// int firstDie = dis(gen);
+	//int secondDie = dis(gen);
+	int firstDie = 6;
+	int secondDie = 6;
 	
 	std::cout << "You have rolled: "<<std::endl;
 
 	printDice(firstDie);
 	printDice(secondDie);
+
+	if(firstDie == secondDie)
+	{
+		std::cout << "   You rolled a double! You can roll again." << std::endl;
+		thrownTupples++;
+	}
+
 
 	std::cout << "   Total: " << firstDie + secondDie << std::endl;
 	return firstDie + secondDie;
@@ -217,6 +226,11 @@ void Monopoly::setCurrentTurnPlayerIndex(int index)
 	this->currentTurnPlayerIndex = index;
 }
 
+void Monopoly::setThrownTupples(int tupples)
+{
+	this->thrownTupples = tupples;
+}
+
 const Player& Monopoly::getPlayerOnTurn() const
 {
 	return players[currentTurnPlayerIndex]; 
@@ -237,6 +251,11 @@ void Monopoly::getInfoAboutPlayerOnTurn() const
 	player.getOwnedProperties();
 	std::cout << "\nOwned Stations: " << std::endl;
 	player.getOwnedStations();
+}
+
+int Monopoly::getRollTupplesCount() const
+{
+	return thrownTupples;
 }
 
 void Monopoly::printBoardWithPlayers() const

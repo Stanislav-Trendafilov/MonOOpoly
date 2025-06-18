@@ -20,6 +20,7 @@ class Player
 	size_t trainStationCount=0;// rent [0 1 2 3] [50 100 150 200]
 	size_t utilitiesCount = 0;
 
+	int lastRoll; //lastRoll is the last dice roll of the player (utility logic)
 	int totalBalance; //totalBalance is money + price of all properties
 	bool isInPrison;
 
@@ -32,10 +33,13 @@ public:
 	MyString getPlayerName() const;
 	size_t getCurrentPosition() const;
 	size_t getTrainStationCount() const;
+	int getLastRoll() const;
 	int getTotalBalance() const;	   
 	void getOwnedProperties() const;
 	void getOwnedStations() const;
 	
+	void setRoll(int roll);
+
 	void addProperty(Property* property);
 	void removeProperty(Property* property);
 	bool ownsProperty(Property* property) const;

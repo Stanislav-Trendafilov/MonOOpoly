@@ -21,6 +21,7 @@ int Player::getPlayerId() const
 
 void Player::goInPrison()
 {
+	currentPosition = GlobalConstants::IN_JAIL_INDEX;
 	isInPrison = true;
 }
 
@@ -49,6 +50,11 @@ size_t Player::getTrainStationCount() const
 	return trainStationCount;
 }
 
+int Player::getLastRoll() const
+{
+	return lastRoll;
+}
+
 int Player::getTotalBalance() const
 {
 	return totalBalance;
@@ -70,6 +76,11 @@ void Player::getOwnedStations() const
 	}
 }
 
+void Player::setRoll(int roll)
+{
+	lastRoll = roll;
+}
+
 void Player::addProperty(Property* property)
 {
 	if (!ownsProperty(property)) {
@@ -77,6 +88,7 @@ void Player::addProperty(Property* property)
 		money -= property->getFieldPrice();
 		totalBalance += property->getFieldPrice(); // Обнови тотал баланса
 	}
+
 }
 
 void Player::removeProperty(Property* property)
@@ -184,7 +196,9 @@ void Player::movePosition(size_t steps)
 	if (currentPosition > GlobalConstants::MAX_COUNT_FIELDS)
 	{
 		currentPosition -= 40; 
+		addMoney(GlobalConstants::PASS_START_CASH);
 	}
+
 }
 
 void Player::moveToLocation(size_t position)
@@ -193,6 +207,7 @@ void Player::moveToLocation(size_t position)
 	if (currentPosition > GlobalConstants::MAX_COUNT_FIELDS)
 	{
 		currentPosition -= 40;
+		addMoney(GlobalConstants::PASS_START_CASH);
 	}
 }
 

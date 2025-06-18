@@ -10,6 +10,7 @@ class Monopoly
 {
 	Monopoly();
 	int currentTurnPlayerIndex;
+	int thrownTupples;
 	static Monopoly* instance;
 
 	MyVector<Player> players;
@@ -26,15 +27,18 @@ public:
 
 	void printInstructions() const;
 	void startGame();	
-	int rollDice() const;
+	int rollDice();
 	void printDice(int num) const;
 	void stepOnField(size_t moveWithSteps);
 	
 	void setCurrentTurnPlayerIndex(int index);
+	void setThrownTupples(int tupples);
 
 	const Player& getPlayerOnTurn() const;
 	Player& getPlayerOnTurn();
 	void getInfoAboutPlayerOnTurn() const;
+	int getRollTupplesCount() const;
+
 	void printBoard() const;
 	void printBoardWithPlayers() const;
 

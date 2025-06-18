@@ -24,6 +24,8 @@ void Engine::run()
 		std::cout << "7. Unmortgage Property" << std::endl;
 		std::cout << "8. End Turn" << std::endl;
 
+		monopolyGame->setThrownTupples(0);
+
 		while (!turnEnded)
 		{
 			std::cout << "\nEnter your action: ";
@@ -40,12 +42,61 @@ void Engine::run()
 					{
 						std::cout << "You have already rolled the dice this turn." << std::endl;
 						continue;
-					}												   
-					std::cout << "[You chose to roll the dice]" << std::endl;
+					}
+
+					std::cout << "[You chose to roll the dice]" << std::endl;		
+
+					if (monopolyGame->getPlayerOnTurn().isJailed())
+					{
+						std::cout << "Do you want to exit jail for 100$ (y/n)";
+						char choice;
+						std::cin >> choice;
+
+						if (choice == 'y' || choice == 'Y')
+						{
+							monopolyGame->getPlayerOnTurn().goOutOfPrison();
+							std::cout << "You left prison successfully!" << std::endl;
+						}
+						else {
+							std::cout << "You chose not to exit prison and try your luck." << std::endl;
+						}
+
+					}
+
 					moveWith = monopolyGame->rollDice();
-					monopolyGame->stepOnField(12);
-					monopolyGame->stepOnField(16);
-					rollDice = true;
+
+					if (monopolyGame->getPlayerOnTurn().isJailed())
+					{
+						if (monopolyGame->getRollTupplesCount() == 1)
+						{
+							std::cout << "You rolled a double! You can leave jail." << std::endl;
+							monopolyGame->getPlayerOnTurn().goOutOfPrison();
+							rollDice = true;
+							monopolyGame->getPlayerOnTurn().setRoll(moveWith);//in order to use it in utility functions
+							monopolyGame->stepOnField(moveWith);
+						}
+						else
+						{
+							std::cout << "You rolled a non-double. You must stay in jail." << std::endl;
+						}
+					}
+					else
+					{
+						if (monopolyGame->getRollTupplesCount() == 0)
+						{
+							rollDice = true;
+						}
+						else if (monopolyGame->getRollTupplesCount() == 3)
+						{
+							std::cout << "You rolled a double three times in a row! You must go to jail." << std::endl;
+							monopolyGame->getPlayerOnTurn().goInPrison();
+							rollDice = true;
+							continue;
+						}
+						monopolyGame->getPlayerOnTurn().setRoll(moveWith);//in order to use it in utility functions
+						monopolyGame->stepOnField(moveWith);
+					}
+
 					break;
 
 				case 2:
