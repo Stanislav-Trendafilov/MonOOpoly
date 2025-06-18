@@ -5,22 +5,6 @@ Engine::Engine()
 	monopolyGame = Monopoly::getInstance();
 }
 
-//int moveWith=monopolyGame->rollDice();
-	//
-	//monopolyGame->stepOnField(moveWith);
-	//monopolyGame->getInfoAboutPlayerOnTurn();
-	//
-	//moveWith = monopolyGame->rollDice();
-	//monopolyGame->stepOnField(moveWith);
-	//
-	//monopolyGame->getInfoAboutPlayerOnTurn();
-	//
-	//moveWith = monopolyGame->rollDice();
-	//monopolyGame->stepOnField(moveWith);
-	//
-	//monopolyGame->getInfoAboutPlayerOnTurn();
-
-
 void Engine::run()
 {
 	monopolyGame->startGame();
@@ -56,10 +40,11 @@ void Engine::run()
 					{
 						std::cout << "You have already rolled the dice this turn." << std::endl;
 						continue;
-					}
+					}												   
 					std::cout << "[You chose to roll the dice]" << std::endl;
 					moveWith = monopolyGame->rollDice();
-					monopolyGame->stepOnField(5);
+					monopolyGame->stepOnField(12);
+					monopolyGame->stepOnField(16);
 					rollDice = true;
 					break;
 

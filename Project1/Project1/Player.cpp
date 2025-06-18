@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "TrainStation.h"
+#include "CompanyField.h"
 #include "Property.h"
 
 Player::Player()
@@ -123,6 +124,7 @@ void Player::removeStation(TrainStation* trainStation)
 
 		if (trainStation->getName() == ownedStations[i]->getName())
 		{
+			trainStation->setRentLevel(0);
 			ownedProperties.remove(i);
 		}
 	}
@@ -132,6 +134,36 @@ void Player::removeStation(TrainStation* trainStation)
 	for (size_t i = 0; i < ownedStations.size(); i++)
 	{
 		ownedStations[i]->setRentLevel(trainStationCount-1);
+	}
+}
+
+void Player::addUtility(CompanyField* company)
+{
+	ownedUtilities.push_back(company);
+	money -= company->getCompanyPrice();
+	totalBalance += company->getCompanyPrice();
+							 
+	utilitiesCount++;
+
+	company->setUtilityCount(utilitiesCount);
+}
+
+void Player::removeUtility(CompanyField* company)
+{
+	for (size_t i = 0; i < ownedUtilities.size(); i++)
+	{
+		if (company->getName() == ownedUtilities[i]->getName())
+		{
+			company->setUtilityCount(0);
+			ownedUtilities.remove(i);
+		}
+	}
+
+	utilitiesCount--;
+
+	for (size_t i = 0; i < ownedUtilities.size(); i++)
+	{
+		ownedUtilities[i]->setUtilityCount(utilitiesCount);
 	}
 }
 

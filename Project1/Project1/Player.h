@@ -5,6 +5,7 @@
 
 class Property;	   
 class TrainStation;
+class CompanyField;
 
 class Player
 {
@@ -14,8 +15,11 @@ class Player
 	size_t currentPosition;
 	MyVector<Property*> ownedProperties;
 	MyVector<TrainStation*> ownedStations;
+	MyVector<CompanyField*> ownedUtilities; 
 
 	size_t trainStationCount=0;// rent [0 1 2 3] [50 100 150 200]
+	size_t utilitiesCount = 0;
+
 	int totalBalance; //totalBalance is money + price of all properties
 	bool isInPrison;
 
@@ -38,6 +42,9 @@ public:
 
 	void addStation(TrainStation* trainStation);
 	void removeStation(TrainStation* trainStation);
+
+	void addUtility(CompanyField* company);
+	void removeUtility(CompanyField* company);
 	
 	void addMoney(int amount);
 	void subtractMoney(int amount);

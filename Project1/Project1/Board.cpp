@@ -111,8 +111,7 @@ void Board::InitializeBoard()
 	int rent6[] = { 10, 50, 150, 450, 625, 750 };
 	fields.addObject(new Property("Slaveykov Square", GlobalConstants::PropertyColors::PINK, 140, 100, rent6, 11));
 
-	int companyRents[] = { 20, 40 };
-	fields.addObject(new CompanyField("Electric Company", 150, companyRents, 12));
+	fields.addObject(new CompanyField("Electric Company", 150, 12));
 
 	int rent7[] = { 10, 50, 150, 450, 625, 750 };
 	fields.addObject(new Property("Hristo Botev Blvd", GlobalConstants::PropertyColors::PINK, 140, 100, rent7, 13));
@@ -154,7 +153,7 @@ void Board::InitializeBoard()
 	int rent16[] = { 22, 110, 330, 800, 975, 1150 };
 	fields.addObject(new Property("Old Town", GlobalConstants::PropertyColors::YELLOW, 260, 150, rent16, 27));
 
-	fields.addObject(new CompanyField("Water Supply", 150, companyRents, 28));
+	fields.addObject(new CompanyField("Water Supply", 150, 28));
 
 	int rent17[] = { 24, 120, 360, 850, 1025, 1200 };
 	fields.addObject(new Property("Ancient Theatre", GlobalConstants::PropertyColors::YELLOW, 280, 150, rent17, 29));
