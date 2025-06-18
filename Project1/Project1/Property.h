@@ -30,6 +30,7 @@ public:
 	GlobalConstants::PropertyColors getColor() const;
 
 	void setRentLevel(int newLevel);
+	void buildHouse();
 
 	void ApplyAction(Player& player) override;
 

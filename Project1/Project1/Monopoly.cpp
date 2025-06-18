@@ -144,10 +144,6 @@ void Monopoly::printBuildMenu() const
 	std::cout << "\n======================================================" << std::endl;
 	std::cout <<"" << std::endl;
 	std::cout << "List of your eligible properties:" << std::endl;
-
-
-	std::cout << "Enter the property number you want to build on, or 0 to go back." << std::endl;
-
 };
 
 int Monopoly::rollDice() 
@@ -160,8 +156,11 @@ int Monopoly::rollDice()
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dis(GlobalConstants::DICE_VALUE1, GlobalConstants::DICE_VALUE6);
 
-	int firstDie = dis(gen);
-	int secondDie = dis(gen);
+	//int firstDie = dis(gen);
+	//int secondDie = dis(gen);
+
+	int firstDie = 0;
+	int secondDie =1;
 	
 	std::cout << "You have rolled: "<<std::endl;
 

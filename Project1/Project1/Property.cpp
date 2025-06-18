@@ -50,6 +50,18 @@ void Property::setRentLevel(int newLevel)
     this->rentLevel = newLevel;
 }
 
+void Property::buildHouse()
+{
+    if(rentLevel == GlobalConstants::MAX_BUILDINGS_PROPERTY-1) 
+    {
+        std::cout << "You cannot build more houses on this property." << std::endl;
+        return;
+	}
+    std::cout << "You built house successfully!" << std::endl;
+    rentLevel++;
+
+}
+
 void Property::ApplyAction(Player& player) 
 {
    std::cout << "\n>>> You landed on property: " << getName() << " <<<"<<std::endl;

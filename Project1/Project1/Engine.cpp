@@ -33,7 +33,9 @@ void Engine::run()
 			int turnAction;
 			std::cin >> turnAction;
 
-			int newPlayerTurnIndex, moveWith,availableOptions;
+			int newPlayerTurnIndex, moveWith,number, priceForBuilding;
+
+			MyVector<int>validForBuildIndexes;
 
 			switch (turnAction)
 			{
@@ -113,15 +115,41 @@ void Engine::run()
 					std::cout << "[Build menu]" << std::endl;
 					monopolyGame->printBuildMenu();
 
-					availableOptions = 1;
 								
 					for (size_t i = 0; i < monopolyGame->getPlayerOnTurn().getMyProperties().size(); i++)
 					{			 
 						if(monopolyGame->getPlayerOnTurn().getMyProperties()[i]->getrentLevel()>0)
 						{
-							std::cout << availableOptions << ". " << monopolyGame->getPlayerOnTurn().getMyProperties()[i]->getName() << std::endl;
+							std::cout << i << ". " << monopolyGame->getPlayerOnTurn().getMyProperties()[i]->getName() << std::endl;
+							validForBuildIndexes.push_back(i);
 						}
 
+					}
+					std::cout << "Enter the property number you want to build on:" << std::endl;
+					
+					std::cin >> number;
+					while (number <0)
+					{
+						std::cout << "Invalid property number. Try again." << std::endl;
+						std::cin >> number;
+					}
+
+
+					priceForBuilding = monopolyGame->getPlayerOnTurn().getMyProperties()[number]->getPriceForBuilding();
+					std::cout << "Building price for property is " << priceForBuilding << "$" << std::endl;
+					std::cout << "Do you really want to buy a house on property ("<<number <<")  (y/n)" << std::endl;
+
+					char choice;
+					std::cin >> choice;
+
+					if (choice == 'y' || choice == 'Y')
+					{
+						monopolyGame->getPlayerOnTurn().getMyProperties()[number]->buildHouse();
+						monopolyGame->getPlayerOnTurn().subtractMoney(priceForBuilding);
+					}
+					else 
+					{
+						std::cout << "You chose not to build houses." << std::endl;
 					}
 
 					break;
