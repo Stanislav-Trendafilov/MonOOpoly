@@ -1,16 +1,1 @@
-﻿  Player.cpp
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(146,35): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(147,42): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(201,27): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(206,41): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(227,40): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(228,47): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(234,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(247,27): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(255,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(262,35): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(263,42): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(267,27): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(277,26): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(286,38): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Project1.vcxproj -> C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\x64\Debug\Project1.exe
+﻿  Project1.vcxproj -> C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\x64\Debug\Project1.exe
