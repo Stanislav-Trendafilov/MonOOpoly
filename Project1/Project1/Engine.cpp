@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include "Trade.h"
 
 Engine::Engine()
 {
@@ -33,12 +34,13 @@ void Engine::run()
 			int turnAction;
 			std::cin >> turnAction;
 
-			int newPlayerTurnIndex, moveWith,number, priceForBuilding, targetPlayerId,offerType, requestType,offerMoney;
+			int newPlayerTurnIndex, moveWith,number, priceForBuilding, targetPlayerId,offerType, requestType,offerMoney, offerPropIndex, requestMoney,requestPropIndex;
 
 			bool canBuild = true;
 
-			Player targetPlayer;
+			Player* targetPlayer = nullptr;	
 			MyVector<Property* >validForBuildProps;
+			Trade trade;
 
 			switch (turnAction)
 			{
@@ -193,7 +195,6 @@ void Engine::run()
 					break;
 
 				case 5:
-
 					monopolyGame->printTradeMenu();
 
 					std::cout << "Available players to trade with:"<< std::endl;
@@ -221,51 +222,126 @@ void Engine::run()
 						break;
 					}
 
-					targetPlayer = monopolyGame->getPlayer(targetPlayerId);
+					//logic///////
+
+					targetPlayer = &monopolyGame->getPlayer(targetPlayerId);
+
+					trade = Trade(&monopolyGame->getPlayerOnTurn(), targetPlayer);
 
 					std::cout << "\nWhat do you want to offer?" << std::endl;
 					std::cout << "1. Money" << std::endl;
 					std::cout << "2. Property" << std::endl;
-					std::cout << "3. Both" << std::endl;
-
 
 					offerType;
 					std::cin >> offerType;
 
-
-
-					while (offerType < 1 || offerType > 3)
+					while (offerType < 1 || offerType > 2)
 					{
-						std::cout << "Invalid option. Please choose 1, 2, or 3: " << std::endl;
+						std::cout << "Invalid option. Please choose 1 or 2: " << std::endl;
 						std::cin >> offerType;
 					}
 
 					std::cout << "You have successfully chosen option: " << offerType << std::endl;
 
+					if (offerType == 1)
+					{
+						std::cout << "\nEnter amount of money to OFFER: ";
+						std::cin >> offerMoney;
+
+						while (offerMoney > monopolyGame->getPlayerOnTurn().getMoney())
+						{
+							std::cout << "You don't have enough money." << std::endl;
+							std::cin >> offerMoney;
+						}
+						trade.setOfferedMoney(offerMoney);
+
+					}
+					else if (offerType == 2)
+					{
+						std::cout << "You can trade only properties without houses on them" << std::endl;
+						std::cout << "Your properties:" << std::endl;
+						for (size_t i = 0; i < monopolyGame->getPlayerOnTurn().getMyProperties().size(); i++)
+						{
+							std::cout << "  [" << i << "] " << monopolyGame->getPlayerOnTurn().getMyProperties()[i] << std::endl;
+						}
+
+						std::cout << "Enter index of PROPERTY to OFFER: ";
+						std::cin >> offerPropIndex;
+
+						Property* offerProperty = nullptr;
+
+
+						if (offerPropIndex >= 0 && offerPropIndex < monopolyGame->getPlayerOnTurn().getMyProperties().size())
+						{
+							offerProperty = monopolyGame->getPlayerOnTurn().getMyProperties()[offerPropIndex];
+						}
+
+						trade.setOfferedProperty(offerProperty);
+
+					}
+
 					std::cout << "\nWhat do you want in return?" << std::endl;
 					std::cout << "1. Money" << std::endl;
 					std::cout << "2. Property" << std::endl;
-					std::cout << "3. Both" << std::endl;
 
 					requestType;
 					std::cin >> requestType;
 
-					while (requestType < 1 || requestType > 3)
+					while (requestType < 1 || requestType > 2)
 					{
-						std::cout << "Invalid option. Please choose 1, 2, or 3: " << std::endl;
+						std::cout << "Invalid option. Please choose 1 or 2: " << std::endl;
 						std::cin >> requestType;
 					}
 
 					std::cout << "You have successfully chosen option: " << requestType << std::endl;
 
-					std::cout << "\nTrade offer has been sent to " << targetPlayer.getPlayerName() << "."<<std::endl;
-					std::cout << targetPlayer.getPlayerName() << ", do you accept the trade? (y/n): ";
+					if (requestType == 1)
+					{
+						std::cout << "\nEnter amount of money to REQUEST: ";
+						std::cin >> requestMoney;
+
+						while (requestMoney > targetPlayer->getMoney())
+						{
+							std::cout << targetPlayer->getPlayerName() << " doesn't have that much money." << std::endl;
+							std::cin >> requestMoney;
+						}
+						trade.setRequestedMoney(requestMoney);
+					}
+					else if (requestType == 2)
+					{
+						std::cout << "You can ask only for properties without houses on them" << std::endl;
+						std::cout << targetPlayer->getPlayerName() << "'s properties:" << std::endl;
+
+						for (size_t i = 0; i < targetPlayer->getMyProperties().size(); i++)
+						{
+							std::cout << "  [" << i << "] " << targetPlayer->getMyProperties()[i]->getName() << std::endl;
+						}
+
+						std::cout << "Enter index of PROPERTY to REQUEST: ";
+						std::cin >> requestPropIndex;
+
+						Property* requestProp = nullptr;
+
+						if (requestPropIndex >= 0 && requestPropIndex < targetPlayer->getMyProperties().size())
+						{
+							requestProp = targetPlayer->getMyProperties()[requestPropIndex];
+						}
+
+						trade.setRequestedProperty(requestProp);
+
+					}
+					std::cout << "\nTrade offer has been sent to " << targetPlayer->getPlayerName() << "."<<std::endl;
+
+					trade.showTradeOffer();
+
+					std::cout << targetPlayer->getPlayerName() << ", do you accept the trade? (y/n): ";
 
 					char answer;
 					std::cin >> answer;
 
 					if (answer == 'y' || answer == 'Y')
 					{
+						trade.applyTrade();
 						std::cout << "Trade accepted! Assets are exchanged." << std::endl;
 
 					}

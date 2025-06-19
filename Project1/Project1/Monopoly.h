@@ -49,7 +49,5 @@ public:
 	const MyVector<Player>& getPlayers() const;
 	MyVector<Player>& getPlayers();
 
-	void PlayTurn();
-
 };
 

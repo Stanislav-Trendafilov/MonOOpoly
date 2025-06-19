@@ -144,6 +144,7 @@ void Monopoly::printBuildMenu() const
 	std::cout <<"" << std::endl;
 	std::cout << "List of your eligible properties:" << std::endl;
 }
+
 void Monopoly::printTradeMenu() const
 {
 	std::cout << "[Initiating trade]" << std::endl;
@@ -152,10 +153,8 @@ void Monopoly::printTradeMenu() const
 	std::cout << "Trades can include:" << std::endl;
 	std::cout << " - Money" << std::endl;
 	std::cout << " - Properties" << std::endl;
-	std::cout << " - Both" << std::endl;
 	std::cout << "==========================================" << std::endl;
-}
-;
+};
 
 int Monopoly::rollDice() 
 {
@@ -167,11 +166,11 @@ int Monopoly::rollDice()
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dis(GlobalConstants::DICE_VALUE1, GlobalConstants::DICE_VALUE6);
 
-	//int firstDie = dis(gen);
-	//int secondDie = dis(gen);
+	int firstDie = dis(gen);
+	int secondDie = dis(gen);
 
-	int firstDie = 0;
-	int secondDie =1;
+	//int firstDie = 0;
+	//int secondDie =1;
 	
 	std::cout << "You have rolled: "<<std::endl;
 
@@ -303,20 +302,20 @@ void Monopoly::printBoard() const
 const Player& Monopoly::getPlayer(int playerIndex) const
 { 
 
-	if (playerIndex <=0 || playerIndex > players.size()) 
+	if (playerIndex <0 || playerIndex > players.size()) 
 	{
 		throw std::out_of_range("Player not found");
 	}
-	return players[playerIndex - 1];
+	return players[playerIndex];
 }
 
 Player& Monopoly::getPlayer(int index)
 {
-	if (index <= 0 || index > players.size())
+	if (index < 0 || index > players.size())
 	{
 		throw std::out_of_range("Player not found");
 	}
-	return players[index - 1];
+	return players[index];
 }
 
 const MyVector<Player>& Monopoly::getPlayers() const
@@ -329,8 +328,5 @@ MyVector<Player>& Monopoly::getPlayers()
 	return players;
 }
 
-void Monopoly::PlayTurn()
-{
 
-}
 
