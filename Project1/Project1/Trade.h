@@ -2,6 +2,8 @@
 #include <iostream>
 #include "Player.h"
 #include "Property.h"
+#include "TrainStation.h"
+#include "CompanyField.h"
 
 class Trade
 {
@@ -14,6 +16,12 @@ class Trade
 	Property* offeredProperty = nullptr;
 	Property* requestedProperty = nullptr;
 
+	TrainStation* offeredTrainStation = nullptr;
+	TrainStation* requestedTrainStation = nullptr;
+
+	CompanyField* offeredCompanyField = nullptr;
+	CompanyField* requestedCompanyField = nullptr;
+
 public:
 	Trade();
 	Trade(Player* first, Player* second);
@@ -23,6 +31,12 @@ public:
 
 	void setOfferedProperty(Property* property);
 	void setRequestedProperty(Property* property);
+
+	void setOfferedTrainStation(TrainStation* trainStation);
+	void setRequestedTrainStation(TrainStation* trainStation);
+
+	void setOfferedCompanyField(CompanyField* companyField);
+	void setRequestedCompanyField(CompanyField* companyField);
 
 	void applyTrade(); 
 	void showTradeOffer();

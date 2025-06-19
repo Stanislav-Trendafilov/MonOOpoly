@@ -31,6 +31,26 @@ void Trade::setRequestedProperty(Property* property)
 	this->requestedProperty = property;
 }
 
+void Trade::setOfferedTrainStation(TrainStation* trainStation)
+{
+	this->offeredTrainStation = trainStation;
+}
+
+void Trade::setRequestedTrainStation(TrainStation* trainStation)
+{
+	this->requestedTrainStation = trainStation;
+}
+
+void Trade::setOfferedCompanyField(CompanyField* companyField)
+{
+	this->offeredCompanyField = companyField;
+}
+
+void Trade::setRequestedCompanyField(CompanyField* companyField)
+{
+	this->requestedCompanyField = companyField;
+}
+
 void Trade::showTradeOffer() 
 {
 	std::cout << "\n-------> Trade Offer <-------" << std::endl;
@@ -44,6 +64,14 @@ void Trade::showTradeOffer()
 	{
 		std::cout << "  Property: " << offeredProperty->getName() << std::endl;
 	}
+	if (offeredTrainStation != nullptr)
+	{
+		std::cout << "  Train Station: " << offeredTrainStation->getName() << std::endl;
+	}
+	if( offeredCompanyField != nullptr)
+	{
+		std::cout << "  Company Field: " << offeredCompanyField->getName() << std::endl;
+	}
 	std::cout << "\nIn return for:"<< std::endl;
 
 	if (requestedMoney > 0)
@@ -53,6 +81,14 @@ void Trade::showTradeOffer()
 	if(requestedProperty != nullptr)
 	{
 		std::cout << "  Property: " << requestedProperty->getName() << std::endl;
+	}
+	if (requestedTrainStation != nullptr)
+	{
+		std::cout << "  Train Station: " << requestedTrainStation->getName() << std::endl;
+	}
+	if (requestedCompanyField != nullptr)
+	{
+		std::cout << "  Company Field: " << requestedCompanyField->getName() << std::endl;
 	}
 	std::cout << "-----------------------------" << std::endl;
 }
@@ -84,6 +120,33 @@ void Trade::applyTrade()
 		firstPlayer->addMoney(requestedProperty->getFieldPrice());
 	}
 
+	if (offeredTrainStation != nullptr)
+	{
+		firstPlayer->removeStation(offeredTrainStation);
+		secondPlayer->addStation(offeredTrainStation);
+		secondPlayer->addMoney(offeredTrainStation->getStationPrice());
+	}
+
+	if (requestedTrainStation != nullptr)
+	{
+		secondPlayer->removeStation(requestedTrainStation);
+		firstPlayer->addStation(requestedTrainStation);
+		firstPlayer->addMoney(requestedTrainStation->getStationPrice());
+	}
+
+	if (offeredCompanyField != nullptr)
+	{
+		firstPlayer->removeUtility(offeredCompanyField);
+		secondPlayer->addUtility(offeredCompanyField);
+		secondPlayer->addMoney(offeredCompanyField->getCompanyPrice());
+	}
+
+	if (requestedCompanyField != nullptr)
+	{
+		secondPlayer->removeUtility(requestedCompanyField);
+		firstPlayer->addUtility(requestedCompanyField);
+		firstPlayer->addMoney(requestedCompanyField->getCompanyPrice());
+	}
 	std::cout << "Trade successfully completed."<< std::endl;
 }
 

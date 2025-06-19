@@ -36,8 +36,9 @@ public:
 	int getLastRoll() const;
 	int getTotalBalance() const;	 
 
-	
 	MyVector<Property*> getMyProperties() const;
+	MyVector<TrainStation*> getMyStations() const;
+	MyVector<CompanyField*> getMyUtilities() const;
 	void getOwnedProperties() const;
 	void getOwnedStations() const;
 	void getOwnedUtilities() const;

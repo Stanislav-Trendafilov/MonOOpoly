@@ -231,11 +231,13 @@ void Engine::run()
 				std::cout << "\nWhat do you want to offer?" << std::endl;
 				std::cout << "1. Money" << std::endl;
 				std::cout << "2. Property" << std::endl;
+				std::cout << "3. Train Station" << std::endl;
+				std::cout << "4. Utility" << std::endl;
 
 				offerType;
 				std::cin >> offerType;
 
-				while (offerType < 1 || offerType > 2)
+				while (offerType < 1 || offerType > 4)
 				{
 					std::cout << "Invalid option. Please choose 1 or 2: " << std::endl;
 					std::cin >> offerType;
@@ -282,15 +284,54 @@ void Engine::run()
 					trade.setOfferedProperty(offerProperty);
 
 				}
+				else if (offerType == 3)
+				{
+					std::cout << "Your train stations:" << std::endl;
+					for (size_t i = 0; i < monopolyGame->getPlayerOnTurn().getMyStations().size(); i++)
+					{
+						std::cout << "  [" << i << "] " << monopolyGame->getPlayerOnTurn().getMyStations()[i]->getName() << std::endl;
+					}
+					std::cout << "Enter index of TRAIN STATION to OFFER: ";
+					std::cin >> offerPropIndex;
+
+					TrainStation* offerTrainStation = nullptr;
+
+					if (offerPropIndex >= 0 && offerPropIndex < monopolyGame->getPlayerOnTurn().getMyStations().size())
+					{
+						offerTrainStation = monopolyGame->getPlayerOnTurn().getMyStations()[offerPropIndex];
+					}
+					trade.setOfferedTrainStation(offerTrainStation);
+				}
+				else if (offerType == 4)
+				{
+					std::cout << "Your utilities:" << std::endl;
+					for (size_t i = 0; i < monopolyGame->getPlayerOnTurn().getMyUtilities().size(); i++)
+					{
+						std::cout << "  [" << i << "] " << monopolyGame->getPlayerOnTurn().getMyUtilities()[i]->getName() << std::endl;
+					}
+
+					std::cout << "Enter index of UTILITY to OFFER: ";
+					std::cin >> offerPropIndex;
+
+					CompanyField* offerUtility = nullptr;
+
+					if (offerPropIndex >= 0 && offerPropIndex < monopolyGame->getPlayerOnTurn().getMyUtilities().size())
+					{
+						offerUtility = monopolyGame->getPlayerOnTurn().getMyUtilities()[offerPropIndex];
+					}
+					trade.setOfferedCompanyField(offerUtility);
+				}
 
 				std::cout << "\nWhat do you want in return?" << std::endl;
 				std::cout << "1. Money" << std::endl;
 				std::cout << "2. Property" << std::endl;
+				std::cout << "3. Train Station" << std::endl;
+				std::cout << "4. Utility" << std::endl;
 
 				requestType;
 				std::cin >> requestType;
 
-				while (requestType < 1 || requestType > 2)
+				while (requestType < 1 || requestType > 4)
 				{
 					std::cout << "Invalid option. Please choose 1 or 2: " << std::endl;
 					std::cin >> requestType;
@@ -335,26 +376,60 @@ void Engine::run()
 						trade.setRequestedProperty(requestProp);
 
 					}
-					std::cout << "\nTrade offer has been sent to " << targetPlayer->getPlayerName() << "." << std::endl;
-
-					trade.showTradeOffer();
-
-					std::cout << targetPlayer->getPlayerName() << ", do you accept the trade? (y/n): ";
-
-					char answer;
-					std::cin >> answer;
-
-					if (answer == 'y' || answer == 'Y')
+				}
+				else if (requestType == 3)
+				{
+					std::cout << targetPlayer->getPlayerName() << "'s train stations:" << std::endl;
+					for (size_t i = 0; i < targetPlayer->getMyStations().size(); i++)
 					{
-						trade.applyTrade();
-						std::cout << "Trade accepted! Assets are exchanged." << std::endl;
-
+						std::cout << "  [" << i << "] " << targetPlayer->getMyStations()[i]->getName() << std::endl;
 					}
-					else
+					std::cout << "Enter index of TRAIN STATION to REQUEST: ";
+					std::cin >> requestPropIndex;
+					TrainStation* requestTrainStation = nullptr;
+					if (requestPropIndex >= 0 && requestPropIndex < targetPlayer->getMyStations().size())
 					{
-						std::cout << "Trade declined." << std::endl;
+						requestTrainStation = targetPlayer->getMyStations()[requestPropIndex];
 					}
-					break;
+					trade.setRequestedTrainStation(requestTrainStation);
+				}
+				else if (requestType == 4)
+				{
+					std::cout << targetPlayer->getPlayerName() << "'s utilities:" << std::endl;
+					for (size_t i = 0; i < targetPlayer->getMyUtilities().size(); i++)
+					{
+						std::cout << "  [" << i << "] " << targetPlayer->getMyUtilities()[i]->getName() << std::endl;
+					}
+					std::cout << "Enter index of UTILITY to REQUEST: ";
+					std::cin >> requestPropIndex;
+					CompanyField* requestUtility = nullptr;
+					if (requestPropIndex >= 0 && requestPropIndex < targetPlayer->getMyUtilities().size())
+					{
+						requestUtility = targetPlayer->getMyUtilities()[requestPropIndex];
+					}
+					trade.setRequestedCompanyField(requestUtility);
+				}
+
+				std::cout << "\nTrade offer has been sent to " << targetPlayer->getPlayerName() << "." << std::endl;
+
+				trade.showTradeOffer();
+
+				std::cout << targetPlayer->getPlayerName() << ", do you accept the trade? (y/n): ";
+
+				char answer;
+				std::cin >> answer;
+
+				if (answer == 'y' || answer == 'Y')
+				{
+					trade.applyTrade();
+					std::cout << "Trade accepted! Assets are exchanged." << std::endl;
+
+				}
+				else
+				{
+					std::cout << "Trade declined." << std::endl;
+				}
+				break;
 
 			case 6:
 				std::cout << "[Mortgage a property]" << std::endl;
@@ -391,8 +466,9 @@ void Engine::run()
 			default:
 				std::cout << "Invalid option. Try again." << std::endl;
 				break;
-				}
+
 			}
+
 		}
 	}
 

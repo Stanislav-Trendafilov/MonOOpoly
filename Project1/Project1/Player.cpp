@@ -65,6 +65,16 @@ MyVector<Property*> Player::getMyProperties() const
 	return ownedProperties;
 }
 
+MyVector<TrainStation*> Player::getMyStations() const
+{
+	return ownedStations;
+}
+
+MyVector<CompanyField*> Player::getMyUtilities() const
+{
+	return ownedUtilities;
+}
+
 void Player::getOwnedProperties() const
 {
 	for (size_t i = 0; i < ownedProperties.size(); i++)
@@ -142,7 +152,49 @@ void Player::addProperty(Property* property)
 void Player::removeProperty(Property* property)
 {
 
-	for (size_t i = 0; i < ownedProperties.size(); ++i)
+	GlobalConstants::PropertyColors color = property->getColor();
+	//int countSameColor = 0;
+
+	for (size_t i = 0; i < ownedProperties.size(); i++)
+	{
+		if (ownedProperties[i]->getColor() == color)
+		{
+			ownedProperties[i]->setRentLevel(0);
+		}
+	}
+
+	//bool lostColorSet = false;
+	//
+	//if (color == GlobalConstants::PropertyColors::BROWN || color == GlobalConstants::PropertyColors::BLUE)
+	//{
+	//	if (countSameColor < 2)
+	//	{
+	//		lostColorSet = true;
+	//	}
+	//}
+	//else
+	//{
+	//	if (countSameColor < 3)
+	//	{
+	//		lostColorSet = true;
+	//	}
+	//}
+	//
+	//if (lostColorSet)
+	//{
+	//	std::cout << "You lost the full color set of color: " << int(color) << std::endl;
+	//	std::cout << "You are no longer allowed to build on that color." << std::endl;
+	//
+	//	for (size_t i = 0; i < ownedProperties.size(); ++i)
+	//	{
+	//		if (ownedProperties[i]->getColor() == color)
+	//		{
+	//			ownedProperties[i]->setRentLevel(0);
+	//		}
+	//	}
+	//}
+
+	for (size_t i = 0; i < ownedProperties.size(); i++)
 	{
 		if (ownedProperties[i] == property)
 		{
@@ -150,51 +202,11 @@ void Player::removeProperty(Property* property)
 			break;
 		}
 	}
+
 	totalBalance -= property->getFieldPrice();
 
 	property->setOwnerId(-1);
 
-	GlobalConstants::PropertyColors color = property->getColor();
-	int countSameColor = 0;
-
-	for (size_t i = 0; i < ownedProperties.size(); ++i)
-	{
-		if (ownedProperties[i]->getColor() == color)
-		{
-			countSameColor++;
-		}
-	}
-
-	bool lostColorSet = false;
-
-	if (color == GlobalConstants::PropertyColors::BROWN || color == GlobalConstants::PropertyColors::BLUE)
-	{
-		if (countSameColor < 2)
-		{
-			lostColorSet = true;
-		}
-	}
-	else
-	{
-		if (countSameColor < 3)
-		{
-			lostColorSet = true;
-		}
-	}
-
-	if (lostColorSet)
-	{
-		std::cout << "You lost the full color set of color: " << int(color) << std::endl;
-		std::cout << "You are no longer allowed to build on that color." << std::endl;
-
-		for (size_t i = 0; i < ownedProperties.size(); ++i)
-		{
-			if (ownedProperties[i]->getColor() == color)
-			{
-				ownedProperties[i]->setRentLevel(0);
-			}
-		}
-	}
 }
 
 bool Player::ownsProperty(Property* property) const
@@ -264,6 +276,7 @@ void Player::removeUtility(CompanyField* company)
 			company->setUtilityCount(0);
 			ownedUtilities.remove(i);
 		}
+
 	}
 
 	utilitiesCount--;

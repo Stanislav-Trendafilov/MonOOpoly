@@ -103,7 +103,7 @@ void Property::ApplyAction(Player& player)
        {
            player.subtractMoney(rent);
 
-           Player& ownerOfProperty = Monopoly::getInstance()->getPlayer(ownerId + 1); 
+           Player& ownerOfProperty = Monopoly::getInstance()->getPlayer(ownerId); 
            ownerOfProperty.addMoney(rent);
 
 		std::cout << "You paid " << rent << "$ rent to Player " << ownerOfProperty.getPlayerName() << "." << std::endl;
