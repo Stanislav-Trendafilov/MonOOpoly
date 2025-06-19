@@ -50,6 +50,11 @@ void Property::setRentLevel(int newLevel)
     this->rentLevel = newLevel;
 }
 
+void Property::setOwnerId(int newOwnerId)
+{
+	this->ownerId = newOwnerId;
+}
+
 void Property::buildHouse()
 {
     std::cout << "You built house successfully!" << std::endl;
