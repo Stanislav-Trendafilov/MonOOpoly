@@ -49,7 +49,7 @@ void Monopoly::addPlayers()
 	}
 	for (int i = 0; i < playersCount; i++)
 	{
-		std::cout << "Enter username for player No " << i + 1 << ": ";
+		std::cout << "\nEnter username for player No " << i + 1 << ": ";
 		MyString username;
 		std::cin >> username;
 		Player player(i,username);
@@ -57,10 +57,9 @@ void Monopoly::addPlayers()
 		std::cout << "Player " << username << " added successfully!" << std::endl;
 		std::cout << "Now you are able to enjoy the game." << std::endl;
 	}
-	std::cout << "All players added successfully!" << std::endl;
+	std::cout << "\nAll players added successfully!" << std::endl;
 
-	std::cout << "" << std::endl;
-	std::cout << "" << std::endl;
+	std::cout << std::endl;
 
 	std::cout << "Here you can see the Monopoly board" << std::endl;
 	std::cout << "As you can see, most of the locations are well known for most of the Bulgarians " << std::endl;

@@ -35,7 +35,9 @@ void Engine::run()
 
 			int newPlayerTurnIndex, moveWith,number, priceForBuilding;
 
-			MyVector<int>validForBuildIndexes;
+			bool canBuild = true;
+
+			MyVector<Property* >validForBuildProps;
 
 			switch (turnAction)
 			{
@@ -121,19 +123,46 @@ void Engine::run()
 						if(monopolyGame->getPlayerOnTurn().getMyProperties()[i]->getrentLevel()>0)
 						{
 							std::cout << i << ". " << monopolyGame->getPlayerOnTurn().getMyProperties()[i]->getName() << std::endl;
-							validForBuildIndexes.push_back(i);
+							validForBuildProps.push_back(monopolyGame->getPlayerOnTurn().getMyProperties()[i]);
 						}
 
 					}
+
+					if(validForBuildProps.size() == 0)
+					{
+						std::cout << "You have no properties to build on." << std::endl;
+						break;
+					}
+
 					std::cout << "Enter the property number you want to build on:" << std::endl;
 					
 					std::cin >> number;
+
 					while (number <0)
 					{
 						std::cout << "Invalid property number. Try again." << std::endl;
 						std::cin >> number;
 					}
 
+					for (size_t i = 0; i < validForBuildProps.size(); i++)
+					{
+						GlobalConstants::PropertyColors color = validForBuildProps[i]->getColor();
+
+						if (monopolyGame->getPlayerOnTurn().getMyProperties()[number]->getColor() == color
+							&& validForBuildProps[i]->getrentLevel()< monopolyGame->getPlayerOnTurn().getMyProperties()[number]->getrentLevel())
+						{
+							std::cout << "Firstly, you will have to build on other properties with this color." << std::endl;
+							canBuild = false;
+							break;
+							 
+						}
+
+					}
+
+					if (!canBuild)
+					{
+						break;
+					}
 
 					priceForBuilding = monopolyGame->getPlayerOnTurn().getMyProperties()[number]->getPriceForBuilding();
 					std::cout << "Building price for property is " << priceForBuilding << "$" << std::endl;
@@ -144,8 +173,16 @@ void Engine::run()
 
 					if (choice == 'y' || choice == 'Y')
 					{
-						monopolyGame->getPlayerOnTurn().getMyProperties()[number]->buildHouse();
-						monopolyGame->getPlayerOnTurn().subtractMoney(priceForBuilding);
+						if (monopolyGame->getPlayerOnTurn().getMyProperties()[number]->getrentLevel() == GlobalConstants::MAX_BUILDINGS_PROPERTY - 1)
+						{
+							std::cout << "You cannot build more houses on this property." << std::endl;
+							break;
+						}
+						else
+						{
+							monopolyGame->getPlayerOnTurn().getMyProperties()[number]->buildHouse();
+							monopolyGame->getPlayerOnTurn().subtractMoney(priceForBuilding);
+						}
 					}
 					else 
 					{
