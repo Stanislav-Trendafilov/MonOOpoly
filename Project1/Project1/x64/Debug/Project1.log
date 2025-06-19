@@ -1,3 +1,6 @@
 ﻿  Engine.cpp
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Engine.cpp(167,103): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Engine.cpp(168,103): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Engine.cpp(36,101): warning C4101: 'offerMoney': unreferenced local variable
+  Trade.cpp
+  Generating Code...
   Project1.vcxproj -> C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\x64\Debug\Project1.exe

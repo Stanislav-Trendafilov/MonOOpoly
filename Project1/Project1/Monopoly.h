@@ -27,6 +27,7 @@ public:
 
 	void printInstructions() const;
 	void printBuildMenu() const;
+	void printTradeMenu() const;
 	void startGame();	
 	int rollDice();
 	void printDice(int num) const;

@@ -143,7 +143,19 @@ void Monopoly::printBuildMenu() const
 	std::cout << "\n======================================================" << std::endl;
 	std::cout <<"" << std::endl;
 	std::cout << "List of your eligible properties:" << std::endl;
-};
+}
+void Monopoly::printTradeMenu() const
+{
+	std::cout << "[Initiating trade]" << std::endl;
+	std::cout << "\n=============== Trade Menu ===============" << std::endl;
+	std::cout << "You can propose a trade with another player." << std::endl;
+	std::cout << "Trades can include:" << std::endl;
+	std::cout << " - Money" << std::endl;
+	std::cout << " - Properties" << std::endl;
+	std::cout << " - Both" << std::endl;
+	std::cout << "==========================================" << std::endl;
+}
+;
 
 int Monopoly::rollDice() 
 {

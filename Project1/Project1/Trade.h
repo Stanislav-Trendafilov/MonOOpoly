@@ -1,11 +1,19 @@
 #pragma once
+#include <iostream>
+#include "Player.h"
 
 class Trade
 {
-	int firstPlayerId;
-	int secondPlayerId;
+	Player firstPlayer;
+	Player secondPlayer;
 
+	int typeOfTrade; 
+	int requestType; 
 
+public:
+	Trade(Player&firstPlayer, Player& secondPlayer, int typeOfTrade,int requestType);
+
+	void applyTrade();
 
 };
 
