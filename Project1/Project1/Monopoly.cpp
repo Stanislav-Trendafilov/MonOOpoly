@@ -44,6 +44,12 @@ void Monopoly::addPlayers()
 	std::cin >> playersCount;
 	while (playersCount < GlobalConstants::MIN_PLAYERS || playersCount > GlobalConstants::MAX_PLAYERS)
 	{
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+			continue;
+		}
 		std::cout << "Invalid number of players. Please enter a number between 2 and 6: ";
 		std::cin >> playersCount;
 	}
@@ -127,7 +133,9 @@ void Monopoly::printInstructions() const {
 	std::cout << "" << std::endl;
 
 	std::cout << "!Press any key to start the game!" << std::endl;
-	std::cin.get();
+
+	char buffer[GlobalConstants::INPUT_BUFFER_SIZE];
+	std::cin.getline(buffer, GlobalConstants::INPUT_BUFFER_SIZE);
 
 }
 
@@ -158,7 +166,8 @@ void Monopoly::printTradeMenu() const
 
 int Monopoly::rollDice() 
 {
-	std::cout << "\nPress enter to roll the dices...";
+	std::cout << "\nPress enter to roll the dices..."<<std::endl;
+
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');//use in order to ignore any previous input
 	std::cin.get();	
 
@@ -166,11 +175,11 @@ int Monopoly::rollDice()
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dis(GlobalConstants::DICE_VALUE1, GlobalConstants::DICE_VALUE6);
 
-	int firstDie = dis(gen);
-	int secondDie = dis(gen);
+	//int firstDie = dis(gen);
+	//int secondDie = dis(gen);
 
-	//int firstDie = 0;
-	//int secondDie =1;
+	int firstDie =1;
+	int secondDie =0;
 	
 	std::cout << "You have rolled: "<<std::endl;
 
@@ -292,6 +301,22 @@ int Monopoly::getRollTupplesCount() const
 void Monopoly::printBoardWithPlayers() const
 {
 	board->PrintBoard(getPlayers());
+}
+
+bool Monopoly::checkStreet(const Property& property) const
+{
+	bool sameRentLevel=true;
+	for (size_t i = 0; i < getPlayerOnTurn().getMyProperties().size(); i++)
+	{
+		if (getPlayerOnTurn().getMyProperties()[i]->getColor() == property.getColor())
+		{
+			if (getPlayerOnTurn().getMyProperties()[i]->getrentLevel() != property.getrentLevel())
+			{
+				sameRentLevel = false;
+			}
+		}
+	}
+	return sameRentLevel;
 }
 
 void Monopoly::printBoard() const

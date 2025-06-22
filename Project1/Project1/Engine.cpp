@@ -33,6 +33,13 @@ void Engine::run()
 			int turnAction;
 			std::cin >> turnAction;
 
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+				continue;
+			}
+
 			int newPlayerTurnIndex, moveWith, number, priceForBuilding, targetPlayerId, offerType, requestType, offerMoney, offerPropIndex, requestMoney, requestPropIndex;
 
 			int countValidTradeProperties;
@@ -59,6 +66,13 @@ void Engine::run()
 					std::cout << "Do you want to exit jail for 100$ (y/n)";
 					char choice;
 					std::cin >> choice;
+					
+					if (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+						continue;
+					}
 
 					if (choice == 'y' || choice == 'Y')
 					{
@@ -142,8 +156,11 @@ void Engine::run()
 
 				std::cin >> number;
 
-				while (number < 0)
+				while (number < 0||std::cin.fail())
 				{
+					std::cin.clear();
+					std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+
 					std::cout << "Invalid property number. Try again." << std::endl;
 					std::cin >> number;
 				}
@@ -196,7 +213,7 @@ void Engine::run()
 				break;
 
 			case 5:
-				monopolyGame->printTradeMenu();
+				monopolyGame->printTradeMenu();																				   
 
 				std::cout << "Available players to trade with:" << std::endl;
 				for (size_t i = 0; i < monopolyGame->getPlayers().size(); i++)
@@ -211,13 +228,23 @@ void Engine::run()
 
 				std::cin >> targetPlayerId;
 
+				while (std::cin.fail())
+				{
+					std::cin.clear();
+					std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+					std::cout << "Enter valid player ID:";
+					std::cin >> targetPlayerId;
+					continue;
+				}
+	
 				if (targetPlayerId == monopolyGame->getPlayerOnTurn().getPlayerId())
 				{
+
 					std::cout << "You cannot trade with yourself." << std::endl;
 					break;
 				}
 
-				if (targetPlayerId < 0 || targetPlayerId > monopolyGame->getPlayers().size() - 1)
+				if (targetPlayerId < GlobalConstants::MIN_PLAYER_INDEX || targetPlayerId > monopolyGame->getPlayers().size() - 1)
 				{
 					std::cout << "Invalid player ID." << std::endl;
 					break;
@@ -237,6 +264,15 @@ void Engine::run()
 
 				offerType;
 				std::cin >> offerType;
+
+				while (std::cin.fail())
+				{
+					std::cin.clear();
+					std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+					std::cout << "Enter valid type for trading: ";
+					std::cin >> offerType;
+					continue;
+				}
 
 				while (offerType < 1 || offerType > 4)
 				{
@@ -266,7 +302,7 @@ void Engine::run()
 					std::cout << "Your properties:" << std::endl;
 					for (size_t i = 0; i < monopolyGame->getPlayerOnTurn().getMyProperties().size(); i++)
 					{
-						if (monopolyGame->getPlayerOnTurn().getMyProperties()[i]->getrentLevel() <= 1)
+						if (monopolyGame->getPlayerOnTurn().getMyProperties()[i]->getrentLevel() <= 1&&monopolyGame->checkStreet(*monopolyGame->getPlayerOnTurn().getMyProperties()[i]))
 						{
 							std::cout << "  [" << i << "] " << monopolyGame->getPlayerOnTurn().getMyProperties()[i]->getName() << std::endl;
 							countValidTradeProperties++;
@@ -290,6 +326,7 @@ void Engine::run()
 					else
 					{
 						std::cout << "You have no properties to trade." << std::endl;
+						break;
 					}
 				}
 				else if (offerType == 3)
@@ -349,6 +386,15 @@ void Engine::run()
 				requestType;
 				std::cin >> requestType;
 
+				while (std::cin.fail())
+				{
+					std::cin.clear();
+					std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+					std::cout << "Enter valid type for request: ";
+					std::cin >> requestType;
+					continue;
+				}
+
 				while (requestType < 1 || requestType > 4)
 				{
 					std::cout << "Invalid option. Please choose 1, 2, 3 or 4: " << std::endl;
@@ -377,7 +423,7 @@ void Engine::run()
 					countValidTradeProperties = 0;
 					for (size_t i = 0; i < targetPlayer->getMyProperties().size(); i++)
 					{
-						if (targetPlayer->getMyProperties()[i]->getrentLevel() <= 1)
+						if (targetPlayer->getMyProperties()[i]->getrentLevel() <= 1 && monopolyGame->checkStreet(*monopolyGame->getPlayerOnTurn().getMyProperties()[i]))
 						{
 							std::cout << "  [" << i << "] " << targetPlayer->getMyProperties()[i]->getName() << std::endl;
 							countValidTradeProperties++;
@@ -467,9 +513,62 @@ void Engine::run()
 				break;
 
 			case 6:
+			{
 				std::cout << "[Mortgage a property]" << std::endl;
-				break;
 
+				MyVector<Property*> owned = monopolyGame->getPlayerOnTurn().getMyProperties();
+				if (owned.size()==0) 
+				{
+					std::cout << "You don't own any properties to mortgage." << std::endl;
+					break;
+				}
+
+				std::cout << "You can only mortgage properties without houses or hotels." << std::endl;
+				std::cout << "Your properties:" << std::endl;
+
+				for (size_t i = 0; i < owned.size(); i++) 
+				{
+					if (owned[i]->getrentLevel() <= 1&&monopolyGame->checkStreet(*owned[i]))
+					{
+						std::cout << i + 1 << ". " << owned[i]->getName()
+							<< " (Price: " << owned[i]->getFieldPrice()
+							<< ", Mortgaged: " << (owned[i]->getMortgaged() ? "Yes" : "No") << ")" << std::endl;
+					}
+				}
+
+				std::cout << "Enter the number of the property you want to mortgage: ";
+
+				size_t choice;
+				std::cin >> choice;
+
+				while(std::cin.fail())
+				{
+					std::cin.clear();
+					std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+					std::cout << "Enter valid property number: ";
+					std::cin >> choice;
+				}
+
+				if (choice < 1 || choice > owned.size()) {
+					std::cout << "Invalid selection." << std::endl;
+					break;
+				}
+
+				Property* selected = owned[choice - 1];
+
+				if (selected->getMortgaged())
+				{
+					std::cout << "This property is already mortgaged." << std::endl;
+					break;
+				}
+
+				selected->setMortgaged();
+				int mortgageValue = selected->getFieldPrice() / 2;
+				monopolyGame->getPlayerOnTurn().addMoney(mortgageValue);
+
+				std::cout << "You mortgaged " << selected->getName() << " for $" << mortgageValue << "." << std::endl;
+				break;
+			}
 			case 7:
 				std::cout << "[Turn ended]" << std::endl;
 				if (rollDice)
@@ -489,6 +588,7 @@ void Engine::run()
 				{
 					std::cout << "You must roll the dice before ending your turn." << std::endl;
 				}
+
 
 				break;
 

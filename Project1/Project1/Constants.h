@@ -2,6 +2,7 @@
 
 namespace GlobalConstants
 {
+	constexpr int INPUT_BUFFER_SIZE = 256;
 
 	constexpr int MAX_BUILDINGS_PROPERTY =7;
 	constexpr int MAX_TRAIN_STATIONS = 4;

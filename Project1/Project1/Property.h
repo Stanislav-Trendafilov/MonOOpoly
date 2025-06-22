@@ -18,9 +18,14 @@ class Property:public Field
 
 	int ownerId;
 
+	bool isMortgaged = false;
+
 public:
 	Property()=default;
 	Property(const MyString& name, GlobalConstants::PropertyColors color, size_t fieldPrice, size_t priceForBuilding, const int* rentPrices,int boardIndex);
+
+	bool getMortgaged() const;
+	void setMortgaged();
 
 	size_t getFieldPrice() const;
 	size_t getPriceForBuilding() const;
