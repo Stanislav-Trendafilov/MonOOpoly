@@ -120,7 +120,7 @@ void Player::addProperty(Property* property)
 			{
 				countPropertiesOfColor++;
 			}
-			if(countPropertiesOfColor==2&& (color == GlobalConstants::PropertyColors::BROWN||color==GlobalConstants::PropertyColors::BLUE))
+			if(countPropertiesOfColor==2 && (color == GlobalConstants::PropertyColors::BROWN||color==GlobalConstants::PropertyColors::BLUE))
 			{
 				getColorSet = true;
 			}
@@ -303,7 +303,7 @@ void Player::movePosition(size_t steps)
 	currentPosition += steps;
 	if (currentPosition > GlobalConstants::MAX_COUNT_FIELDS)
 	{
-		currentPosition -= 40; 
+		currentPosition -= GlobalConstants::FIELDS_RESTART_AT;
 		addMoney(GlobalConstants::PASS_START_CASH);
 	}
 
@@ -314,7 +314,7 @@ void Player::moveToLocation(size_t position)
 	currentPosition = position;
 	if (currentPosition > GlobalConstants::MAX_COUNT_FIELDS)
 	{
-		currentPosition -= 40;
+		currentPosition -= GlobalConstants::FIELDS_RESTART_AT;
 		addMoney(GlobalConstants::PASS_START_CASH);
 	}
 }

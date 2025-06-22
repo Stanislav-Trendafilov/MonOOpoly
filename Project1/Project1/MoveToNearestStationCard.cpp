@@ -42,6 +42,7 @@ void MoveToNearestStationCard::applyEffect(Player& player)
 
 
 }
+
 Card* MoveToNearestStationCard::clone() const
 {
 	return new MoveToNearestStationCard(*this);

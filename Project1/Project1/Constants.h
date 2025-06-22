@@ -6,6 +6,10 @@ namespace GlobalConstants
 	constexpr int MAX_BUILDINGS_PROPERTY =7;
 	constexpr int MAX_TRAIN_STATIONS = 4;
 	constexpr int MAX_COMPANIES = 2;
+	constexpr int MAKE_NEGATIVE = -1;
+
+	constexpr int BASE_UTILITUY_MULTIPLIER = 4;
+	constexpr int ADVANCED_UTILITY_MULTIPLIER = 10;
 
 	constexpr int STARTING_CASH = 1500;
 	constexpr int PASS_START_CASH = 200;
@@ -24,6 +28,11 @@ namespace GlobalConstants
 	constexpr int TRAINSTATION2_INDEX = 15;
 	constexpr int TRAINSTATION3_INDEX = 25;
 	constexpr int TRAINSTATION4_INDEX = 35;
+
+
+	constexpr int MIN_PLAYER_INDEX = 0;
+	constexpr int MAX_PLAYERS = 6;
+	constexpr int MIN_PLAYERS = 2;
 
 	constexpr int DICE_VALUE1 = 1;
 	constexpr int DICE_VALUE2 = 2;

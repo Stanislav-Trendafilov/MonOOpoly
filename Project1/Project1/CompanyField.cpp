@@ -28,11 +28,11 @@ int CompanyField::getRentPrice() const
     int rent = Monopoly::getInstance()->getPlayerOnTurn().getLastRoll();
     if (utilityCount == 1)
     {
-        rent *= 4; 
+        rent *= GlobalConstants::BASE_UTILITUY_MULTIPLIER; 
     }
     else if (utilityCount == 2)
     {
-        rent *= 10; 
+        rent *= GlobalConstants::ADVANCED_UTILITY_MULTIPLIER; 
     }
 	return rent;
 }

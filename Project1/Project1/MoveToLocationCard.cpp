@@ -12,7 +12,7 @@ void MoveToLocationCard::applyEffect(Player& player)
 	int movement = indexOfLocation- player.getCurrentPosition();
 	if (movement < 0)
 	{
-		movement = (-1)*movement;
+		movement = GlobalConstants::MAKE_NEGATIVE*movement;
 	}
 	if(player.getCurrentPosition()+movement>GlobalConstants::MAX_COUNT_FIELDS && indexOfLocation!=GlobalConstants::JAIL_INDEX)
 	{

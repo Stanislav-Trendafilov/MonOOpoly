@@ -42,7 +42,7 @@ void Monopoly::addPlayers()
 
 	std::cout << "Enter number of players, who will play the current game (2-6): ";
 	std::cin >> playersCount;
-	while (playersCount < 2 || playersCount > 6)
+	while (playersCount < GlobalConstants::MIN_PLAYERS || playersCount > GlobalConstants::MAX_PLAYERS)
 	{
 		std::cout << "Invalid number of players. Please enter a number between 2 and 6: ";
 		std::cin >> playersCount;
@@ -302,7 +302,7 @@ void Monopoly::printBoard() const
 const Player& Monopoly::getPlayer(int playerIndex) const
 { 
 
-	if (playerIndex <0 || playerIndex > players.size()) 
+	if (playerIndex <GlobalConstants::MIN_PLAYER_INDEX || playerIndex > players.size()) 
 	{
 		throw std::out_of_range("Player not found");
 	}
@@ -311,7 +311,7 @@ const Player& Monopoly::getPlayer(int playerIndex) const
 
 Player& Monopoly::getPlayer(int index)
 {
-	if (index < 0 || index > players.size())
+	if (index <GlobalConstants::MIN_PLAYER_INDEX|| index > players.size())
 	{
 		throw std::out_of_range("Player not found");
 	}
