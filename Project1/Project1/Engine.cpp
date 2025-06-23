@@ -726,8 +726,6 @@ void Engine::run()
 
 				break;
 			}
-
-
 			case 9:
 				std::cout << "[Turn ended]" << std::endl;
 				if (rollDice)
