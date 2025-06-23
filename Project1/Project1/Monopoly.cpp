@@ -152,6 +152,16 @@ void Monopoly::printPlayerOptions() const
 	std::cout << "9. End Turn" << std::endl;
 }
 
+void Monopoly::printTradeOptions() const
+{
+	std::cout << "1. Money" << std::endl;
+	std::cout << "2. Property" << std::endl;
+	std::cout << "3. Train Station" << std::endl;
+	std::cout << "4. Utility" << std::endl;
+
+	std::cout << "Please choose 1, 2, 3 or 4: ";
+}
+
 void Monopoly::printBuildMenu() const
 {
 	std::cout << "\n====================> Build Menu <====================" << std::endl;
@@ -206,11 +216,11 @@ int Monopoly::rollDice()
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dis(GlobalConstants::DICE_VALUE1, GlobalConstants::DICE_VALUE6);
 
-	int firstDie = dis(gen);
-	int secondDie = dis(gen);
+	//int firstDie = dis(gen);
+	//int secondDie = dis(gen);
 
-	//int firstDie =1;
-	//int secondDie =0;
+	int firstDie =2;
+	int secondDie =3;
 	
 	std::cout << "You have rolled: "<<std::endl;
 

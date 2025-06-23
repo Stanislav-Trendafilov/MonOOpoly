@@ -244,7 +244,7 @@ void Player::removeStation(TrainStation* trainStation)
 		if (trainStation->getName() == ownedStations[i]->getName())
 		{
 			trainStation->setRentLevel(0);
-			ownedProperties.remove(i);
+			ownedStations.remove(i);
 		}
 	}
 

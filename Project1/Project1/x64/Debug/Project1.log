@@ -1,6 +1,13 @@
-﻿  Engine.cpp
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Engine.cpp(190,102): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Engine.cpp(565,47): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Engine.cpp(626,53): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Engine.cpp(689,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+﻿  CompanyField.cpp
+  Engine.cpp
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Engine.cpp(191,102): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Engine.cpp(575,47): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Engine.cpp(636,53): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Engine.cpp(699,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  GroupPaymentCard.cpp
+  Monopoly.cpp
+  Property.cpp
+  Source.cpp
+  TrainStation.cpp
+  Generating Code...
   Project1.vcxproj -> C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\x64\Debug\Project1.exe

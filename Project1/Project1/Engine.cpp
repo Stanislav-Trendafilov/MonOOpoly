@@ -23,6 +23,7 @@ void Engine::run()
 		bool turnEnded = false;
 		bool rollDice = false;
 
+
 		while (!turnEnded)
 		{
 			std::cout << "\nEnter your action: ";
@@ -247,14 +248,8 @@ void Engine::run()
 				trade = Trade(&monopolyGame->getPlayerOnTurn(), targetPlayer);
 
 				std::cout << "\nWhat do you want to offer?" << std::endl;
-				std::cout << "1. Money" << std::endl;
-				std::cout << "2. Property" << std::endl;
-				std::cout << "3. Train Station" << std::endl;
-				std::cout << "4. Utility" << std::endl;
+				monopolyGame->printTradeOptions();
 
-				std::cout << "Please choose 1, 2, 3 or 4: ";
-
-				offerType;
 				std::cin >> offerType;
 
 				while (std::cin.fail() || offerType < 1 || offerType > 4)
@@ -339,10 +334,14 @@ void Engine::run()
 
 					TrainStation* offerTrainStation = nullptr;
 
-					if (offerPropIndex >= 0 && offerPropIndex < monopolyGame->getPlayerOnTurn().getMyStations().size())
+					while (std::cin.fail() || offerPropIndex < 0 || offerPropIndex >= monopolyGame->getPlayerOnTurn().getMyStations().size())
 					{
-						offerTrainStation = monopolyGame->getPlayerOnTurn().getMyStations()[offerPropIndex];
+						std::cin.clear();
+						std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+						std::cout << "Enter valid index: ";
+						std::cin >> offerPropIndex;
 					}
+					offerTrainStation = monopolyGame->getPlayerOnTurn().getMyStations()[offerPropIndex];
 					trade.setOfferedTrainStation(offerTrainStation);
 				}
 				else if (offerType == 4)
@@ -363,22 +362,21 @@ void Engine::run()
 
 					CompanyField* offerUtility = nullptr;
 
-					if (offerPropIndex >= 0 && offerPropIndex < monopolyGame->getPlayerOnTurn().getMyUtilities().size())
+					while (std::cin.fail() || offerPropIndex < 0 || offerPropIndex >= monopolyGame->getPlayerOnTurn().getMyUtilities().size())
 					{
-						offerUtility = monopolyGame->getPlayerOnTurn().getMyUtilities()[offerPropIndex];
+						std::cin.clear();
+						std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+						std::cout << "Enter valid index: ";
+						std::cin >> offerPropIndex;
 					}
+
+					offerUtility = monopolyGame->getPlayerOnTurn().getMyUtilities()[offerPropIndex];
 					trade.setOfferedCompanyField(offerUtility);
 				}
 
 				std::cout << "\nWhat do you want in return?" << std::endl;
-				std::cout << "1. Money" << std::endl;
-				std::cout << "2. Property" << std::endl;
-				std::cout << "3. Train Station" << std::endl;
-				std::cout << "4. Utility" << std::endl;
+				monopolyGame->printTradeOptions();
 
-				std::cout << "Please choose 1, 2, 3 or 4: ";
-
-				requestType;
 				std::cin >> requestType;
 
 				while (std::cin.fail() || requestType < 1 || requestType > 4)
@@ -455,11 +453,18 @@ void Engine::run()
 					}
 					std::cout << "Enter index of TRAIN STATION to REQUEST: ";
 					std::cin >> requestPropIndex;
+
 					TrainStation* requestTrainStation = nullptr;
-					if (requestPropIndex >= 0 && requestPropIndex < targetPlayer->getMyStations().size())
+
+					while (std::cin.fail() || requestPropIndex < 0 || requestPropIndex >= targetPlayer->getMyStations().size())
 					{
-						requestTrainStation = targetPlayer->getMyStations()[requestPropIndex];
+						std::cin.clear();
+						std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+						std::cout << "Enter valid index: ";
+						std::cin >> requestPropIndex;
 					}
+
+					requestTrainStation = targetPlayer->getMyStations()[requestPropIndex];
 					trade.setRequestedTrainStation(requestTrainStation);
 				}
 				else if (requestType == 4)
@@ -479,10 +484,15 @@ void Engine::run()
 					std::cin >> requestPropIndex;
 
 					CompanyField* requestUtility = nullptr;
-					if (requestPropIndex >= 0 && requestPropIndex < targetPlayer->getMyUtilities().size())
+
+					while (std::cin.fail()||requestPropIndex < 0 || requestPropIndex >= targetPlayer->getMyUtilities().size())
 					{
-						requestUtility = targetPlayer->getMyUtilities()[requestPropIndex];
+						std::cin.clear();
+						std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+						std::cout << "Enter valid index: ";
+						std::cin >> requestPropIndex;			
 					}
+					requestUtility = targetPlayer->getMyUtilities()[requestPropIndex];
 					trade.setRequestedCompanyField(requestUtility);
 				}
 

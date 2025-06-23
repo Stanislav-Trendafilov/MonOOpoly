@@ -27,9 +27,11 @@ public:
 
 	void printInstructions() const;
 	void printPlayerOptions() const;
+	void printTradeOptions()const;
 	void printBuildMenu() const;
 	void printTradeMenu() const;
 	void printMortgageMenu() const;
+
 	void startGame();	
 	int rollDice();
 	void printDice(int num) const;
