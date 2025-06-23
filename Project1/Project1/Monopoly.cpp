@@ -138,6 +138,20 @@ void Monopoly::printInstructions() const {
 
 }
 
+void Monopoly::printPlayerOptions() const
+{
+	std::cout << "(Here are all types of action)" << std::endl;
+	std::cout << "1. Roll Dice" << std::endl;
+	std::cout << "2. View Player Info" << std::endl;
+	std::cout << "3. View Board" << std::endl;
+	std::cout << "4. Build House/Hotel" << std::endl;
+	std::cout << "5. Trade with Player" << std::endl;
+	std::cout << "6. Mortgage Property" << std::endl;
+	std::cout << "7. Unmortgaged Property" << std::endl;
+	std::cout << "8. Sell Buildings" << std::endl;
+	std::cout << "9. End Turn" << std::endl;
+}
+
 void Monopoly::printBuildMenu() const
 {
 	std::cout << "\n====================> Build Menu <====================" << std::endl;
@@ -164,6 +178,21 @@ void Monopoly::printTradeMenu() const
 	std::cout << " - Train Stations" << std::endl;
 	std::cout << " - Utilities" << std::endl;
 	std::cout << "==========================================" << std::endl;
+}
+
+void Monopoly::printMortgageMenu() const
+{
+	std::cout << "\n===========================> Mortgage Menu <===========================" << std::endl;
+	std::cout << "\nYou can mortgage only properties you own." << std::endl;
+	std::cout << "Rules:" << std::endl;
+	std::cout << " - You can mortgage properties when the whole street is without buildings." << std::endl;
+	std::cout << " - You won't earn rent, when your property is mortgaged." << std::endl;
+	std::cout << " - You can sell mortgaged properties to other players." << std::endl;
+	std::cout << " - You CAN'T build houses on your mortgaged properties." << std::endl;
+	std::cout << " - Mortgage value depends on the type of property." << std::endl;
+	std::cout << " - MORTGAGE DOESN'T CHANGE THE RENT OF OTHER PROPERTIES ON THE STREET" << std::endl;
+	std::cout << "\n=======================================================================" << std::endl;
+	std::cout << "" << std::endl;
 };
 
 int Monopoly::rollDice() 
@@ -177,11 +206,11 @@ int Monopoly::rollDice()
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dis(GlobalConstants::DICE_VALUE1, GlobalConstants::DICE_VALUE6);
 
-	//int firstDie = dis(gen);
-	//int secondDie = dis(gen);
+	int firstDie = dis(gen);
+	int secondDie = dis(gen);
 
-	int firstDie =1;
-	int secondDie =0;
+	//int firstDie =1;
+	//int secondDie =0;
 	
 	std::cout << "You have rolled: "<<std::endl;
 

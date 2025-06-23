@@ -26,8 +26,10 @@ public:
 	static void destroyInstance();
 
 	void printInstructions() const;
+	void printPlayerOptions() const;
 	void printBuildMenu() const;
 	void printTradeMenu() const;
+	void printMortgageMenu() const;
 	void startGame();	
 	int rollDice();
 	void printDice(int num) const;
