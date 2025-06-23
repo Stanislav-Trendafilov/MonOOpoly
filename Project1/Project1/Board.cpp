@@ -180,7 +180,7 @@ void Board::InitializeBoard()
 	int rent21[] = { 35,120, 175, 500, 1100, 1300, 1500 };
 	fields.addObject(new Property("Nessebar", GlobalConstants::PropertyColors::BLUE, 350, 200, rent21, 37));
 
-	fields.addObject(new PayFieldTax("Marriage Tax", 200, 38));
+	fields.addObject(new PayFieldTax("Marriage Tax", 38, 200));
 
 	int rent22[] = { 50,130, 200, 600, 1400, 1700, 2000 };
 	fields.addObject(new Property("Rila Monastery", GlobalConstants::PropertyColors::BLUE, 400, 200, rent22, 39));

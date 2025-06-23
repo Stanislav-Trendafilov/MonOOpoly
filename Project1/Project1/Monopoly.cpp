@@ -219,9 +219,9 @@ int Monopoly::rollDice()
 	//int firstDie = dis(gen);
 	//int secondDie = dis(gen);
 
-	int firstDie =2;
-	int secondDie =3;
-	
+	int firstDie =0;
+	int secondDie =1;
+	//
 	std::cout << "You have rolled: "<<std::endl;
 
 	printDice(firstDie);
@@ -325,7 +325,8 @@ void Monopoly::getInfoAboutPlayerOnTurn() const
 	Player player = getPlayerOnTurn();
 	std::cout << "Player "<<player.getPlayerId() <<" on turn: " << player.getPlayerName() << std::endl;
 	std::cout << "Current position: " << player.getCurrentPosition() << std::endl;
-	std::cout << "Money: " << player.getMoney() << std::endl;									
+	std::cout << "Money: " << player.getMoney() << std::endl;	
+	std::cout << "Total Balance (Props and Money): " << player.getTotalBalance() << std::endl;
 	std::cout << "Owned Properties: " << std::endl;
 	player.getOwnedProperties();
 	std::cout << "Owned Stations: " << std::endl;

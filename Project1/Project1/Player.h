@@ -24,6 +24,9 @@ class Player
 	int totalBalance; //totalBalance is money + price of all properties
 	bool isInPrison;
 
+	bool isInDebt=false;
+	int debtMoney = 0;
+
 public:
 	Player();
 	Player(int playerId,const MyString& name, int money = GlobalConstants::STARTING_CASH);
@@ -64,6 +67,12 @@ public:
 	void goInPrison();
 	void goOutOfPrison();
 	bool isJailed() const;
+
+	bool getIsInDebt() const;
+	void setDebt();
+
+	int getDebtAmount()const;
+	void setDebtAmount(int amount);
 
 };
 

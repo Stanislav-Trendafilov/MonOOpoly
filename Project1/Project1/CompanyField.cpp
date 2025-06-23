@@ -59,6 +59,11 @@ void CompanyField::setUtilityCount(int level)
 	utilityCount = level;
 }
 
+void CompanyField::setOwnerId(int id)
+{
+    ownerId = id;
+}
+
 void CompanyField::ApplyAction(Player& player)
 {
     std::cout << "\n>>> You landed on: " << getName() << " <<<" << std::endl;

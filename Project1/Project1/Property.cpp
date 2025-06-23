@@ -125,19 +125,13 @@ void Property::ApplyAction(Player& player)
            int rent = getRentPrice();
            std::cout << "You must pay rent of " << rent << "$ ." << std::endl;;
 
-           if (player.getMoney() >= rent)
-           {
-               player.subtractMoney(rent);
+           player.subtractMoney(rent);
 
-               Player& ownerOfProperty = Monopoly::getInstance()->getPlayer(ownerId);
-               ownerOfProperty.addMoney(rent);
+           Player& ownerOfProperty = Monopoly::getInstance()->getPlayer(ownerId);
 
-               std::cout << "You paid " << rent << "$ rent to Player " << ownerOfProperty.getPlayerName() << "." << std::endl;
-           }
-           else
-           {
-               std::cout << "You do not have enough money to pay the rent!" << std::endl;
-           }
+           ownerOfProperty.addMoney(rent);
+
+           std::cout << "You paid " << rent << "$ rent to Player " << ownerOfProperty.getPlayerName() << "." << std::endl;
 
        }
        else

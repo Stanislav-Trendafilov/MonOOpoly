@@ -9,7 +9,7 @@ Engine::Engine()
 
 void Engine::run()
 {
-	system("Color 03");
+	system("Color 0E");
 	monopolyGame->startGame();
 
 	while (true)
@@ -23,7 +23,6 @@ void Engine::run()
 		bool turnEnded = false;
 		bool rollDice = false;
 
-
 		while (!turnEnded)
 		{
 			std::cout << "\nEnter your action: ";
@@ -35,6 +34,7 @@ void Engine::run()
 			{
 				std::cin.clear();
 				std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+				std::cout << "Invalid option. Try again." << std::endl;
 				continue;
 			}
 
@@ -722,6 +722,30 @@ void Engine::run()
 			}
 			case 9:
 			{
+				if (monopolyGame->getPlayerOnTurn().getIsInDebt())
+				{
+					turnEnded = false;
+					std::cout << "Before you end you will have to pay your debt. (SELL STH)" << std::endl;
+					std::cout << "Debt Amount: " << monopolyGame->getPlayerOnTurn().getDebtAmount() << std::endl;
+					if (monopolyGame->getPlayerOnTurn().getMoney() >= monopolyGame->getPlayerOnTurn().getDebtAmount())
+					{
+						std::cout << "Do you want to pay your debt? (y/n) : ";
+						char choice;
+						std::cin >> choice;
+
+						if (choice == 'y' || choice == 'Y')
+						{
+							turnEnded = true;
+							monopolyGame->getPlayerOnTurn().setDebtAmount(0);
+							monopolyGame->getPlayerOnTurn().setDebt();
+						}
+						else
+						{
+							std::cout << "You chose not to pay." << std::endl;
+						}
+					}
+					break;
+				}
 				std::cout << "[Turn ended]" << std::endl;
 				if (rollDice)
 				{
@@ -740,6 +764,7 @@ void Engine::run()
 				{
 					std::cout << "You must roll the dice before ending your turn." << std::endl;
 				}
+				
 				break;
 			}
 			case 10:

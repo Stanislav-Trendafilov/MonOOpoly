@@ -57,7 +57,7 @@ int Player::getLastRoll() const
 
 int Player::getTotalBalance() const
 {
-	return totalBalance;
+	return totalBalance+money;
 }
 
 MyVector<Property*> Player::getMyProperties() const
@@ -114,6 +114,7 @@ void Player::addProperty(Property* property)
 	if (!ownsProperty(property)) 
 	{
 		ownedProperties.push_back(property);
+		property->setOwnerId(playerId);
 		for (size_t i = 0; i < ownedProperties.size(); i++)
 		{
 			if (ownedProperties[i]->getColor() == color)
@@ -137,14 +138,13 @@ void Player::addProperty(Property* property)
 			{
 				if (ownedProperties[i]->getColor() == color)
 				{
-					
 					ownedProperties[i]->setRentLevel(ownedProperties[i]->getrentLevel()+1);
 				}
 			}
 		}
 
 		money -= property->getFieldPrice();
-		totalBalance += property->getFieldPrice(); // Обнови тотал баланса
+		totalBalance += (property->getFieldPrice()/2); 
 	}
 
 }
@@ -171,7 +171,7 @@ void Player::removeProperty(Property* property)
 		}
 	}
 
-	totalBalance -= property->getFieldPrice();
+	totalBalance -= property->getFieldPrice()/2;
 
 	property->setOwnerId(-1);
 
@@ -192,8 +192,9 @@ bool Player::ownsProperty(Property* property) const
 void Player::addStation(TrainStation* trainStation)
 {
 	ownedStations.push_back(trainStation);
+	trainStation->setOwnerId(playerId);
 	money -= trainStation->getStationPrice();
-	totalBalance += trainStation->getStationPrice(); 
+	totalBalance += (trainStation->getStationPrice()/2); 
 
 	trainStationCount++;
 
@@ -205,6 +206,7 @@ void Player::addStation(TrainStation* trainStation)
 
 void Player::removeStation(TrainStation* trainStation)
 {
+	totalBalance -= (trainStation->getStationPrice() / 2);
 
 	for (size_t i = 0; i < ownedStations.size(); i++)
 	{
@@ -222,13 +224,17 @@ void Player::removeStation(TrainStation* trainStation)
 	{
 		ownedStations[i]->setRentLevel(trainStationCount-1);
 	}
+
+	trainStation->setOwnerId(-1);
+
 }
 
 void Player::addUtility(CompanyField* company)
 {
 	ownedUtilities.push_back(company);
+	company->setOwnerId(playerId);
 	money -= company->getCompanyPrice();
-	totalBalance += company->getCompanyPrice();
+	totalBalance += (company->getCompanyPrice()/2);
 							 
 	utilitiesCount++;
 
@@ -237,6 +243,8 @@ void Player::addUtility(CompanyField* company)
 
 void Player::removeUtility(CompanyField* company)
 {
+	totalBalance += (company->getCompanyPrice() / 2);
+
 	for (size_t i = 0; i < ownedUtilities.size(); i++)
 	{
 		if (company->getName() == ownedUtilities[i]->getName())
@@ -253,6 +261,8 @@ void Player::removeUtility(CompanyField* company)
 	{
 		ownedUtilities[i]->setUtilityCount(utilitiesCount);
 	}
+
+	company->setOwnerId(-1);
 }
 
 void Player::addMoney(int amount)
@@ -262,7 +272,16 @@ void Player::addMoney(int amount)
 
 void Player::subtractMoney(int amount)
 {
-	money -= amount;
+	if (money - amount < 0)
+	{
+		std::cout <<playerName <<" don't have enough money, you have to sell sth";
+		isInDebt = true;
+		debtMoney = amount;
+	}
+	else
+	{
+		money -= amount;
+	}
 }
 
 void Player::movePosition(size_t steps)
@@ -290,4 +309,32 @@ void Player::moveToLocation(size_t position)
 bool Player::isJailed() const
 {
 	return isInPrison;
+}
+
+bool Player::getIsInDebt() const
+{
+	return isInDebt;
+}
+
+void Player::setDebt() 
+{
+	if (isInDebt)
+	{
+		isInDebt = false;
+	}
+	else
+	{
+		isInDebt = true;
+	}
+
+}
+
+int Player::getDebtAmount() const
+{
+	return debtMoney;
+}
+
+void Player::setDebtAmount(int debtAmount)
+{
+	debtMoney = debtAmount;
 }

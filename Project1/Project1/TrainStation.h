@@ -29,6 +29,7 @@ public:
 	int getOwnerId() const;
 	int getRentPrice() const;
 
+	void setOwnerId(int id);
 	void setRentLevel(int level);
 
 	void ApplyAction(Player& player) override;

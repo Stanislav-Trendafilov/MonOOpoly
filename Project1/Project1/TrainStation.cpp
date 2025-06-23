@@ -55,6 +55,11 @@ void TrainStation::setRentLevel(int level)
 	rentLevel = level;
 }
 
+void TrainStation::setOwnerId(int id)
+{
+    ownerId = id;
+}
+
 void TrainStation::ApplyAction(Player& player)
 {
     std::cout << "\n>>> You landed on: " << getName() << " <<<" << std::endl;
