@@ -8,6 +8,23 @@ CompanyField::CompanyField(const MyString& name, size_t companyPrice, int boardI
 	this->companyPrice = companyPrice;
 }
 
+bool CompanyField::getMortgaged()const
+{
+    return isMortgaged;
+}
+
+void CompanyField::setMortgaged()
+{
+    if (isMortgaged)
+    {
+        isMortgaged = false;
+    }
+    else
+    {
+        isMortgaged = true;
+    }
+}
+
 size_t CompanyField::getCompanyPrice() const
 {
 	return companyPrice;

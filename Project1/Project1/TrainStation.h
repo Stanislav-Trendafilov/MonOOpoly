@@ -15,10 +15,15 @@ class TrainStation :public Field
 
 	int ownerId;
 
+	bool isMortgaged= false;
+
 public:
 	TrainStation(const MyString& name, size_t stationPrice, const int* rentPrices, int boardIndex);
 
 	size_t getStationPrice() const;
+
+	bool getMortgaged() const;
+	void setMortgaged();
 
 	int getRentLevel() const;
 	int getOwnerId() const;

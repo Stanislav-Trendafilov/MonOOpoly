@@ -524,6 +524,7 @@ void Engine::run()
 				monopolyGame->printMortgageMenu();
 
 				owned = monopolyGame->getPlayerOnTurn().getMyProperties();
+
 				if (owned.size()==0) 
 				{
 					std::cout << "You don't own any properties to mortgage." << std::endl;
@@ -753,6 +754,5 @@ void Engine::run()
 
 		}
 	}
-
 	monopolyGame->destroyInstance();
 }

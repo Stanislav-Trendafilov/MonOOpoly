@@ -11,11 +11,15 @@ class CompanyField :public Field
 
 	int ownerId=-1;
 
+	bool isMortgaged = false;
 
 public:
 	CompanyField(const MyString& name, size_t companyPrice,int boardIndex);
 
 	size_t getCompanyPrice() const;
+
+	bool getMortgaged() const;
+	void setMortgaged();
 
 	int getUtilityCount() const;
 	int getOwnerId() const;
