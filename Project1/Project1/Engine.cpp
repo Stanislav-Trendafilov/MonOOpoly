@@ -22,7 +22,9 @@ void Engine::run()
 		std::cout << "4. Build House/Hotel" << std::endl;
 		std::cout << "5. Trade with Player" << std::endl;
 		std::cout << "6. Mortgage Property" << std::endl;
-		std::cout << "7. End Turn" << std::endl;
+		std::cout << "7. Unmortgaged Property" << std::endl;
+		std::cout << "8. Sell Buildings" << std::endl;
+		std::cout << "9. End Turn" << std::endl;
 
 		monopolyGame->setThrownTupples(0);
 
@@ -40,14 +42,17 @@ void Engine::run()
 				continue;
 			}
 
-			int newPlayerTurnIndex, moveWith, number, priceForBuilding, targetPlayerId, offerType, requestType, offerMoney, offerPropIndex, requestMoney, requestPropIndex;
+			int newPlayerTurnIndex, moveWith, number, priceForBuilding, targetPlayerId, offerType, requestType, offerMoney, offerPropIndex, requestMoney, requestPropIndex, mortgageValue;
 
+			int mortgagedPropsCount;
 			int countValidTradeProperties;
 
 			bool canBuild = true;
 
 			Player* targetPlayer = nullptr;
+			Property* mortgagedProps = nullptr;
 			MyVector<Property* >validForBuildProps;
+			MyVector<Property*> owned;
 			Trade trade;
 
 			switch (turnAction)
@@ -249,8 +254,6 @@ void Engine::run()
 					std::cout << "Invalid player ID." << std::endl;
 					break;
 				}
-
-				//////logic///////
 
 				targetPlayer = &monopolyGame->getPlayer(targetPlayerId);
 
@@ -516,12 +519,14 @@ void Engine::run()
 			{
 				std::cout << "[Mortgage a property]" << std::endl;
 
-				MyVector<Property*> owned = monopolyGame->getPlayerOnTurn().getMyProperties();
+				owned = monopolyGame->getPlayerOnTurn().getMyProperties();
 				if (owned.size()==0) 
 				{
 					std::cout << "You don't own any properties to mortgage." << std::endl;
 					break;
 				}
+
+				mortgagedPropsCount = 0;
 
 				std::cout << "You can only mortgage properties without houses or hotels." << std::endl;
 				std::cout << "Your properties:" << std::endl;
@@ -533,7 +538,14 @@ void Engine::run()
 						std::cout << i + 1 << ". " << owned[i]->getName()
 							<< " (Price: " << owned[i]->getFieldPrice()
 							<< ", Mortgaged: " << (owned[i]->getMortgaged() ? "Yes" : "No") << ")" << std::endl;
+						mortgagedPropsCount++;
 					}
+				}
+
+				if (mortgagedPropsCount == 0)
+				{
+					std::cout << "You don't have any valid properties for mortgage." << std::endl;
+					break;
 				}
 
 				std::cout << "Enter the number of the property you want to mortgage: ";
@@ -563,13 +575,160 @@ void Engine::run()
 				}
 
 				selected->setMortgaged();
-				int mortgageValue = selected->getFieldPrice() / 2;
+				mortgageValue = selected->getFieldPrice() / 2;
 				monopolyGame->getPlayerOnTurn().addMoney(mortgageValue);
 
 				std::cout << "You mortgaged " << selected->getName() << " for $" << mortgageValue << "." << std::endl;
 				break;
 			}
 			case 7:
+				std::cout << "[Unmortgage]" << std::endl;
+
+				mortgagedPropsCount=0;
+
+				owned = monopolyGame->getPlayerOnTurn().getMyProperties();
+
+				if (owned.size() == 0)
+				{
+					std::cout << "You don't have any properties." << std::endl;
+					break;
+				}
+
+				std::cout << "Your mortgaged properties:" << std::endl;
+
+				for (size_t i = 0; i < owned.size(); i++)
+				{
+					if (owned[i]->getMortgaged())
+					{
+						std::cout << i + 1 << ". " << owned[i]->getName()
+							<< " (Price: " << owned[i]->getFieldPrice()
+							<< ", Mortgaged: " << (owned[i]->getMortgaged() ? "Yes" : "No") << ")" << std::endl;
+						mortgagedPropsCount++;
+					}
+				}
+
+				if (mortgagedProps == 0)
+				{
+					std::cout << "You don't have mortgaged properties";
+					break;
+				 }
+
+				std::cout << "Enter the number of the property you want to unmortgage: ";
+
+				size_t chooice;
+				std::cin >> chooice;
+
+				while (std::cin.fail())
+				{
+					std::cin.clear();
+					std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+					std::cout << "Enter valid property number: ";
+					std::cin >> chooice;
+				}
+
+				if (chooice < 1 || chooice > owned.size())
+				{
+					std::cout << "Invalid selection." << std::endl;
+					break;
+				}
+
+				mortgagedProps = owned[chooice - 1];
+
+				if (!mortgagedProps->getMortgaged())
+				{
+					std::cout << "This property is already unmortgaged." << std::endl;
+					break;
+				}
+
+				mortgagedProps->setMortgaged();
+				mortgageValue = mortgagedProps->getFieldPrice() / 2;
+				monopolyGame->getPlayerOnTurn().subtractMoney(mortgageValue);
+
+				std::cout << "You unmortgaged " << mortgagedProps->getName() << " for $" << mortgageValue << "." << std::endl;
+				break;
+			case 8:
+			{
+				std::cout << "[Sell Buildings]" << std::endl;
+
+				std::vector<Property*> ownedWithBuildings;
+				owned = monopolyGame->getPlayerOnTurn().getMyProperties();
+
+				for (size_t i = 0; i < owned.size(); ++i)
+				{
+					if (owned[i]->getrentLevel() > 1)
+					{
+						std::cout << i << ". " << owned[i]->getName()<< " (Buildings: " << owned[i]->getrentLevel() << ")" << std::endl;
+						ownedWithBuildings.push_back(owned[i]);
+					}
+				}
+
+				if (ownedWithBuildings.empty())
+				{
+					std::cout << "You have no buildings to sell." << std::endl;
+					break;
+				}
+
+				std::cout << "Enter the number of the property you want to sell a house from: ";
+
+				size_t sellChoice;
+				std::cin >> sellChoice;
+
+				while (std::cin.fail() || sellChoice >= owned.size() || sellChoice <0)
+				{
+					std::cin.clear();
+					std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+					std::cout << "Invalid choice. Try again: ";
+					std::cin >> sellChoice;
+				}
+
+				Property* selectedProp = owned[sellChoice];
+
+				bool canSell = true;
+
+				for (int i=0;i<owned.size();i++)
+				{
+					if (owned[i]->getColor() == selectedProp->getColor() && owned[i] != selectedProp)
+					{
+						if (owned[i]->getrentLevel() > selectedProp->getrentLevel())
+						{
+							std::cout << "You must sell buildings evenly across properties of the same color." << std::endl;
+							canSell = false;
+							break;
+						}
+					}
+				}
+				
+				if (!canSell)
+				{
+					break;
+				}
+
+				int sellPrice = selectedProp->getPriceForBuilding() / 2;
+
+				std::cout << "You will receive $" << sellPrice << " for selling a house on "
+					<< selectedProp->getName() << ". Proceed? (y/n): ";
+
+				char confirm;
+				std::cin >> confirm;
+
+				if (confirm == 'y' || confirm == 'Y')
+				{
+					selectedProp->setRentLevel(selectedProp->getrentLevel()-1);
+					monopolyGame->getPlayerOnTurn().addMoney(sellPrice);
+
+					std::cout << "You sold a house on " << selectedProp->getName()
+						<< " and received $" << sellPrice << "." << std::endl;
+				}
+				else
+				{
+					std::cout << "Sale cancelled." << std::endl;
+				}
+
+				break;
+			}
+
+
+			case 9:
 				std::cout << "[Turn ended]" << std::endl;
 				if (rollDice)
 				{
@@ -588,8 +747,6 @@ void Engine::run()
 				{
 					std::cout << "You must roll the dice before ending your turn." << std::endl;
 				}
-
-
 				break;
 
 			default:
