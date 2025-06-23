@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "Trade.h"
+#include "windows.h"
 
 Engine::Engine()
 {
@@ -8,6 +9,7 @@ Engine::Engine()
 
 void Engine::run()
 {
+	system("Color 06");
 	monopolyGame->startGame();
 
 	while (true)
@@ -42,10 +44,7 @@ void Engine::run()
 				continue;
 			}
 
-			int newPlayerTurnIndex, moveWith, number, priceForBuilding, targetPlayerId, offerType, requestType, offerMoney, offerPropIndex, requestMoney, requestPropIndex, mortgageValue;
-
-			int mortgagedPropsCount;
-			int countValidTradeProperties;
+			int countValidTradeProperties,mortgagedPropsCount, newPlayerTurnIndex, moveWith, number, priceForBuilding, targetPlayerId, offerType, requestType, offerMoney, offerPropIndex, requestMoney, requestPropIndex, mortgageValue;
 
 			bool canBuild = true;
 

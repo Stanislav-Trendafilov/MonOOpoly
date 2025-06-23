@@ -99,7 +99,7 @@ void Property::ApplyAction(Player& player)
 
            if (player.getMoney() >= fieldPrice)
            {
-               std::cout << "Do you want to buy this property? (y/n): ";
+               std::cout << "\nDo you want to buy this property? (y/n): ";
                char choice;
                std::cin >> choice;
 

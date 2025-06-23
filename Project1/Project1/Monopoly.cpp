@@ -61,14 +61,13 @@ void Monopoly::addPlayers()
 		Player player(i,username);
 		addPlayer(player);
 		std::cout << "Player " << username << " added successfully!" << std::endl;
-		std::cout << "Now you are able to enjoy the game." << std::endl;
 	}
 	std::cout << "\nAll players added successfully!" << std::endl;
 
 	std::cout << std::endl;
 
-	std::cout << "Here you can see the Monopoly board" << std::endl;
-	std::cout << "As you can see, most of the locations are well known for most of the Bulgarians " << std::endl;
+	std::cout << "Here you can see the Monopoly board. --> As you can see, most of the locations are well known for most of the Bulgarians <--" << std::endl;
+	std::cout << std::endl;
 	board->PrintBoard();
 }
 
@@ -144,6 +143,7 @@ void Monopoly::printBuildMenu() const
 	std::cout << "\n====================> Build Menu <====================" << std::endl;
 	std::cout << "\nYou can build houses or hotels on properties you own." << std::endl;
 	std::cout << "Rules:"<< std::endl;
+	std::cout << " - You CAN'T build if you have mortgaged property on this str." << std::endl;
 	std::cout << " - You must own all properties of the same color group." << std::endl;
 	std::cout << " - You must build evenly across properties in a group." << std::endl;
 	std::cout << " - Each property can have up to 4 houses before hotel." << std::endl;
@@ -161,6 +161,8 @@ void Monopoly::printTradeMenu() const
 	std::cout << "Trades can include:" << std::endl;
 	std::cout << " - Money" << std::endl;
 	std::cout << " - Properties" << std::endl;
+	std::cout << " - Train Stations" << std::endl;
+	std::cout << " - Utilities" << std::endl;
 	std::cout << "==========================================" << std::endl;
 };
 
