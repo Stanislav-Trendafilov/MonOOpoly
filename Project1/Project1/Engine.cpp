@@ -143,7 +143,7 @@ void Engine::run()
 
 				for (size_t i = 0; i < monopolyGame->getPlayerOnTurn().getMyProperties().size(); i++)
 				{
-					if (monopolyGame->getPlayerOnTurn().getMyProperties()[i]->getrentLevel() > 0)
+					if (monopolyGame->getPlayerOnTurn().getMyProperties()[i]->getrentLevel() > 0 && monopolyGame->checkStreetForMortgage(*monopolyGame->getPlayerOnTurn().getMyProperties()[i]))
 					{
 						std::cout << i << ". " << monopolyGame->getPlayerOnTurn().getMyProperties()[i]->getName() << std::endl;
 						validForBuildProps.push_back(monopolyGame->getPlayerOnTurn().getMyProperties()[i]);
@@ -426,7 +426,7 @@ void Engine::run()
 					countValidTradeProperties = 0;
 					for (size_t i = 0; i < targetPlayer->getMyProperties().size(); i++)
 					{
-						if (targetPlayer->getMyProperties()[i]->getrentLevel() <= 1 && monopolyGame->checkStreet(*monopolyGame->getPlayerOnTurn().getMyProperties()[i]))
+						if (targetPlayer->getMyProperties()[i]->getrentLevel() <= 1 && monopolyGame->checkStreet(*targetPlayer->getMyProperties()[i]))
 						{
 							std::cout << "  [" << i << "] " << targetPlayer->getMyProperties()[i]->getName() << std::endl;
 							countValidTradeProperties++;
@@ -607,7 +607,7 @@ void Engine::run()
 					}
 				}
 
-				if (mortgagedProps == 0)
+				if (mortgagedPropsCount == 0)
 				{
 					std::cout << "You don't have mortgaged properties";
 					break;

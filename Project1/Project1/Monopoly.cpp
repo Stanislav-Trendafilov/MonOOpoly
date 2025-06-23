@@ -319,6 +319,22 @@ bool Monopoly::checkStreet(const Property& property) const
 	return sameRentLevel;
 }
 
+bool Monopoly::checkStreetForMortgage(const Property& property) const
+{
+	bool readyForBuild = true;
+	for (size_t i = 0; i < getPlayerOnTurn().getMyProperties().size(); i++)
+	{
+		if (getPlayerOnTurn().getMyProperties()[i]->getColor() == property.getColor())
+		{
+			if (getPlayerOnTurn().getMyProperties()[i]->getMortgaged())
+			{
+				readyForBuild = false;
+			}
+		}
+	}
+	return readyForBuild;
+}
+
 void Monopoly::printBoard() const
 {
 	board->PrintBoard();

@@ -45,6 +45,7 @@ public:
 	void printBoardWithPlayers() const;
 
 	bool checkStreet(const Property& property) const;
+	bool checkStreetForMortgage(const Property& property) const;
 
 	const Player& getPlayer(int index) const;
 	Player& getPlayer(int index);

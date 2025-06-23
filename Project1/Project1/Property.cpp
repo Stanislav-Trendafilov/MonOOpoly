@@ -74,8 +74,15 @@ void Property::setOwnerId(int newOwnerId)
 
 void Property::buildHouse()
 {
-    std::cout << "You built house successfully!" << std::endl;
-    rentLevel++;
+    if (isMortgaged)
+    {
+        std::cout << "You first have to unmortgage your property" << std::endl;
+    }
+    else
+    {
+        std::cout << "You built house successfully!" << std::endl;
+        rentLevel++;
+    }
 }
 
 void Property::ApplyAction(Player& player) 

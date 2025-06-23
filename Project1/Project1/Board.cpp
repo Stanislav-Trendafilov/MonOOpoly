@@ -1,4 +1,5 @@
 #include "Board.h"
+#include "windows.h"
 
 using namespace std;
 
