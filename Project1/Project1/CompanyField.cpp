@@ -128,3 +128,27 @@ Field* CompanyField::clone() const
 {
 	return new CompanyField(*this);
 }
+
+void CompanyField::saveToBinary(std::ofstream& ofs) const
+{
+    ofs.write((const char*)(&utilityCount), sizeof(utilityCount));
+
+    ofs.write((const char*)(&ownerId), sizeof(ownerId));
+
+    ofs.write((const char*)(&isMortgaged), sizeof(isMortgaged));
+}
+
+void CompanyField::loadFromBinary(std::ifstream& ifs)
+{
+    ifs.read((char*)(&utilityCount), sizeof(utilityCount));
+
+    ifs.read((char*)(&isMortgaged), sizeof(isMortgaged));
+
+    ifs.read((char*)(&ownerId), sizeof(ownerId));
+
+    Player& player = Monopoly::getInstance()->getPlayer(ownerId);  
+
+    player.addUtility(this);
+
+}
+

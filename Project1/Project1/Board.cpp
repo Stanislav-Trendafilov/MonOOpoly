@@ -277,3 +277,27 @@ void Board::destroyInstance()
 	delete instance;
 	instance = nullptr;
 }
+
+void Board::saveToBinary(std::ofstream& ofs) const
+{
+	if (!ofs.is_open()) 
+	{
+		throw std::runtime_error("Error opening file for saving board data.");
+	}
+	for (int i = 0; i < GlobalConstants::FIELDS_RESTART_AT; i++)
+	{
+		//fields[i]->saveToBinary(ofs);
+	}
+}
+
+void Board::loadFromBinary(std::ifstream& ifs)
+{
+	if (!ifs.is_open()) 
+	{
+		throw std::runtime_error("Error opening file for loading board data.");
+	}
+	for (int i = 0; i < GlobalConstants::FIELDS_RESTART_AT; i++)
+	{
+		//fields[i]->loadFromBinary(ifs);
+	}
+}

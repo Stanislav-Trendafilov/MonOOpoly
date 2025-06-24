@@ -126,3 +126,24 @@ Field* TrainStation::clone() const
 {
 	return new TrainStation(*this);
 }
+
+void TrainStation::saveToBinary(std::ofstream& ofs) const
+{
+    ofs.write((const char*)(&rentLevel), sizeof(rentLevel));
+
+    ofs.write((const char*)(&ownerId), sizeof(ownerId));
+
+    ofs.write((const char*)(&isMortgaged), sizeof(isMortgaged));
+}
+
+void TrainStation::loadFromBinary(std::ifstream& ifs)
+{
+    ifs.read((char*)(&rentLevel), sizeof(rentLevel));
+
+    ifs.read((char*)(&ownerId), sizeof(ownerId));
+
+    Player& player = Monopoly::getInstance()->getPlayer(ownerId);
+
+    player.addStation(this);
+
+}

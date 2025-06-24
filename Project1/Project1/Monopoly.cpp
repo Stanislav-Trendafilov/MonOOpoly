@@ -343,7 +343,17 @@ int Monopoly::getRollTupplesCount() const
 
 void Monopoly::printBoardWithPlayers() const
 {
-	board->PrintBoard(getPlayers());
+	MyVector<Player> validPlayers;
+	for (size_t i = 0; i < getPlayers().size(); i++)
+	{
+		if (getPlayers()[i].getIsInGame())
+		{
+			Player player = getPlayers()[i];
+			validPlayers.push_back(player);
+		}
+
+	}
+	board->PrintBoard(validPlayers);
 }
 
 bool Monopoly::checkStreet(const Property& property) const

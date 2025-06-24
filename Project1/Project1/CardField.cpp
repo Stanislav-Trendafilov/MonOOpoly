@@ -32,3 +32,12 @@ Field* CardField::clone() const
 	return new CardField(*this);
 }
 
+void CardField::saveToBinary(std::ofstream& ofs) const
+{
+	return;
+}
+
+void CardField::loadFromBinary(std::ifstream& ifs)
+{
+	return;
+}

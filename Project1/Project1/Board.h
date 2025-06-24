@@ -12,7 +12,8 @@
 #include "GoToJailField.h"
 #include "CompanyField.h"
 #include "Property.h"
-#include "iomanip"
+#include <iomanip>
+#include <fstream>
 
 class Board
 {
@@ -27,5 +28,8 @@ public:
 	void PrintBoard(const MyVector<Player> players) const;
 	static Board* getInstance();
 	static void destroyInstance();
+
+	void saveToBinary(std::ofstream& ofs) const;
+	void loadFromBinary(std::ifstream& ifs);
 };
 

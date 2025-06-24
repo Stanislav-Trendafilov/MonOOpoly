@@ -17,5 +17,8 @@ public:
 	virtual void ApplyAction(Player& player) = 0;
 
 	virtual ~Field()=default;
+
+	virtual void saveToBinary(std::ofstream& ofs) const = 0;
+	virtual void loadFromBinary(std::ifstream& ifs) = 0;
 };
 

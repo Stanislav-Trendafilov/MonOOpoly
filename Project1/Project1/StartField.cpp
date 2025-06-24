@@ -16,3 +16,13 @@ Field* StartField::clone() const
 {
 	return new StartField(*this);
 }
+
+void StartField::saveToBinary(std::ofstream& ofs) const
+{
+	return;
+}
+
+void StartField::loadFromBinary(std::ifstream& ifs)
+{
+	return;
+}

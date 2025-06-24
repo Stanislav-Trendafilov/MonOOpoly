@@ -4,6 +4,7 @@
 #include "MyString.h"
 #include "MyVector.hpp"
 #include "Constants.h"
+#include <iostream>
 
 class Property:public Field
 {
@@ -41,6 +42,9 @@ public:
 	void ApplyAction(Player& player) override;
 
 	Field* clone() const override;
+
+	void saveToBinary(std::ofstream& ofs) const override;
+	void loadFromBinary(std::ifstream& ifs) override;
 };
 
  

@@ -12,6 +12,9 @@ public:
 
 	Field* clone() const override;
 
+	void saveToBinary(std::ofstream& ofs) const override;
+	void loadFromBinary(std::ifstream& ifs) override;
+
 };
 
 

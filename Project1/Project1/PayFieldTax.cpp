@@ -17,3 +17,13 @@ Field* PayFieldTax::clone() const
 {
 	return new PayFieldTax(*this);
 }
+
+void PayFieldTax::saveToBinary(std::ofstream& ofs) const
+{
+	return;
+}
+
+void PayFieldTax::loadFromBinary(std::ifstream& ifs)
+{
+	return;
+}

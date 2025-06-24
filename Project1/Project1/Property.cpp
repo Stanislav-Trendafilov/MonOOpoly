@@ -145,3 +145,26 @@ Field* Property::clone() const
 {
 	return new Property(*this);
 }
+
+void Property::saveToBinary(std::ofstream& ofs) const
+{
+    ofs.write((const char*)(&rentLevel), sizeof(rentLevel));
+
+    ofs.write((const char*)(&ownerId), sizeof(ownerId));
+
+    ofs.write((const char*)(&isMortgaged), sizeof(isMortgaged));
+}
+
+void Property::loadFromBinary(std::ifstream& ifs)
+{
+    ifs.read((char*)(&rentLevel), sizeof(rentLevel));
+
+    ifs.read((char*)(&ownerId), sizeof(ownerId));
+
+    ifs.read((char*)(&isMortgaged), sizeof(isMortgaged));
+
+    Player& player = Monopoly::getInstance()->getPlayer(ownerId);
+
+    player.addProperty(this);
+
+}

@@ -9,7 +9,7 @@ Engine::Engine()
 
 void Engine::run()
 {
-	system("Color 0E");
+	//system("Color 0E");
 	monopolyGame->startGame();
 
 	while (monopolyGame->getValidPlayers()>1)
@@ -39,6 +39,7 @@ void Engine::run()
 
 		while (!turnEnded)
 		{
+
 			std::cout << "\nEnter your action: ";
 
 			int turnAction;
@@ -131,8 +132,9 @@ void Engine::run()
 					}
 					monopolyGame->getPlayerOnTurn().setRoll(moveWith);//in order to use it in utility functions
 					monopolyGame->stepOnField(moveWith);
-				}
 
+				}
+				monopolyGame->printBoardWithPlayers();
 				break;
 			}
 			case 2:

@@ -1,5 +1,6 @@
 #include "VisitField.h"
 
+
 VisitField::VisitField(int index, MyString name)
 	: Field(index, name)
 {
@@ -7,10 +8,20 @@ VisitField::VisitField(int index, MyString name)
 
 void VisitField::ApplyAction(Player& player)
 {
-	std::cout << "You have landed on visit field. Just relax :) "<< std::endl;
+	std::cout << "You have landed on visit field. Just relax :) " << std::endl;
 }
 
 Field* VisitField::clone() const
 {
 	return new VisitField(*this);
+}
+
+void VisitField::saveToBinary(std::ofstream& ofs) const
+{
+	return;
+}
+
+void VisitField::loadFromBinary(std::ifstream& ifs)
+{
+	return;
 }
