@@ -274,7 +274,7 @@ void Player::subtractMoney(int amount)
 {
 	if (money - amount < 0)
 	{
-		std::cout <<playerName <<" don't have enough money, you have to sell sth";
+		std::cout << playerName << " don't have enough money and have to sell sth" << std::endl;
 		isInDebt = true;
 		debtMoney = amount;
 	}
@@ -337,4 +337,36 @@ int Player::getDebtAmount() const
 void Player::setDebtAmount(int debtAmount)
 {
 	debtMoney = debtAmount;
+}
+
+void Player::bankrupt()
+{
+	for (size_t i = 0; i <ownedProperties.size() ; i++)
+	{
+		ownedProperties[i]->setRentLevel(0);
+	}
+	for (size_t i = 0; i < ownedProperties.size(); i++)
+	{
+		removeProperty(ownedProperties[i]);
+	}
+	for (size_t i = 0; i < ownedStations.size(); i++)
+	{
+		removeStation(ownedStations[i]);
+	}
+	for (size_t i = 0; i < ownedUtilities.size(); i++)
+	{
+		removeUtility(ownedUtilities[i]);
+	}
+	
+	leftGame();
+}
+
+bool Player::getIsInGame()	const
+{
+	return isInGame;
+}
+
+void Player::leftGame()
+{
+	isInGame = false;
 }

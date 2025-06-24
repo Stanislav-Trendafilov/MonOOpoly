@@ -15,29 +15,31 @@ class Player
 	size_t currentPosition;
 	MyVector<Property*> ownedProperties;
 	MyVector<TrainStation*> ownedStations;
-	MyVector<CompanyField*> ownedUtilities; 
+	MyVector<CompanyField*> ownedUtilities;
 
-	size_t trainStationCount=0;// rent [0 1 2 3] [50 100 150 200]
+	size_t trainStationCount = 0;// rent [0 1 2 3] [50 100 150 200]
 	size_t utilitiesCount = 0;
 
 	int lastRoll; //lastRoll is the last dice roll of the player (utility logic)
 	int totalBalance; //totalBalance is money + price of all properties
 	bool isInPrison;
 
-	bool isInDebt=false;
+	bool isInDebt = false;
 	int debtMoney = 0;
+
+	bool isInGame = true;
 
 public:
 	Player();
-	Player(int playerId,const MyString& name, int money = GlobalConstants::STARTING_CASH);
+	Player(int playerId, const MyString& name, int money = GlobalConstants::STARTING_CASH);
 
-	int getPlayerId() const;	
+	int getPlayerId() const;
 	int getMoney() const;
 	MyString getPlayerName() const;
 	size_t getCurrentPosition() const;
 	size_t getTrainStationCount() const;
 	int getLastRoll() const;
-	int getTotalBalance() const;	 
+	int getTotalBalance() const;
 
 	MyVector<Property*> getMyProperties() const;
 	MyVector<TrainStation*> getMyStations() const;
@@ -46,7 +48,7 @@ public:
 	void getOwnedProperties() const;
 	void getOwnedStations() const;
 	void getOwnedUtilities() const;
-	
+
 	void setRoll(int roll);
 
 	void addProperty(Property* property);
@@ -58,7 +60,7 @@ public:
 
 	void addUtility(CompanyField* company);
 	void removeUtility(CompanyField* company);
-	
+
 	void addMoney(int amount);
 	void subtractMoney(int amount);
 	void movePosition(size_t steps);
@@ -73,6 +75,11 @@ public:
 
 	int getDebtAmount()const;
 	void setDebtAmount(int amount);
+
+	void bankrupt();
+
+	bool getIsInGame()const;
+	void leftGame();
 
 };
 

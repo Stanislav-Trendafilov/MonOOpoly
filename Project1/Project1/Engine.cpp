@@ -14,6 +14,20 @@ void Engine::run()
 
 	while (true)
 	{
+		int newPlayerTurnIndex;
+
+		if (!monopolyGame->getPlayerOnTurn().getIsInGame())
+		{
+			newPlayerTurnIndex = monopolyGame->getPlayerOnTurn().getPlayerId() + 1;
+
+			if (newPlayerTurnIndex >= monopolyGame->getPlayers().size())
+			{
+				newPlayerTurnIndex = 0;
+			}
+
+			monopolyGame->setCurrentTurnPlayerIndex(newPlayerTurnIndex);
+		}
+
 		std::cout << "====>  Player " <<  monopolyGame->getPlayerOnTurn().getPlayerName() << " Turn Menu  <====" << std::endl;
 		
 		monopolyGame->printPlayerOptions();
@@ -38,7 +52,7 @@ void Engine::run()
 				continue;
 			}
 
-			int countValidTradeProperties,mortgagedPropsCount, newPlayerTurnIndex, moveWith, number, priceForBuilding, targetPlayerId, offerType, requestType, offerMoney, offerPropIndex, requestMoney, requestPropIndex, mortgageValue;
+			int countValidTradeProperties,mortgagedPropsCount, moveWith, number, priceForBuilding, targetPlayerId, offerType, requestType, offerMoney, offerPropIndex, requestMoney, requestPropIndex, mortgageValue;
 
 			bool canBuild = true;
 
@@ -722,11 +736,43 @@ void Engine::run()
 			}
 			case 9:
 			{
+				std::cout << "[Exit GAME]" << std::endl;
+
+				std::cout << "Are you sure you want to exit the game and give everything to the bank (y/n): ";
+
+				char confirm;
+				std::cin >> confirm;
+
+				if (confirm == 'y' || confirm == 'Y')
+				{
+					turnEnded = true;
+
+					monopolyGame->getPlayerOnTurn().bankrupt();
+
+					newPlayerTurnIndex = monopolyGame->getPlayerOnTurn().getPlayerId() + 1;
+
+					if (newPlayerTurnIndex >= monopolyGame->getPlayers().size())
+					{
+						newPlayerTurnIndex = 0;
+					}
+
+					monopolyGame->setCurrentTurnPlayerIndex(newPlayerTurnIndex);
+				}
+				else
+				{
+					std::cout << "Exit cancelled." << std::endl;
+				}
+
+				break;
+			}
+			case 10:
+			{
 				if (monopolyGame->getPlayerOnTurn().getIsInDebt())
 				{
 					turnEnded = false;
 					std::cout << "Before you end you will have to pay your debt. (SELL STH)" << std::endl;
 					std::cout << "Debt Amount: " << monopolyGame->getPlayerOnTurn().getDebtAmount() << std::endl;
+					std::cout << std::endl;
 					if (monopolyGame->getPlayerOnTurn().getMoney() >= monopolyGame->getPlayerOnTurn().getDebtAmount())
 					{
 						std::cout << "Do you want to pay your debt? (y/n) : ";
@@ -736,15 +782,20 @@ void Engine::run()
 						if (choice == 'y' || choice == 'Y')
 						{
 							turnEnded = true;
+							monopolyGame->getPlayerOnTurn().subtractMoney(monopolyGame->getPlayerOnTurn().getDebtAmount());
 							monopolyGame->getPlayerOnTurn().setDebtAmount(0);
 							monopolyGame->getPlayerOnTurn().setDebt();
 						}
 						else
 						{
 							std::cout << "You chose not to pay." << std::endl;
+							break;
 						}
 					}
-					break;
+					else
+					{
+						break;
+					}
 				}
 				std::cout << "[Turn ended]" << std::endl;
 				if (rollDice)
@@ -765,11 +816,6 @@ void Engine::run()
 					std::cout << "You must roll the dice before ending your turn." << std::endl;
 				}
 				
-				break;
-			}
-			case 10:
-			{
-				std::cout << "[Exit GAME]" << std::endl;
 				break;
 			}
 			default:

@@ -149,7 +149,8 @@ void Monopoly::printPlayerOptions() const
 	std::cout << "6. Mortgage Property" << std::endl;
 	std::cout << "7. Unmortgaged Property" << std::endl;
 	std::cout << "8. Sell Buildings" << std::endl;
-	std::cout << "9. End Turn" << std::endl;
+	std::cout << "9. Bankrupt" << std::endl;
+	std::cout << "10. End Turn" << std::endl;
 }
 
 void Monopoly::printTradeOptions() const
