@@ -46,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
@@ -59,8 +59,7 @@
               "ViewState": "AgIAAJcAAAAAAAAAAAAYwO8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-06-17T19:53:01.232Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -73,47 +72,7 @@
               "ViewState": "AgIAAAoAAAAAAAAAAAAAAAwAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-06-17T22:22:30.241Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MyString.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\MyString.cpp",
-              "RelativeDocumentMoniker": "Project1\\MyString.cpp",
-              "ToolTip": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\MyString.cpp",
-              "RelativeToolTip": "Project1\\MyString.cpp",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAIwFgAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-24T09:47:52.347Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MyString.h",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\MyString.h",
-              "RelativeDocumentMoniker": "Project1\\MyString.h",
-              "ToolTip": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\MyString.h",
-              "RelativeToolTip": "Project1\\MyString.h",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACoAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-24T09:47:32.003Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Board.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Board.cpp",
-              "RelativeDocumentMoniker": "Project1\\Board.cpp",
-              "ToolTip": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Board.cpp",
-              "RelativeToolTip": "Project1\\Board.cpp",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAAYBAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-24T09:31:02.981Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -126,6 +85,43 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MyString.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\MyString.cpp",
+              "RelativeDocumentMoniker": "Project1\\MyString.cpp",
+              "ToolTip": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\MyString.cpp",
+              "RelativeToolTip": "Project1\\MyString.cpp",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAIwFgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-24T09:47:52.347Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MyString.h",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\MyString.h",
+              "RelativeDocumentMoniker": "Project1\\MyString.h",
+              "ToolTip": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\MyString.h",
+              "RelativeToolTip": "Project1\\MyString.h",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-06-24T09:47:32.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Board.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Board.cpp",
+              "RelativeDocumentMoniker": "Project1\\Board.cpp",
+              "ToolTip": "C:\\Users\\User\\Documents\\Github repositories\\MonOOpoly\\Project1\\Project1\\Board.cpp",
+              "RelativeToolTip": "Project1\\Board.cpp",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAACIAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-24T09:31:02.981Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -149,8 +145,7 @@
               "RelativeToolTip": "Project1\\Monopoly.h",
               "ViewState": "AgIAACEAAAAAAAAAAAAAADsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-19T09:15:36.722Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-19T09:15:36.722Z"
             },
             {
               "$type": "Document",
@@ -162,8 +157,7 @@
               "RelativeToolTip": "Project1\\Engine.cpp",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAAI8AAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-17T19:52:45.935Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-17T19:52:45.935Z"
             },
             {
               "$type": "Document",
@@ -175,8 +169,7 @@
               "RelativeToolTip": "Project1\\Monopoly.cpp",
               "ViewState": "AgIAALMAAAAAAAAAAAAAANAAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-16T12:17:16.903Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T12:17:16.903Z"
             }
           ]
         }

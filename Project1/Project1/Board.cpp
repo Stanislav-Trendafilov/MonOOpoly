@@ -36,9 +36,15 @@ void Board::PrintBoard(const MyVector<Player> players) const
 {
 	int playersCount = players.size();
 
+	for (size_t i = 0; i < 219; i++)
+	{
+		std::cout << "-";
+	}
+	std::cout << std::endl;
+
 	for (size_t i = 0; i < 11; i++)
 	{
-		std::cout << std::setw(15) << std::left << fields[i]->getName() << " | ";
+		std::cout << std::setw(17) << std::left << fields[i]->getName() << " | ";
 	}
 	std::cout << std::endl;
 
@@ -51,15 +57,17 @@ void Board::PrintBoard(const MyVector<Player> players) const
 			{
 				playerStr += "P";
 				playerStr += playerStr.toMyString(players[j].getPlayerId());
-				playerStr += " ";
-
+				if (j != playersCount-1)
+				{
+					playerStr += " ";
+				}
 			}
 		}
-		std::cout << std::setw(15) << std::left << playerStr << " | ";
+		std::cout << std::setw(17) << std::left << playerStr << " | ";
 	}
 	std::cout << std::endl;
 
-	for (size_t i = 0; i < 202; i++)
+	for (size_t i = 0; i < 219; i++)
 	{
 		std::cout << "-";
 	}
@@ -67,12 +75,12 @@ void Board::PrintBoard(const MyVector<Player> players) const
 
 	for (size_t i = 39; i > 30; i--)
 	{
-		std::cout << std::setw(15) << std::left << fields[i]->getName() << " | " << std::setw(161) << std::left << " " << " | " << setw(18) << std::left << fields[50 - i]->getName() << " | " << std::endl;
+		std::cout << std::setw(17) << std::left << fields[i]->getName() << " | " << std::setw(177) << std::left << " " << " | " << setw(17) << std::left << fields[50 - i]->getName() << " | " << std::endl;
 
 		MyString playerStr = "";
 		for (size_t j = 0; j < playersCount; j++)
 		{
-			if (players[j].getCurrentPosition() ==i)
+			if (players[j].getCurrentPosition() == i)
 			{
 				playerStr += "P";
 				playerStr += playerStr.toMyString(players[j].getPlayerId());
@@ -92,16 +100,24 @@ void Board::PrintBoard(const MyVector<Player> players) const
 
 			}
 		}
-		std::cout << std::setw(15) << std::left << playerStr << " | " << std::setw(161)
-			<< std::left << " " << " | " << setw(18) << playerStr2 << " | " << std::endl;
+		std::cout << std::setw(17) << std::left << playerStr << " | " << std::setw(177)
+			<< std::left << " " << " | " << setw(17) << playerStr2 << " | " << std::endl;
+		if (i != 31)
+		{
+			std::cout << std::setw(17) << std::left << "------------------|" << std::setw(179)
+				<< std::left << " " << setw(17) << "|-------------------| " << std::endl;
 
-		std::cout << std::setw(15) << std::left << "----------------|" << std::setw(163)
-			<< std::left << " " << setw(18) << "|--------------------| " << std::endl;
+		}
 	}
+	for (size_t i = 0; i < 219; i++)
+	{
+		std::cout << "-";
+	}
+	std::cout << std::endl;
 
 	for (size_t i = 30; i >= 20; i--)
 	{
-		std::cout << std::setw(15) << std::left << fields[i]->getName() << " | ";
+		std::cout << std::setw(17) << std::left << fields[i]->getName() << " | ";
 	}
 	std::cout << std::endl;
 
@@ -118,12 +134,12 @@ void Board::PrintBoard(const MyVector<Player> players) const
 
 			}
 		}
-		std::cout << std::setw(15) << std::left << playerStr << " | ";
+		std::cout << std::setw(17) << std::left << playerStr << " | ";
 	}
 
 	std::cout << std::endl;
 
-	for (size_t i = 0; i < 202; i++)
+	for (size_t i = 0; i < 219; i++)
 	{
 		std::cout << "-";
 	}
@@ -188,7 +204,7 @@ void Board::InitializeBoard()
 	fields.addObject(new CardField("Chest", 17, "chest"));
 
 	int rent10[] = { 14,45, 70, 200, 550, 750, 950 };
-	fields.addObject(new Property("Tsarigradsko Shose", GlobalConstants::PropertyColors::ORANGE, 180, 100, rent10, 18));
+	fields.addObject(new Property("Tsarigradsko sh.", GlobalConstants::PropertyColors::ORANGE, 180, 100, rent10, 18));
 
 	int rent11[] = { 16,60, 80, 220, 600, 800, 1000 };
 	fields.addObject(new Property("New BG University", GlobalConstants::PropertyColors::ORANGE, 200, 100, rent11, 19));
