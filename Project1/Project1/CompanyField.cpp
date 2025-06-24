@@ -142,13 +142,16 @@ void CompanyField::loadFromBinary(std::ifstream& ifs)
 {
     ifs.read((char*)(&utilityCount), sizeof(utilityCount));
 
-    ifs.read((char*)(&isMortgaged), sizeof(isMortgaged));
-
     ifs.read((char*)(&ownerId), sizeof(ownerId));
 
-    Player& player = Monopoly::getInstance()->getPlayer(ownerId);  
+    ifs.read((char*)(&isMortgaged), sizeof(isMortgaged));
 
-    player.addUtility(this);
+    if (ownerId != -1)
+    {
+        Player& player = Monopoly::getInstance()->getPlayer(ownerId);
+
+        player.addUtility(this);
+    }
 
 }
 

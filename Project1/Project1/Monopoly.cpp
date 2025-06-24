@@ -151,6 +151,7 @@ void Monopoly::printPlayerOptions() const
 	std::cout << "8. Sell Buildings" << std::endl;
 	std::cout << "9. Bankrupt" << std::endl;
 	std::cout << "10. End Turn" << std::endl;
+	std::cout << "11. Save to binary file" << std::endl;
 }
 
 void Monopoly::printTradeOptions() const
@@ -446,5 +447,62 @@ void Monopoly::printWinner()const
 			std::cout << "###################################" << std::endl;
 		}
 	}
+}
+
+void Monopoly::saveToBinary(std::ofstream& ofs) const
+{
+
+	int playerCount = getPlayers().size();
+	ofs.write((const char*)(&playerCount), sizeof(playerCount));
+
+	std::ofstream playersOfs("players.dat", std::ios::binary | std::ios::trunc);
+
+	for (int i = 0; i < playerCount; i++)
+	{
+		players[i].saveToBinary(playersOfs);
+	}
+
+	playersOfs.close();
+
+	ofs.write((const char*)(&currentTurnPlayerIndex), sizeof(currentTurnPlayerIndex));
+	ofs.write((const char*)(&thrownTupples), sizeof(thrownTupples));
+
+	std::ofstream fieldsOfs("fields.dat", std::ios::binary | std::ios::trunc);
+
+	board->saveToBinary(fieldsOfs);
+
+	fieldsOfs.close();
+
+	ofs.close();
+
+	
+}
+
+void Monopoly::loadFromBinary(std::ifstream& ifs)
+{
+	int playerCount;
+	ifs.read((char*)(&playerCount), sizeof(playerCount));
+
+	std::ifstream playersIfs("players.dat", std::ios::binary);
+
+	for (int i = 0; i < playerCount; i++) 
+	{
+		Player player;
+		player.loadFromBinary(playersIfs);
+		addPlayer(player);
+	}
+	playersIfs.close();
+
+	ifs.read((char*)(&currentTurnPlayerIndex), sizeof(currentTurnPlayerIndex));
+	ifs.read((char*)(&thrownTupples), sizeof(thrownTupples));
+
+	std::ifstream fieldsIfs("fields.dat", std::ios::binary);
+	board->loadFromBinary(fieldsIfs);
+	fieldsIfs.close();
+
+	ifs.close();
+
+	std::cout << "Game loaded successfully!" << std::endl;
+	std::cout << "Player " << currentTurnPlayerIndex << "'s turn." << std::endl;
 }
 

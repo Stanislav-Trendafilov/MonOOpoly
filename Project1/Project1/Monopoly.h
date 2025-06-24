@@ -59,5 +59,8 @@ public:
 	int getValidPlayers()const;
 	void printWinner()const;
 
+	void saveToBinary(std::ofstream& ofs) const;
+	void loadFromBinary(std::ifstream& ifs);
+
 };
 

@@ -163,8 +163,9 @@ void Property::loadFromBinary(std::ifstream& ifs)
 
     ifs.read((char*)(&isMortgaged), sizeof(isMortgaged));
 
-    Player& player = Monopoly::getInstance()->getPlayer(ownerId);
-
-    player.addProperty(this);
-
+    if (ownerId != -1)
+    {
+        Player& player = Monopoly::getInstance()->getPlayer(ownerId);
+        player.addProperty(this);
+    }
 }

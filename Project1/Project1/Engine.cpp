@@ -9,8 +9,31 @@ Engine::Engine()
 
 void Engine::run()
 {
-	//system("Color 0E");
-	monopolyGame->startGame();
+	system("Color 0E");
+
+	std::cout << "You can choose to load game(0) or start new one(1): ";
+	int option;
+	std::cin >> option;
+	while (std::cin.fail() || option > 1 || option < 0)
+	{
+		std::cin.clear();
+		std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
+		std::cout << "Invalid option. Try again.";
+		std::cin >> option;
+	}
+
+
+
+	if (option == 0)
+	{
+		monopolyGame->printInstructions();
+
+		loadFromBinaryFile();
+	}
+	else
+	{
+		monopolyGame->startGame();;
+	}
 
 	while (monopolyGame->getValidPlayers()>1)
 	{
@@ -34,8 +57,8 @@ void Engine::run()
 
 		monopolyGame->setThrownTupples(0);
 
-		bool turnEnded = false;
-		bool rollDice = false;
+		turnEnded = false;
+		rollDice = false;
 
 		while (!turnEnded)
 		{
@@ -820,6 +843,10 @@ void Engine::run()
 				
 				break;
 			}
+			case 11:
+				saveToBinaryFile();
+				monopolyGame->destroyInstance();
+				return;
 			default:
 				std::cout << "Invalid option. Try again." << std::endl;
 				break;
@@ -831,4 +858,37 @@ void Engine::run()
 	monopolyGame->printWinner();
 
 	monopolyGame->destroyInstance();
+}
+
+void Engine::saveToBinaryFile() 
+{
+	std::ofstream ofs("monopoly_game.dat", std::ios::binary | std::ios::trunc);
+
+	if (!ofs) {
+		std::cerr << "Error opening file for saving." << std::endl;
+		return;
+	}
+
+	ofs.write((const char*)(&rollDice), sizeof(rollDice));
+	ofs.write((const char*)(&turnEnded), sizeof(turnEnded));
+
+	monopolyGame->saveToBinary(ofs);
+
+	ofs.close();
+}
+
+void Engine::loadFromBinaryFile()
+{
+	std::ifstream ifs("monopoly_game.dat", std::ios::binary);
+
+	if (!ifs) {
+		throw std::invalid_argument("No game saved. Please start a new one!");
+	}
+
+	ifs.read((char*)(&rollDice), sizeof(rollDice));
+	ifs.read((char*)(&turnEnded), sizeof(turnEnded));
+
+	monopolyGame->loadFromBinary(ifs);
+
+	ifs.close();
 }
