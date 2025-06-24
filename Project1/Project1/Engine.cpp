@@ -28,7 +28,7 @@ void Engine::run()
 			monopolyGame->setCurrentTurnPlayerIndex(newPlayerTurnIndex);
 		}
 
-		std::cout << "====>  Player " <<  monopolyGame->getPlayerOnTurn().getPlayerName() << " Turn Menu  <====" << std::endl;
+		std::cout << "\n====>  Player " <<  monopolyGame->getPlayerOnTurn().getPlayerName() << " Turn Menu  <====" << std::endl;
 		
 		monopolyGame->printPlayerOptions();
 
@@ -144,7 +144,7 @@ void Engine::run()
 			case 3:
 			{
 				std::cout << "[Displaying board]" << std::endl;
-				monopolyGame->printBoard();
+				monopolyGame->printBoardWithPlayers();
 				break;
 			}
 			case 4:

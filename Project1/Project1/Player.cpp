@@ -238,7 +238,10 @@ void Player::addUtility(CompanyField* company)
 							 
 	utilitiesCount++;
 
-	company->setUtilityCount(utilitiesCount);
+	for (size_t i = 0; i < ownedUtilities.size(); i++)
+	{
+		ownedUtilities[i]->setUtilityCount(utilitiesCount);
+	}
 }
 
 void Player::removeUtility(CompanyField* company)

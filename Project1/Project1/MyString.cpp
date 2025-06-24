@@ -82,6 +82,13 @@ MyString MyString::repeatChar(char ch, size_t count) {
 	return result;
 }
 
+MyString MyString::toMyString(int value)
+{
+	char buffer[20];
+	std::sprintf(buffer, "%d", value);
+	return MyString(buffer);
+}
+
 
 void MyString::free()
 {

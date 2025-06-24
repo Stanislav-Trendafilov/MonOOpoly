@@ -11,6 +11,7 @@ class Player
 {
 	int money;
 	int playerId;
+
 	MyString playerName;
 	size_t currentPosition;
 	MyVector<Property*> ownedProperties;

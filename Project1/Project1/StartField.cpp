@@ -9,7 +9,7 @@ StartField::StartField(const MyString& name, int boardIndex, int incomeTax)
 void StartField::ApplyAction(Player& player)
 {
 	std::cout << "You have landed on the Start field. You receive " << fieldIncome << " money." << std::endl;
-	//player.addMoney(fieldIncome);
+	player.addMoney(fieldIncome);
 }
 
 Field* StartField::clone() const

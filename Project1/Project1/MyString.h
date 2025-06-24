@@ -39,6 +39,8 @@ public:
 
 	friend MyString operator+(const MyString& lhs, const MyString& rhs);
 	friend std::istream& operator>>(std::istream&, MyString& str);
+
+	MyString toMyString(int value);
 };
 
 std::ostream& operator<<(std::ostream& os, const MyString& str);

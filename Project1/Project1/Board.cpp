@@ -35,38 +35,98 @@ void Board::PrintBoard() const
 void Board::PrintBoard(const MyVector<Player> players) const
 {
 	int playersCount = players.size();
+
 	for (size_t i = 0; i < 11; i++)
 	{
 		std::cout << std::setw(15) << std::left << fields[i]->getName() << " | ";
-
 	}
 	std::cout << std::endl;
 
-	for (size_t i = 0; i < 11; i++)
-	{
-		for (size_t j = 0; j < playersCount; j++)
+	for (size_t i = 0; i < 11; i++) 
+{
+		MyString playerStr = "";
+		for (size_t j = 0; j < playersCount; j++) 
 		{
-			if (players[j].getCurrentPosition() == i)
+			if (players[j].getCurrentPosition() == i) 
 			{
-				std::cout << players[j].getPlayerName() << " ";
+				playerStr += "P";
+				playerStr += playerStr.toMyString(players[j].getPlayerId());
+				playerStr += " ";
+
 			}
 		}
-		std::cout << std::setw(20) << std::left << " ";
+		std::cout << std::setw(15) << std::left << playerStr << " | ";
+	}
+	std::cout << std::endl;
 
+	for (size_t i = 0; i < 202; i++)
+	{
+		std::cout << "-";
 	}
 	std::cout << std::endl;
 
 	for (size_t i = 39; i > 30; i--)
 	{
-		std::cout << std::setw(15) << std::left << fields[i]->getName() << " | " << std::setw(161) << std::left << " " << " | " << setw(18) << std::left << fields[50 - i]->getName() << " | " << std::endl;;
+		std::cout << std::setw(15) << std::left << fields[i]->getName() << " | " << std::setw(161) << std::left << " " << " | " << setw(18) << std::left << fields[50 - i]->getName() << " | " << std::endl;
 
+		MyString playerStr = "";
+		for (size_t j = 0; j < playersCount; j++)
+		{
+			if (players[j].getCurrentPosition() ==i)
+			{
+				playerStr += "P";
+				playerStr += playerStr.toMyString(players[j].getPlayerId());
+				playerStr += " ";
+
+			}
+		}
+
+		MyString playerStr2 = "";
+		for (size_t j = 0; j < playersCount; j++)
+		{
+			if (players[j].getCurrentPosition() == 50 - i)
+			{
+				playerStr2 += "P";
+				playerStr2 += playerStr2.toMyString(players[j].getPlayerId());
+				playerStr2 += " ";
+
+			}
+		}
+		std::cout << std::setw(15) << std::left << playerStr << " | " << std::setw(161)
+			<< std::left << " " << " | " << setw(18) << playerStr2 << " | " << std::endl;
+
+		std::cout << std::setw(15) << std::left << "----------------|" << std::setw(163)
+			<< std::left << " " << setw(18) << "|--------------------| " << std::endl;
 	}
 
 	for (size_t i = 30; i >= 20; i--)
 	{
 		std::cout << std::setw(15) << std::left << fields[i]->getName() << " | ";
 	}
+	std::cout << std::endl;
 
+	for (size_t i = 30; i >= 20; i--)
+	{
+		MyString playerStr = "";
+		for (size_t j = 0; j < playersCount; j++)
+		{
+			if (players[j].getCurrentPosition() == i)
+			{
+				playerStr += "P";
+				playerStr += playerStr.toMyString(players[j].getPlayerId());
+				playerStr += " ";
+
+			}
+		}
+		std::cout << std::setw(15) << std::left << playerStr << " | ";
+	}
+
+	std::cout << std::endl;
+
+	for (size_t i = 0; i < 202; i++)
+	{
+		std::cout << "-";
+	}
 	std::cout << std::endl;
 	std::cout << std::endl;
 }
