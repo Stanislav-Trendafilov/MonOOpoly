@@ -1,8 +1,3 @@
-﻿  CompanyField.cpp
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CompanyField.cpp(154,40): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Property.cpp
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Property.cpp(170,38): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  TrainStation.cpp
-C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\TrainStation.cpp(151,40): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
+﻿  Monopoly.cpp
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Monopoly.cpp(455,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Project1.vcxproj -> C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\x64\Debug\Project1.exe

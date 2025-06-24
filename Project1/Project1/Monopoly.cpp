@@ -217,12 +217,12 @@ int Monopoly::rollDice()
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dis(GlobalConstants::DICE_VALUE1, GlobalConstants::DICE_VALUE6);
-
+	
 	int firstDie = dis(gen);
 	int secondDie = dis(gen);
 
-	//int firstDie =6;
-	//int secondDie =4;
+	//int firstDie =1;
+	//int secondDie =0;
 
 	std::cout << "You have rolled: "<<std::endl;
 

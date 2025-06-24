@@ -215,7 +215,7 @@ void Engine::run()
 
 				std::cin >> number;
 
-				while (number < 0 || std::cin.fail())
+				while (number < 0 || std::cin.fail()||number>validForBuildProps.size()-1)
 				{
 					std::cin.clear();
 					std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');

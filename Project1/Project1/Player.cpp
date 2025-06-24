@@ -177,7 +177,7 @@ void Player::addProperty(Property* property)
 			std::cout << "Now you will be able to build on them" << std::endl;
 			for (size_t i = 0; i < ownedProperties.size(); i++)
 			{
-				if (ownedProperties[i]->getColor() == color)
+				if (ownedProperties[i]->getColor() == color&& ownedProperties[i]->getrentLevel()==0)
 				{
 					ownedProperties[i]->setRentLevel(ownedProperties[i]->getrentLevel()+1);
 				}
@@ -432,8 +432,8 @@ void Player::saveToBinary(std::ofstream& ofs) const
 	ofs.write(playerName.c_str(), sizeof(char) * size);;
 
 	ofs.write((const char*)(&currentPosition), sizeof(currentPosition));
-	ofs.write((const char*)(&trainStationCount), sizeof(trainStationCount));
-	ofs.write((const char*)(&utilitiesCount), sizeof(utilitiesCount));
+	//ofs.write((const char*)(&trainStationCount), sizeof(trainStationCount));
+	//ofs.write((const char*)(&utilitiesCount), sizeof(utilitiesCount));
 	ofs.write((const char*)(&lastRoll), sizeof(lastRoll));
 	ofs.write((const char*)(&roundsInPrison), sizeof(roundsInPrison));
 
@@ -460,8 +460,8 @@ void Player::loadFromBinary(std::ifstream& ifs)
 	delete[] buffer;
 
 	ifs.read((char*)(&currentPosition), sizeof(currentPosition));
-	ifs.read((char*)(&trainStationCount), sizeof(trainStationCount));
-	ifs.read((char*)(&utilitiesCount), sizeof(utilitiesCount));
+	//ifs.read((char*)(&trainStationCount), sizeof(trainStationCount));
+	//ifs.read((char*)(&utilitiesCount), sizeof(utilitiesCount));
 	ifs.read((char*)(&lastRoll), sizeof(lastRoll));
 	ifs.read((char*)(&roundsInPrison), sizeof(roundsInPrison));
 
