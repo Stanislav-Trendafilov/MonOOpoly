@@ -221,8 +221,8 @@ int Monopoly::rollDice()
 	int firstDie = dis(gen);
 	int secondDie = dis(gen);
 
-	//int firstDie =7;
-	//int secondDie =0;
+	//int firstDie =6;
+	//int secondDie =4;
 
 	std::cout << "You have rolled: "<<std::endl;
 

@@ -55,9 +55,8 @@ void Board::PrintBoard(const MyVector<Player> players) const
 		{
 			if (players[j].ownsIndex(i))
 			{
-				playerStr += "Owned by: ";
-				playerStr += "P";
-				playerStr += playerStr.toMyString(players[j].getPlayerId());
+				playerStr += "Owner: ";
+				playerStr += players[j].getPlayerName();
 			}
 		}
 		std::cout << std::setw(17) << std::left << playerStr<< " | ";
@@ -99,9 +98,8 @@ void Board::PrintBoard(const MyVector<Player> players) const
 		{
 			if (players[j].ownsIndex(i))
 			{
-				playerStr += "Owned by: ";
-				playerStr += "P";
-				playerStr += playerStr.toMyString(players[j].getPlayerId());
+				playerStr += "Owner: ";
+				playerStr += players[j].getPlayerName();
 			}
 		}
 
@@ -110,9 +108,8 @@ void Board::PrintBoard(const MyVector<Player> players) const
 		{
 			if (players[j].ownsIndex(50 - i))
 			{
-				playerStr2 += "Owned by: ";
-				playerStr2 += "P";
-				playerStr2 += playerStr2.toMyString(players[j].getPlayerId());
+				playerStr2 += "Owner: ";
+				playerStr2 += players[j].getPlayerName();
 			}
 		}
 
@@ -174,9 +171,8 @@ void Board::PrintBoard(const MyVector<Player> players) const
 		{
 			if (players[j].ownsIndex(i))
 			{
-				playerStr += "Owned by: ";
-				playerStr += "P";
-				playerStr += playerStr.toMyString(players[j].getPlayerId());
+				playerStr += "Owner: ";
+				playerStr += players[j].getPlayerName();
 			}
 		}
 		std::cout << std::setw(17) << std::left << playerStr << " | ";

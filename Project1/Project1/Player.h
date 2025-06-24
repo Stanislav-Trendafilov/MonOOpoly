@@ -24,6 +24,7 @@ class Player
 	size_t utilitiesCount = 0;
 
 	int lastRoll; //lastRoll is the last dice roll of the player (utility logic)
+	int roundsInPrison=0;
 	bool isInPrison;
 
 	bool isInDebt = false;
@@ -42,6 +43,7 @@ public:
 	size_t getTrainStationCount() const;
 	int getLastRoll() const;
 	int getTotalBalance() const;
+	int getRoundsInPrison()const;
 
 	MyVector<Property*> getMyProperties() const;
 	MyVector<TrainStation*> getMyStations() const;
@@ -53,6 +55,7 @@ public:
 	bool ownsIndex(int index) const;
 
 	void setRoll(int roll);
+	void setRoundInPrison(int rounds);
 
 	void addProperty(Property* property);
 	void removeProperty(Property* property);

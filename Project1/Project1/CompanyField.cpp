@@ -151,6 +151,7 @@ void CompanyField::loadFromBinary(std::ifstream& ifs)
         Player& player = Monopoly::getInstance()->getPlayer(ownerId);
 
         player.addUtility(this);
+        player.addMoney(getCompanyPrice());
     }
 
 }

@@ -148,6 +148,7 @@ void TrainStation::loadFromBinary(std::ifstream& ifs)
     {
         Player& player = Monopoly::getInstance()->getPlayer(ownerId);
         player.addStation(this);
+        player.addMoney(getStationPrice());
     }
 
 }

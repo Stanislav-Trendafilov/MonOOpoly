@@ -14,6 +14,7 @@ namespace GlobalConstants
 
 	constexpr int STARTING_CASH = 1500;
 	constexpr int PASS_START_CASH = 200;
+	constexpr int EXIT_JAIL_PRICE = 100;
 
 	constexpr int MAX_COUNT_FIELDS = 39;
 	constexpr int FIELDS_RESTART_AT = 40;

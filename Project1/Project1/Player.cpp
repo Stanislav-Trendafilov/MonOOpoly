@@ -60,6 +60,11 @@ int Player::getTotalBalance() const
 	return totalBalance+money;
 }
 
+int Player::getRoundsInPrison() const
+{
+	return roundsInPrison;
+}
+
 MyVector<Property*> Player::getMyProperties() const
 {
 	return ownedProperties;
@@ -133,6 +138,11 @@ bool Player::ownsIndex(int index) const
 void Player::setRoll(int roll)
 {
 	lastRoll = roll;
+}
+
+void Player::setRoundInPrison(int rounds)
+{
+	this->roundsInPrison = rounds;
 }
 
 void Player::addProperty(Property* property)
@@ -425,6 +435,7 @@ void Player::saveToBinary(std::ofstream& ofs) const
 	ofs.write((const char*)(&trainStationCount), sizeof(trainStationCount));
 	ofs.write((const char*)(&utilitiesCount), sizeof(utilitiesCount));
 	ofs.write((const char*)(&lastRoll), sizeof(lastRoll));
+	ofs.write((const char*)(&roundsInPrison), sizeof(roundsInPrison));
 
 	ofs.write((const char*)(&isInPrison), sizeof(isInPrison));
 	ofs.write((const char*)(&isInDebt), sizeof(isInDebt));
@@ -445,13 +456,14 @@ void Player::loadFromBinary(std::ifstream& ifs)
 	char* buffer = new char[size + 1];
 	ifs.read(buffer, sizeof(char) * size);
 	buffer[size] = '\0';
-	MyString name(buffer);
+	playerName=buffer;
 	delete[] buffer;
 
 	ifs.read((char*)(&currentPosition), sizeof(currentPosition));
 	ifs.read((char*)(&trainStationCount), sizeof(trainStationCount));
 	ifs.read((char*)(&utilitiesCount), sizeof(utilitiesCount));
 	ifs.read((char*)(&lastRoll), sizeof(lastRoll));
+	ifs.read((char*)(&roundsInPrison), sizeof(roundsInPrison));
 
 	ifs.read((char*)(&isInPrison), sizeof(isInPrison));
 	ifs.read((char*)(&isInDebt), sizeof(isInDebt));

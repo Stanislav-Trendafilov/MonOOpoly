@@ -14,6 +14,7 @@ void Engine::run()
 	std::cout << "You can choose to load game(0) or start new one(1): ";
 	int option;
 	std::cin >> option;
+
 	while (std::cin.fail() || option > 1 || option < 0)
 	{
 		std::cin.clear();
@@ -21,8 +22,6 @@ void Engine::run()
 		std::cout << "Invalid option. Try again.";
 		std::cin >> option;
 	}
-
-
 
 	if (option == 0)
 	{
@@ -100,23 +99,36 @@ void Engine::run()
 
 				if (monopolyGame->getPlayerOnTurn().isJailed())
 				{
-					std::cout << "Do you want to exit jail for 100$ (y/n)";
 					char choice;
-					std::cin >> choice;
+					if (monopolyGame->getPlayerOnTurn().getRoundsInPrison() == 2)
+					{
+						std::cout << "You MIST leave jail and pay 100"<<std::endl;
+						choice = 'y';
+					}
+					else
+					{
+						std::cout << "Do you want to exit jail for 100$ (y/n)";
+						std::cin >> choice;
 
-					if (std::cin.fail())
+						if (std::cin.fail())
 					{
 						std::cin.clear();
 						std::cin.ignore(GlobalConstants::INPUT_BUFFER_SIZE, '\n');
 						continue;
 					}
+					}
+
 
 					if (choice == 'y' || choice == 'Y')
 					{
 						monopolyGame->getPlayerOnTurn().goOutOfPrison();
+						monopolyGame->getPlayerOnTurn().subtractMoney(GlobalConstants::EXIT_JAIL_PRICE);
 						std::cout << "You left prison successfully!" << std::endl;
+
+						monopolyGame->getPlayerOnTurn().setRoundInPrison(0);
 					}
-					else {
+					else
+					{
 						std::cout << "You chose not to exit prison and try your luck." << std::endl;
 					}
 
@@ -130,6 +142,8 @@ void Engine::run()
 					{
 						std::cout << "You rolled a double! You can leave jail." << std::endl;
 						monopolyGame->getPlayerOnTurn().goOutOfPrison();
+						monopolyGame->getPlayerOnTurn().setRoundInPrison(0);
+
 						rollDice = true;
 						monopolyGame->getPlayerOnTurn().setRoll(moveWith);//in order to use it in utility functions
 						monopolyGame->stepOnField(moveWith);
@@ -137,6 +151,7 @@ void Engine::run()
 					else
 					{
 						std::cout << "You rolled a non-double. You must stay in jail." << std::endl;
+						monopolyGame->getPlayerOnTurn().setRoundInPrison(monopolyGame->getPlayerOnTurn().getRoundsInPrison()+1);
 						rollDice = true;
 					}
 				}
@@ -157,7 +172,9 @@ void Engine::run()
 					monopolyGame->stepOnField(moveWith);
 
 				}
+
 				monopolyGame->printBoardWithPlayers();
+
 				break;
 			}
 			case 2:
