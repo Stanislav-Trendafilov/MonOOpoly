@@ -99,6 +99,37 @@ void Player::getOwnedUtilities() const
 	}
 }
 
+bool Player::ownsIndex(int index) const
+{
+	bool ownsId = false;
+	for (size_t i = 0; i < ownedProperties.size(); i++)
+	{
+		if (ownedProperties[i]->getFieldId() == index)
+		{
+			ownsId = true;
+			return ownsId;
+		}
+	}
+	for (size_t i = 0; i < ownedStations.size(); i++)
+	{
+		if (ownedStations[i]->getFieldId() == index)
+		{
+			ownsId = true;
+			return ownsId;
+		}
+	}
+	for (size_t i = 0; i < ownedUtilities.size(); i++)
+	{
+		if (ownedUtilities[i]->getFieldId() == index)
+		{
+			ownsId = true;
+			return ownsId;
+		}
+	}
+	
+	return ownsId;
+}
+
 void Player::setRoll(int roll)
 {
 	lastRoll = roll;

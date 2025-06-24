@@ -10,3 +10,9 @@ MyString Field::getName() const
 {
 	return this->name;
 }
+
+size_t Field::getFieldId() const
+{
+	return this->fieldId;
+}
+

@@ -35,7 +35,7 @@ void Board::PrintBoard() const
 void Board::PrintBoard(const MyVector<Player> players) const
 {
 	int playersCount = players.size();
-
+	//top
 	for (size_t i = 0; i < 219; i++)
 	{
 		std::cout << "-";
@@ -45,6 +45,22 @@ void Board::PrintBoard(const MyVector<Player> players) const
 	for (size_t i = 0; i < 11; i++)
 	{
 		std::cout << std::setw(17) << std::left << fields[i]->getName() << " | ";
+	}
+	std::cout << std::endl;
+
+	for (size_t i = 0; i < 11; i++)
+	{
+		MyString playerStr = "";
+		for (size_t j = 0; j < playersCount; j++)
+		{
+			if (players[j].ownsIndex(i))
+			{
+				playerStr += "Owned by: ";
+				playerStr += "P";
+				playerStr += playerStr.toMyString(players[j].getPlayerId());
+			}
+		}
+		std::cout << std::setw(17) << std::left << playerStr<< " | ";
 	}
 	std::cout << std::endl;
 
@@ -73,11 +89,38 @@ void Board::PrintBoard(const MyVector<Player> players) const
 	}
 	std::cout << std::endl;
 
+	//right and left
 	for (size_t i = 39; i > 30; i--)
 	{
 		std::cout << std::setw(17) << std::left << fields[i]->getName() << " | " << std::setw(177) << std::left << " " << " | " << setw(17) << std::left << fields[50 - i]->getName() << " | " << std::endl;
 
 		MyString playerStr = "";
+		for (size_t j = 0; j < playersCount; j++)
+		{
+			if (players[j].ownsIndex(i))
+			{
+				playerStr += "Owned by: ";
+				playerStr += "P";
+				playerStr += playerStr.toMyString(players[j].getPlayerId());
+			}
+		}
+
+		MyString playerStr2 = "";
+		for (size_t j = 0; j < playersCount; j++)
+		{
+			if (players[j].ownsIndex(50 - i))
+			{
+				playerStr2 += "Owned by: ";
+				playerStr2 += "P";
+				playerStr2 += playerStr2.toMyString(players[j].getPlayerId());
+			}
+		}
+
+		std::cout << std::setw(17) << std::left << playerStr << " | " << std::setw(177)
+			<< std::left << " " << " | " << setw(17) << playerStr2 << " | " << std::endl;
+
+
+		playerStr = "";
 		for (size_t j = 0; j < playersCount; j++)
 		{
 			if (players[j].getCurrentPosition() == i)
@@ -89,7 +132,7 @@ void Board::PrintBoard(const MyVector<Player> players) const
 			}
 		}
 
-		MyString playerStr2 = "";
+		playerStr2 = "";
 		for (size_t j = 0; j < playersCount; j++)
 		{
 			if (players[j].getCurrentPosition() == 50 - i)
@@ -100,6 +143,7 @@ void Board::PrintBoard(const MyVector<Player> players) const
 
 			}
 		}
+
 		std::cout << std::setw(17) << std::left << playerStr << " | " << std::setw(177)
 			<< std::left << " " << " | " << setw(17) << playerStr2 << " | " << std::endl;
 		if (i != 31)
@@ -109,6 +153,8 @@ void Board::PrintBoard(const MyVector<Player> players) const
 
 		}
 	}
+
+	//bottom
 	for (size_t i = 0; i < 219; i++)
 	{
 		std::cout << "-";
@@ -118,6 +164,22 @@ void Board::PrintBoard(const MyVector<Player> players) const
 	for (size_t i = 30; i >= 20; i--)
 	{
 		std::cout << std::setw(17) << std::left << fields[i]->getName() << " | ";
+	}
+	std::cout << std::endl;
+
+	for (size_t i = 30; i >= 20; i--)
+	{
+		MyString playerStr = "";
+		for (size_t j = 0; j < playersCount; j++)
+		{
+			if (players[j].ownsIndex(i))
+			{
+				playerStr += "Owned by: ";
+				playerStr += "P";
+				playerStr += playerStr.toMyString(players[j].getPlayerId());
+			}
+		}
+		std::cout << std::setw(17) << std::left << playerStr << " | ";
 	}
 	std::cout << std::endl;
 
@@ -136,7 +198,6 @@ void Board::PrintBoard(const MyVector<Player> players) const
 		}
 		std::cout << std::setw(17) << std::left << playerStr << " | ";
 	}
-
 	std::cout << std::endl;
 
 	for (size_t i = 0; i < 219; i++)

@@ -11,6 +11,7 @@ public:
 	Field() = default;
 	Field(size_t id,const MyString& name);
 	MyString getName() const;
+	size_t getFieldId()const;
 
 	virtual Field* clone() const=0;
 

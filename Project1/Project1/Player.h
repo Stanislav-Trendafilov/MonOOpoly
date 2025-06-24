@@ -50,6 +50,7 @@ public:
 	void getOwnedProperties() const;
 	void getOwnedStations() const;
 	void getOwnedUtilities() const;
+	bool ownsIndex(int index) const;
 
 	void setRoll(int roll);
 
