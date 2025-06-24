@@ -412,5 +412,29 @@ MyVector<Player>& Monopoly::getPlayers()
 	return players;
 }
 
+int Monopoly::getValidPlayers()const
+{
+	int counter = 0;
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		if (players[i].getIsInGame())
+		{
+			counter++;
+		}
+	}
+	return counter;
+}
 
+void Monopoly::printWinner()const
+{
+	for (size_t i = 0; i < getPlayers().size(); i++)
+	{
+		if (getPlayers()[i].getIsInGame())
+		{
+			std::cout << "\n###################################" << std::endl;
+			std::cout << "The big winner is: " << getPlayers()[i].getPlayerName() << std::endl;
+			std::cout << "###################################" << std::endl;
+		}
+	}
+}
 

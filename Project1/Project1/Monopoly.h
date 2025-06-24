@@ -56,5 +56,8 @@ public:
 	const MyVector<Player>& getPlayers() const;
 	MyVector<Player>& getPlayers();
 
+	int getValidPlayers()const;
+	void printWinner()const;
+
 };
 

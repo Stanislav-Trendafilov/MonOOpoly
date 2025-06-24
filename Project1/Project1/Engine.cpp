@@ -12,7 +12,7 @@ void Engine::run()
 	system("Color 0E");
 	monopolyGame->startGame();
 
-	while (true)
+	while (monopolyGame->getValidPlayers()>1)
 	{
 		int newPlayerTurnIndex;
 
@@ -825,5 +825,8 @@ void Engine::run()
 
 		}
 	}
+
+	monopolyGame->printWinner();
+
 	monopolyGame->destroyInstance();
 }

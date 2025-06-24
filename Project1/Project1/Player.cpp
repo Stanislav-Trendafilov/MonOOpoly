@@ -341,19 +341,24 @@ void Player::setDebtAmount(int debtAmount)
 
 void Player::bankrupt()
 {
-	for (size_t i = 0; i <ownedProperties.size() ; i++)
+	int propSize = ownedProperties.size();
+	for (int i = propSize - 1; i >= 0; i--)
 	{
 		ownedProperties[i]->setRentLevel(0);
 	}
-	for (size_t i = 0; i < ownedProperties.size(); i++)
+	for (int i = propSize - 1; i >= 0; i--)
 	{
 		removeProperty(ownedProperties[i]);
 	}
-	for (size_t i = 0; i < ownedStations.size(); i++)
+
+	int stationsCount = ownedStations.size();
+	for (int i = stationsCount - 1; i >= 0; i--)
 	{
 		removeStation(ownedStations[i]);
 	}
-	for (size_t i = 0; i < ownedUtilities.size(); i++)
+
+	int companiesCount = ownedUtilities.size();
+	for (int i = companiesCount - 1; i >= 0; i--)
 	{
 		removeUtility(ownedUtilities[i]);
 	}
