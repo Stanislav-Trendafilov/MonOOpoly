@@ -2,6 +2,7 @@
 #include "MyString.h"
 #include "MyVector.hpp"
 #include "Constants.h"
+#include <fstream>
 
 class Property;	   
 class TrainStation;
@@ -10,6 +11,7 @@ class CompanyField;
 class Player
 {
 	int money;
+	int totalBalance;		    //totalBalance is money + price of all properties
 	int playerId;
 
 	MyString playerName;
@@ -22,7 +24,6 @@ class Player
 	size_t utilitiesCount = 0;
 
 	int lastRoll; //lastRoll is the last dice roll of the player (utility logic)
-	int totalBalance; //totalBalance is money + price of all properties
 	bool isInPrison;
 
 	bool isInDebt = false;
@@ -81,6 +82,9 @@ public:
 
 	bool getIsInGame()const;
 	void leftGame();
+
+	void saveToBinary(std::ofstream& ofs) const;
+	void loadFromBinary(std::ifstream& ifs);
 
 };
 

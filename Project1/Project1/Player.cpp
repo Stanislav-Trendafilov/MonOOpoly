@@ -378,3 +378,51 @@ void Player::leftGame()
 {
 	isInGame = false;
 }
+
+void Player::saveToBinary(std::ofstream& ofs) const
+{
+	ofs.write((const char*)(&playerId), sizeof(playerId));
+	ofs.write((const char*)(&money), sizeof(money));
+	ofs.write((const char*)(&totalBalance), sizeof(totalBalance));
+	ofs.write((const char*)(&debtMoney), sizeof(debtMoney));
+
+	int size = playerName.length();
+	ofs.write((const char*)(&size), sizeof(size));
+	ofs.write(playerName.c_str(), sizeof(char) * size);;
+
+	ofs.write((const char*)(&currentPosition), sizeof(currentPosition));
+	ofs.write((const char*)(&trainStationCount), sizeof(trainStationCount));
+	ofs.write((const char*)(&utilitiesCount), sizeof(utilitiesCount));
+	ofs.write((const char*)(&lastRoll), sizeof(lastRoll));
+
+	ofs.write((const char*)(&isInPrison), sizeof(isInPrison));
+	ofs.write((const char*)(&isInDebt), sizeof(isInDebt));
+	ofs.write((const char*)(&isInGame), sizeof(isInGame));
+
+}
+
+void Player::loadFromBinary(std::ifstream& ifs)
+{
+
+	ifs.read((char*)(&playerId), sizeof(playerId));
+	ifs.read((char*)(&money), sizeof(money));
+	ifs.read((char*)(&totalBalance), sizeof(totalBalance));
+	ifs.read((char*)(&debtMoney), sizeof(debtMoney));
+
+	int size = 0;
+	ifs.read((char*)(&size), sizeof(size));
+	char* buffer = new char[size + 1];
+	ifs.read(buffer, sizeof(char) * size);
+	buffer[size] = '\0';
+	MyString name(buffer);
+	delete[] buffer;
+
+	ifs.read((char*)(&currentPosition), sizeof(currentPosition));
+	ifs.read((char*)(&trainStationCount), sizeof(trainStationCount));
+	ifs.read((char*)(&utilitiesCount), sizeof(utilitiesCount));
+	ifs.read((char*)(&lastRoll), sizeof(lastRoll));
+
+	ifs.read((char*)(&isInPrison), sizeof(isInPrison));
+	ifs.read((char*)(&isInDebt), sizeof(isInDebt));
+	ifs.read((char*)(&isInGame), sizeof(isInGame));
+}

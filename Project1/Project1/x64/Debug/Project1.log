@@ -1,5 +1,62 @@
 ﻿  Board.cpp
 C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Board.cpp(37,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  VisitField.cpp
+  Card.cpp
+  CardDeck.cpp
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(89,22): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(94,23): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(94,20): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(100,31): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\CardDeck.cpp(100,28): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  CardField.cpp
+  CompanyField.cpp
+  Engine.cpp
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Engine.cpp(207,102): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Engine.cpp(592,47): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Engine.cpp(653,53): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Engine.cpp(716,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  GoToJailField.cpp
+  GroupPaymentCard.cpp
+  Monopoly.cpp
+  MovePositionCard.cpp
+  MoveToLocationCard.cpp
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\MoveToLocationCard.cpp(12,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  MoveToNearestStationCard.cpp
+  MoveToNearestUtilCard.cpp
+  PayFieldTax.cpp
+  PaymentCard.cpp
+  Player.cpp
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(146,35): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(147,45): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(169,27): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(174,43): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(196,40): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(197,50): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(203,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(209,51): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(217,25): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(225,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(236,35): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(237,45): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(243,38): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(249,46): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(256,26): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(265,38): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(347,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(357,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(363,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Player.cpp(389,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Property.cpp
+  Source.cpp
+  StartField.cpp
+  Trade.cpp
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Trade.cpp(113,56): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Trade.cpp(120,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Trade.cpp(127,62): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Trade.cpp(134,63): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Trade.cpp(141,62): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\Project1\Trade.cpp(148,63): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  Compiling...
+  TrainStation.cpp
   Generating Code...
   Project1.vcxproj -> C:\Users\User\Documents\Github repositories\MonOOpoly\Project1\x64\Debug\Project1.exe

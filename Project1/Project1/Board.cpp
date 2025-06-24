@@ -286,7 +286,7 @@ void Board::saveToBinary(std::ofstream& ofs) const
 	}
 	for (int i = 0; i < GlobalConstants::FIELDS_RESTART_AT; i++)
 	{
-		//fields[i]->saveToBinary(ofs);
+		fields[i]->saveToBinary(ofs);
 	}
 }
 
@@ -298,6 +298,6 @@ void Board::loadFromBinary(std::ifstream& ifs)
 	}
 	for (int i = 0; i < GlobalConstants::FIELDS_RESTART_AT; i++)
 	{
-		//fields[i]->loadFromBinary(ifs);
+		fields[i]->loadFromBinary(ifs);
 	}
 }
